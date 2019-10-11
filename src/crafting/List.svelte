@@ -15,7 +15,7 @@
 
 <div class="wrapper">
     {#each items as { label, icon}, i}
-        <div class="item" on:click={() => selectItem(i)}>
+        <div class="item item-h" on:click={() => selectItem(i)}>
             <img src={icon} alt="icon" />
         </div>
     {/each}

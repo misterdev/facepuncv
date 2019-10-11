@@ -14,6 +14,7 @@
 </svelte:head>
 <div class="wrapper">
 	<video {src} poster={img} muted/>
+	<!-- <iframe src="https://www.youtube.com/embed/SrlwcPTzAjQ?autoplay=1&controls=0" frameborder="0" allow="accelerometer; autoplay=1; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 	<div id="content">
 		<svelte:component this={selected} />
 		<div id="footer">

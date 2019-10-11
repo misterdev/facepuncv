@@ -42,9 +42,20 @@
         justify-content: center;
     }
     .item {
-        flex-basis: 25%;
+        flex-basis: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .item:before {
+        content:'';
+        float:left;
+        padding-top:100%;
+    }
+    .item:hover {
+        background-color: rgba(255,255,255,.2);
     }
     .item img {
-        max-width: 40%;
+        max-width: 60%;
     }
 </style>

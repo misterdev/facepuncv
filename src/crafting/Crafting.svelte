@@ -7,6 +7,7 @@
 </script>
 
  <!-- https://www.youtube.com/watch?v=tJ3nGtooxoM&t=656s -->
+ <!-- http://i.imgur.com/NxpJaq4.jpg -->
 <div id="wrapper">
     <div id="content">
         <div id="categories">

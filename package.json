@@ -22,6 +22,6 @@
     "dev": "run-p start:dev autobuild",
     "start": "sirv  --single",
     "start:dev": "sirv public --single --dev",
-    "deploy": "npm build && gh-pages -d public -m 'publish to gh-pages'"
+    "deploy": "npm run-script build && gh-pages -d public -m 'publish to gh-pages'"
   }
 }
