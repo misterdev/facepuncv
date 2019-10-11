@@ -12,6 +12,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "sirv-cli": "^0.4.4",
     "svelte-icons": "^1.1.0"
   },
@@ -19,7 +20,8 @@
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",
-    "start": "sirv docs --single",
-    "start:dev": "sirv docs --single --dev"
+    "start": "sirv  --single",
+    "start:dev": "sirv public --single --dev",
+    "deploy": "npm build && gh-pages -d public -m 'publish to gh-pages'"
   }
 }
