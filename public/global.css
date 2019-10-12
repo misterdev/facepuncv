@@ -24,3 +24,12 @@ body {
 		transform: scale(1);
 	}
 }
+
+@keyframes show {
+	0% {
+		transform: scale(.5, 0);
+	}
+	100% {
+		transform: scale(1, 1);
+	}
+}

@@ -15,8 +15,9 @@
 
 <div class="wrapper">
     {#each items as { label, icon}, i}
-        <div class="item item-h" on:click={() => selectItem(i)}>
-            <img src={icon} alt="icon" />
+        <div class="item" on:click={() => selectItem(i)}>
+            <div class="label">{label}</div>
+            <img src={icon} alt={label} />
         </div>
     {/each}
 </div>
@@ -45,12 +46,29 @@
     }
     .item:hover {
         background-color: rgba(255,255,255,.2);
+        cursor: pointer;
     }
-    .item > img {
+    .item img {
         max-width: 60%;
     }
-    .item:hover > img {
+    .item:hover img {
         -webkit-animation: pulse 1s 1;
         animation: pulse 1s 1;
+    }
+    .label {
+        text-align: center;
+        position: absolute;
+        top: 0;
+        background-color: #4184B7;
+        color: white;
+        font-size: 8px;
+        padding: 2px 4px;
+        border-radius: 1px;
+        transform: scale(0.5, 0);
+    }
+    .item:hover > .label {
+        -webkit-animation: show 500ms 1;
+        animation: show 500ms 1;
+        transform: scale(1, 1);
     }
 </style>

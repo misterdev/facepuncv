@@ -11,8 +11,9 @@
 <div id="wrapper">
     <div id="title"><b>LINKS</b></div>
     <div id="links">
-        {#each links as {icon, url}}
+        {#each links as {icon, url, label}}
             <a class="item" href={url} target="_blank">
+                <div class="label">{label}</div>
                 <img src={icon} alt={'link'} />
             </a>
         {/each}
@@ -61,5 +62,21 @@
     .item:hover > img {
         -webkit-animation: pulse 1s 1;
         animation: pulse 1s 1;
+    }
+    .label {
+        text-align: center;
+        position: absolute;
+        top: 0;
+        background-color: #4184B7;
+        color: white;
+        font-size: 8px;
+        padding: 2px 4px;
+        border-radius: 1px;
+        transform: scale(0.5, 0);
+    }
+    .item:hover > .label {
+        -webkit-animation: show 500ms 1;
+        animation: show 500ms 1;
+        transform: scale(1, 1);
     }
 </style>

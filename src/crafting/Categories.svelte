@@ -65,6 +65,9 @@
         align-items: center;
         color: rgb(170, 168, 168);
     }
+    .item:hover {
+        cursor: pointer;
+    }
     .item:hover, .item:hover > .counter {
         color: white;
     }
@@ -79,7 +82,7 @@
     .counter {
         flex-grow: 1;
         text-align: right;
-        color: rgb(98, 139, 172);
+        color: #4184B7;
     }
     .item.active {
         background-color: #4184B7;
