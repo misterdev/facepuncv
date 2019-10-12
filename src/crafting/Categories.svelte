@@ -4,10 +4,9 @@
     import MdSchool from 'svelte-icons/md/MdSchool.svelte'
     import MdFolder from 'svelte-icons/md/MdFolder.svelte'
 
-    let activeCat = 0;
+    let activeCat;
     navigation.subscribe(({cat, selected}) => {
         activeCat = cat
-        console.log(cat)    
     });
 
     const selectCat = (catId) => {

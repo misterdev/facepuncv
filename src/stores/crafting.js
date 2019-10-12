@@ -18,7 +18,7 @@ export const categories = {
     }
 }
 
-export const navigation = writable({cat: categories.EXP.id, selected: 0})
+export const navigation = writable({cat: categories.PROJ.id, selected: 0})
 
 export let content = {}
 content.EXPERIENCE = [
@@ -40,14 +40,24 @@ content.EXPERIENCE = [
         `,
         links: [
             {
+                icon: "images/github.png",
+                url: "https://github.com/misterdev/webpack-reporter-plugin",
+                label: "Project Repo"
+            },
+            {
+                icon: "images/medium.png",
+                url: "https://medium.com/webpack/summer-2019-with-webpack-840c7f7b97c4",
+                label: "Presentation Article"
+            },
+            {
+                icon: "images/medium.png",
+                url: "https://medium.com/webpack/summer-2019-with-webpack-5cd3ddbc9a05",
+                label: "Final Article"
+            },
+            {
                 icon: "images/gsoc.png",
                 url: "https://summerofcode.withgoogle.com/",
                 label: "GSoC Website"
-            },
-            {
-                icon: "images/github.png",
-                url: "https://github.com/misterdev/webpack-reporter-plugin",
-                label: "Repository"
             }
         ],
         stats: [
@@ -74,8 +84,8 @@ content.EXPERIENCE = [
         label: "Lay Lab",
         icon: "images/laylab.png",
         date: {
-            start: "Dec 18",
-            end: "Aug 19"
+            start: "Oct 15",
+            end: "Aug 17"
         },
         // 
         description: `
@@ -88,7 +98,8 @@ content.EXPERIENCE = [
         links: [
             {
                 icon: "images/laylab.png",
-                url: "https://github.com/misterdev/webpack-reporter-plugin"
+                url: "https://github.com/misterdev/webpack-reporter-plugin",
+                label: "Company Website"
             }
         ],
         stats: [
@@ -105,11 +116,15 @@ content.EXPERIENCE = [
                 count: 900
             },
             {
-                label: 'ElasticSearch',
-                count: 300
+                label: 'Google Cloud Engine',
+                count: 600
             },
             {
-                label: 'Google Cloud Engine',
+                label: 'PouchDB',
+                count: 400
+            },
+            {
+                label: 'ElasticSearch',
                 count: 300
             }
         ]
@@ -133,17 +148,23 @@ content.EXPERIENCE = [
         links: [
             {
                 icon: "images/gsoc.png",
-                url: "https://www.google-melange.com/archive/gsoc/2015/orgs/media/projects/misterdev.html"
+                url: "https://www.google-melange.com/archive/gsoc/2015/orgs/media/projects/misterdev.html",
+                label: "GSoC Website"
             },
             {
                 icon: "images/gdoc.png",
-                url: "https://docs.google.com/document/d/1nzdrNGGjEptc7phiU6JOuV8UQTZRNH_0Ve8lukBIZuI"
+                url: "https://docs.google.com/document/d/1nzdrNGGjEptc7phiU6JOuV8UQTZRNH_0Ve8lukBIZuI",
+                label: "Overview"
             }
         ],
         stats: [
             {
                 label: 'Javascript',
                 count: 700
+            },
+            {
+                label: 'SVG',
+                count: 200
             }
         ]
     },
@@ -233,19 +254,148 @@ content.EDUCATION = [
 content.PROJECTS = [
     {
         // icon
-        label: "IT Degree",
-        icon: "images/alma.png",
+        label: "Mesopotamia Jones",
+        icon: "images/mj.png",
         date: "25 dicc",
         // 
-        description: "...",
-        links: [],
-        stats: []
+        description: "One of my favorite projects, a 2D browser game aimed at teaching programming to children. I made this with a friend, as a university project for the Usability and User Experience course, we used Phaser for the game, React with Typescript for the website, Blockly for the code editor and Webpack for the bundling.",
+        links: [
+            {
+                icon: "images/mj.png",
+                url: "https://loopingdoge.github.io/mesopotamia-jones",
+                label: "Website"
+            },
+            {
+                icon: "images/github.png",
+                url: "https://github.com/loopingdoge/mesopotamia-jones",
+                label: "Project Repo"
+            }
+        ],
+        stats: [
+            {
+                label: 'Usability & UX',
+                count: 1500
+            },
+            {
+                label: 'Phaser',
+                count: 800
+            },
+            {
+                label: 'Game Design & Development',
+                count: 800
+            },
+            {
+                label: 'Typescript',
+                count: 700
+            },
+            {
+                label: 'Blockly',
+                count: 500
+            },
+        ]
+    },
+    {
+        label: "Wowtaria",
+        icon: "images/ld.png",
+        date: "25 dicc",
+        // 
+        description: `
+        A browser app that allows making semantic annotations on scientific documents. This has been my first web project, where I learned a lot about Javascript development. We used Bootstrap for the UI and Python for the backend. 
+
+        The database is not available anymore, resulting in an infinite loading 
+        `,
+        links: [
+            {
+                icon: "images/ld.png",
+                url: "http://ltw1423.web.cs.unibo.it/",
+                label: "Website"
+            },
+            {
+                icon: "images/github.png",
+                url: "https://github.com/loopingdoge/wowtaria.git",
+                label: "Project Repo"
+            }
+        ],
+        stats: [
+            {
+                label: 'UI Design & UX',
+                count: 1200
+            },
+            {
+                label: 'Bootstrap',
+                count: 800
+            },
+            {
+                label: 'Python',
+                count: 400
+            },
+        ]
+    },
+    {
+        label: "Ethereum Galaxy",
+        icon: "images/ld.png",
+        date: "25 dicc",
+        // 
+        description: `
+        Visualizer of Ethereum transactions as a graph, inspired by <a href="https://anvaka.github.io/pm/#/?_k=qeo12l" target="_blank">pm</a>, developed using React and Typescript.
+
+        The database is not available anymore, resulting in no data visualized
+        `,
+        links: [
+            {
+                icon: "images/ld.png",
+                url: "http://www.devid.io/ethereum-galaxy/",
+                label: "Website"
+            },
+            {
+                icon: "images/github.png",
+                url: "https://github.com/loopingdoge/ethereum-galaxy",
+                label: "Project Repo"
+            }
+        ],
+        stats: [
+            {
+                label: 'UI Design & UX',
+                count: 1000
+            },
+            {
+                label: 'Graph Drawing Algorithms',
+                count: 700
+            },
+            {
+                label: 'Ethereum Graph Navigation',
+                count: 300
+            },
+            {
+                label: 'D3',
+                count: 300
+            },
+            {
+                label: 'WebGL',
+                count: 300
+            }
+        ]
+    },
+    {
+        label: "[WIP] Mind Palace",
+        icon: "images/ld.png",
+        date: "25 dicc",
+        // 
+        description: `
+        A WIP 3D mnemonic device, developed using Aframe and webpack. For this project, I've written a webpack loader for .obj files
+        `,
+        links: [
+            {
+                icon: "images/ld.png",
+                url: "http://www.devid.io/mind-palace/",
+                label: "Website"
+            }
+        ],
+        stats: [
+            {
+                label: 'AFrame',
+                count: 1000
+            }
+        ]
     },
 ]
-
-// github
-// twitter
-// linkedin
-// stackoverflow
-// mail
-// medium?
