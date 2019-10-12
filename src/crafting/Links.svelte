@@ -33,7 +33,7 @@
         position: absolute;
         top: 2.5%;
         color: white;
-        font-size: calc(20% + 1vmin);;
+        font-size: 1vw;
     }
     #links {
         width: 100%;
@@ -69,7 +69,7 @@
         top: 0;
         background-color: #4184B7;
         color: white;
-        font-size: 8px;
+        font-size: 1vw;
         padding: 2px 4px;
         border-radius: 1px;
         transform: scale(0.5, 0);

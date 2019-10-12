@@ -12,7 +12,7 @@
     <div id="header">
         <img src={item.icon} alt="logo" />
         <div id="title"><b>{item.label}</b></div>
-        {#if item.data}
+        {#if item.date}
             <div id="time">
                 <div id="start">
                     <div class="icon">
@@ -50,12 +50,12 @@
         height: 70%;
     }
     #title {
-        font-size: calc(60% + 1vmin);
+        font-size: 1.7vw;
         flex-grow: 1;
         text-align: center;
     }
     #description {
-        font-size: calc(10% + 1vmin);
+        font-size: 1vw;
         text-justify: distribute;
         padding: 2.5% 5%;
     }

@@ -29,11 +29,11 @@
         flex-direction: column;
     }
     #header {
-        font-size: calc(5% + 1vmin);
+        font-size: 1vw;
         font-weight: bold;
     }
     .item {
-        font-size: calc(70% + 1vmin);
+        font-size: 2vw;
         display: flex;
         flex-direction: row;
     }
