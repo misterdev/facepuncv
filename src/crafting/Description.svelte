@@ -12,20 +12,22 @@
     <div id="header">
         <img src={item.icon} alt="logo" />
         <div id="title"><b>{item.label}</b></div>
-        <div id="time">
-            <div id="start">
-                <div class="icon">
-                    <MdAccessTime />
+        {#if item.data}
+            <div id="time">
+                <div id="start">
+                    <div class="icon">
+                        <MdAccessTime />
+                    </div>
+                    {item.date.start}
                 </div>
-                {item.date.start}
-            </div>
-            <div id="end">
-                <div class="icon">
-                    <MdAlarm />
+                <div id="end">
+                    <div class="icon">
+                        <MdAlarm />
+                    </div>
+                    {item.date.end}
                 </div>
-                {item.date.end}
             </div>
-        </div>
+        {/if}
     </div>
     <div id="description">{@html item.description}</div>
 </div>

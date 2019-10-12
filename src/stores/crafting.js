@@ -14,11 +14,16 @@ export const categories = {
     PROJ: {
         id: 'PROJECTS',
         label: 'Projects',
-        count: 7,
+        count: 5,
+    },
+    MISC: {
+        id: 'MISC',
+        label: 'Misc',
+        count: 3,
     }
 }
 
-export const navigation = writable({cat: categories.PROJ.id, selected: 0})
+export const navigation = writable({cat: categories.EXP.id, selected: 0})
 
 export let content = {}
 content.EXPERIENCE = [
@@ -332,6 +337,41 @@ content.PROJECTS = [
         ]
     },
     {
+        label: "SensorSpeak",
+        icon: "images/alexa.png",
+        date: "25 dicc",
+        // 
+        description: `
+        I developed an Alexa Skill that was able to obtain informations from the sensors of the Informatic Department of the University of Bologna.
+        The skill allows users to query a semantic database through Alexa only using natural language, the skill was implemented using AWS Lambda as backend.
+        `,
+        links: [
+            {
+                icon: "images/github.png",
+                url: "https://github.com/misterdev/sensorspeak",
+                label: "Project Repo"
+            }
+        ],
+        stats: [
+            {
+                label: 'AWS Lambda',
+                count: 800
+            },
+            {
+                label: 'Alexa Skills',
+                count: 800
+            },
+            {
+                label: 'RDF (Semantic Web Standard)',
+                count: 800
+            },
+            {
+                label: 'IoT',
+                count: 300
+            }
+        ]
+    },
+    {
         label: "Ethereum Galaxy",
         icon: "images/ld.png",
         date: "25 dicc",
@@ -379,8 +419,6 @@ content.PROJECTS = [
     {
         label: "[WIP] Mind Palace",
         icon: "images/ld.png",
-        date: "25 dicc",
-        // 
         description: `
         A WIP 3D mnemonic device, developed using Aframe and webpack. For this project, I've written a webpack loader for .obj files
         `,
@@ -395,6 +433,80 @@ content.PROJECTS = [
             {
                 label: 'AFrame',
                 count: 1000
+            }
+        ]
+    },
+]
+
+content.MISC = [
+    {
+        label: "Medium Articles",
+        icon: "images/medium.png",
+        description: `
+        I wrote some articles about Webpack
+        `,
+        links: [
+            {
+                icon: "images/medium.png",
+                url: "https://medium.com/@misterdev/how-to-write-a-webpack-scaffold-ace202775572",
+                label: "How to write a Webpack scaffold"
+            },
+            {
+                icon: "images/medium.png",
+                url: "https://medium.com/webpack/summer-2019-with-webpack-840c7f7b97c4",
+                label: "Summer 2019 with webpack"
+            },
+            {
+                icon: "images/medium.png",
+                url: "https://medium.com/webpack/summer-2019-with-webpack-5cd3ddbc9a05",
+                label: "</Summer 2019 with webpack>"
+            }
+        ],
+        stats: [
+            {
+                label: 'English',
+                count: 'OVER 9000'
+            }
+        ]
+    },
+    {
+        label: "Stack Overflow",
+        icon: "images/so.png",
+        description: `
+        I used to answer questions on Stack Overflow, mostly about Firebase and Javascript
+        `,
+        links: [
+            {
+                icon: "images/so.png",
+                url: "https://stackoverflow.com/users/4695325/devid-farinelli",
+                label: "StackOverflow Profile"
+            }
+        ],
+        stats: [
+            {
+                label: 'Firebase Knowledge',
+                count: 'Used to be a lot'
+            }
+        ]
+    },
+    {
+        label: "Video Editing",
+        icon: "images/youtube.ico",
+        description: `
+        I decided to learn how to make video editing and english voice over. 
+        I've achieved a decent result, I planned to make 3 videos of my GSoC experience but I failed to maintain my expectation. I would like to keep doing that, but I don't have anything to talk about.
+        `,
+        links: [
+            {
+                icon: "images/youtube.ico",
+                url: "https://www.youtube.com/watch?v=7nS7MIKoHSI",
+                label: "DEVLOG #1"
+            }
+        ],
+        stats: [
+            {
+                label: 'Firebase Knowledge',
+                count: 'Used to be a lot'
             }
         ]
     },

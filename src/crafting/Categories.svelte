@@ -3,6 +3,7 @@
     import MdBusinessCenter from 'svelte-icons/md/MdBusinessCenter.svelte'
     import MdSchool from 'svelte-icons/md/MdSchool.svelte'
     import MdFolder from 'svelte-icons/md/MdFolder.svelte'
+    import MdCasino from 'svelte-icons/md/MdCasino.svelte'
 
     let activeCat;
     navigation.subscribe(({cat, selected}) => {
@@ -43,6 +44,16 @@
             <MdFolder />
         </div>
         <div><b>{cats.PROJ.id}</b></div>
+        <div class="counter"><b>7</b></div>
+    </div>
+    <div
+        class="item"
+        class:active={activeCat === cats.MISC.id}
+        on:click={() => selectCat(cats.MISC.id)}>
+        <div class="icon">
+            <MdCasino />
+        </div>
+        <div><b>{cats.MISC.id}</b></div>
         <div class="counter"><b>7</b></div>
     </div>
 </div>

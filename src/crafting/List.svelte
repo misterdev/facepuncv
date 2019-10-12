@@ -15,7 +15,10 @@
 
 <div class="wrapper">
     {#each items as { label, icon}, i}
-        <div class="item" on:click={() => selectItem(i)}>
+        <div
+            class="item"
+            class:active={selected === i}
+            on:click={() => selectItem(i)}>
             <div class="label">{label}</div>
             <img src={icon} alt={label} />
         </div>
@@ -38,6 +41,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .item.active {
+        background-color: rgba(255,255,255,.1);
     }
     .item:before {
         content:'';
