@@ -45,4 +45,8 @@
         width: 100%;
         opacity: .8;
     }
+    img:hover {
+        -webkit-animation: pulse 1s 1;
+        animation: pulse 1s 1;
+    }
 </style>

@@ -46,7 +46,11 @@
     .item:hover {
         background-color: rgba(255,255,255,.2);
     }
-    .item img {
+    .item > img {
         max-width: 60%;
+    }
+    .item:hover > img {
+        -webkit-animation: pulse 1s 1;
+        animation: pulse 1s 1;
     }
 </style>
