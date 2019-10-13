@@ -26,7 +26,6 @@
 
 <style>
     #wrapper {
-        /* background-color: yellow; */
         position: absolute;
         left: 0;
         bottom: 12.5%;
@@ -35,6 +34,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        background-color: yellow;
     }
     .item {
         height: 100%;

@@ -24,17 +24,14 @@
     }
     #avatar {
         background-color: red;
-        opacity: .1;
         width: 100%;
     }
     #inventory {
         background-color: blue;
-        opacity: .1;
         width: 100%;
     }
     #description {
         background-color: green;
-        opacity: .1;
         width: 100%;
     }
 </style>
