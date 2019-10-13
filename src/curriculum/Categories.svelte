@@ -11,7 +11,7 @@
     });
 
     const selectCat = (catId) => {
-        navigation.update(nav => ({cat: catId, selected: 0}))
+        navigation.update(({profile}) => ({profile, cat: catId, selected: 0}))
     }
 </script>
 
@@ -65,7 +65,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        font-size: 1vw;
+        font-size: 0.8vw;
     }
     .item {
         padding: 10% 7%;

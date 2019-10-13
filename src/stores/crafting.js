@@ -23,7 +23,11 @@ export const categories = {
     }
 }
 
-export const navigation = writable({cat: categories.EXP.id, selected: 0})
+export const navigation = writable({
+    showProfile: false,
+    cat: categories.EXP.id,
+    selected: 0
+})
 
 export let content = {}
 content.EXPERIENCE = [

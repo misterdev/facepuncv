@@ -9,7 +9,7 @@
     })
 
     const selectItem = (index) => {
-        navigation.update(({cat, selected}) => ({cat, selected: index}))
+        navigation.update(({profile, cat, selected}) => ({profile, cat, selected: index}))
     }
 </script>
 
