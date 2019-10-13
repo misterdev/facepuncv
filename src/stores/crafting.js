@@ -24,7 +24,7 @@ export const categories = {
 }
 
 export const navigation = writable({
-    showProfile: false,
+    profile: false,
     cat: categories.EXP.id,
     selected: 0
 })
