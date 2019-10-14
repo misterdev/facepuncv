@@ -63,11 +63,12 @@
 		height: 6.3%;
 		display: flex;
 		justify-content: center;
-		z-index: 1;
+		z-index: 100;
 	}
 	#footer {
 		position: absolute;
 		bottom: 2%;
 		width: 100%;
+		z-index: 100;
 	}
 </style>

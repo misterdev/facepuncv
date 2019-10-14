@@ -23,14 +23,17 @@
         flex-direction: row;
     }
     #avatar {
-        background-color: red;
+        z-index: 3;
+        /* background-color: red; */
         width: 100%;
     }
     #inventory {
+        z-index: 1;
         width: 100%;
     }
     #description {
-        background-color: green;
+        z-index: 2;
+        /* background-color: green; */
         width: 100%;
     }
 </style>
