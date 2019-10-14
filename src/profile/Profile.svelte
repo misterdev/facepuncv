@@ -27,7 +27,6 @@
         width: 100%;
     }
     #inventory {
-        background-color: blue;
         width: 100%;
     }
     #description {

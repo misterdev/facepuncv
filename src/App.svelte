@@ -67,8 +67,7 @@
 	}
 	#footer {
 		position: absolute;
-		bottom: 0;
+		bottom: 2%;
 		width: 100%;
-		margin-bottom: 2%;
 	}
 </style>
