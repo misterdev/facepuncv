@@ -41,8 +41,12 @@
         align-items: center;
         padding: 4px;
     }
+    .item:after {
+        content: '';
+        padding-top: 100%;
+    }
     img {
-        width: 100%;
+        width: 80%;
         opacity: .8;
     }
     img:hover {

@@ -1,10 +1,5 @@
 <script>
-    const content = [
-        [{icon: "images/rock.png", label: "dio"},{icon: "images/rock.png", label: "dio"},{icon: "images/rock.png", label: "dio"},{icon: "images/rock.png", label: "dio"},{icon: "images/youtube.ico", label: "dio"}],
-        [{icon: "images/alexa.png", label: "dio"},{icon: "images/rock.png", label: "dio"},{icon: "images/rock.png", label: "dio"},{icon: "images/ld.png", label: "dio"}],
-        [{icon: "images/alma.png", label: "dio"},{icon: "images/android.png", label: "dio"},{icon: "images/rock.png", label: "dio"},{icon: "images/medium.png", label: "dio"},{icon: "images/webpack.png", label: "dio"},{icon: "images/rock.png", label: "dio"}],
-        [{icon: "images/rock.png", label: "dio"},{icon: "images/gdoc.png", label: "dio"},{icon: "images/github.png", label: "dio"},{icon: "images/so.png", label: "dio"},{icon: "images/github.png", label: "dio"}]
-    ]
+    import {content} from '../stores/inventory.js'
     import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
     import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte'
 </script>
@@ -60,7 +55,7 @@
         padding-top: 100%;
     }
     img {
-        width: 100%;
+        width: 60%;
         opacity: .8;
     }
     img:hover {

@@ -342,7 +342,7 @@ content.PROJECTS = [
     },
     {
         label: "SensorSpeak",
-        icon: "images/alexa.png",
+        icon: "images/d.png",
         date: "25 dicc",
         // 
         description: `
