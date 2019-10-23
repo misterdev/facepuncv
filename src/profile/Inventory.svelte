@@ -22,7 +22,8 @@
     #wrapper {
         position: absolute;
         left: 0;
-        bottom: 12.2%;
+        margin-bottom: 7%;
+        bottom: 0;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -43,7 +44,7 @@
     .item {
         height: 100%;
         width: 4.2%;
-        margin: .5px;
+        margin: 1px;
         background-color: rgba(255, 255, 255, .2);
         display: flex;
         justify-content: center;

@@ -26,7 +26,7 @@
 
 <style>
     #wrapper {
-        max-height: 10%;
+        height: 10%;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -34,7 +34,7 @@
     .item {
         height: 100%;
         width: 4.2%;
-        margin: .5px;
+        margin: 1px;
         background-color: rgba(255, 255, 255, .2);
         display: flex;
         justify-content: center;
@@ -46,7 +46,7 @@
         padding-top: 100%;
     }
     img {
-        width: 90%;
+        width: 80%;
         opacity: .8;
     }
     img:hover {
