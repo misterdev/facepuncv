@@ -36,7 +36,6 @@
         position: absolute;
         top: 2.5%;
         color: white;
-        font-size: 1vw;
     }
     #links {
         width: 100%;
@@ -71,7 +70,6 @@
         text-align: center;
         background-color: #4184B7;
         color: white;
-        font-size: 1vw;
         padding: 2px 4px;
         border-radius: 1px;
         transform: translateY(-250%) scale(0.5, 0);

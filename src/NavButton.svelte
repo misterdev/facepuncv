@@ -33,7 +33,7 @@
 <style>
 #wrapper {
     width: 18%;
-    font-size: 1.3vw;
+    font-size: 1.3em;
     background-color: rgba(115, 115, 114, 0.42);
     display: flex;
     align-items: center;

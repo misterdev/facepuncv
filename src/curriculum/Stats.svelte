@@ -30,11 +30,9 @@
         flex-direction: column;
     }
     #header {
-        font-size: 1vw;
         font-weight: bold;
     }
     .item {
-        font-size: 2vw;
         display: flex;
         flex-direction: row;
     }
@@ -47,7 +45,6 @@
     }
     .item:not(#header) > div {
         background-color: rgba(0,0,0,.3);
-        font-size: 50%;
     }
     #header.item > div:nth-child(1) {
         justify-content: center;

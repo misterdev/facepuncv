@@ -53,12 +53,11 @@
         height: 70%;
     }
     #title {
-        font-size: 1.7vw;
+        font-size: 1.7em;
         flex-grow: 1;
         text-align: center;
     }
     #description {
-        font-size: 1vw;
         text-justify: distribute;
         padding: 2.5% 5%;
     }
@@ -73,14 +72,14 @@
         flex-direction: column;
     }
     #time div.icon {
-        width: 20%;
+        width: 15%;
         margin-right: 4px;
     }
     #time > div {
         margin: 1px;
         background-color: rgba(0,0,0,.4);
         border-radius: 5%;
-        font-size: calc(20% + 1vmin);
+        font-size: 0.7em;
         padding: 2px;
         display: flex;
         flex-direction: row;

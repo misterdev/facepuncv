@@ -32,7 +32,7 @@
     #wrapper:before {
         margin-left: 34%;
         content: 'SKILLS';
-        font-size: 2vw;
+        font-size: 1.7em;
         color: white;
     }
 

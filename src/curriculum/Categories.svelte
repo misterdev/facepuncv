@@ -67,7 +67,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        font-size: 0.8vw;
+        font-size: 0.8em;
     }
     .item {
         padding: 10% 7%;
