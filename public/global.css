@@ -33,18 +33,9 @@ body {
 
 @keyframes show {
 	0% {
-		transform: scale(.5, 0);
+		transform: translateY(-250%) scale(.5, 0);
 	}
 	100% {
-		transform: scale(1, 1);
-	}
-}
-
-@keyframes showY {
-	0% {
-		transform: scale(.5, 0) translateY(-200%);
-	}
-	100% {
-		transform: scale(1, 1) translateY(-200%);
+		transform: translateY(-250%) scale(1, 1);
 	}
 }

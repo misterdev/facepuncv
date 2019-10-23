@@ -1,5 +1,7 @@
 <script>
-    import { navigation, content } from '../stores/crafting.js'
+    import { content } from '../stores/curriculum.js'
+    import { navigation } from '../stores/navigation.js';
+
     let items;
     let selected;
 
@@ -62,19 +64,18 @@
         animation: pulse 1s 1;
     }
     .label {
-        text-align: center;
         position: absolute;
-        top: 0;
+        text-align: center;
         background-color: #4184B7;
         color: white;
         font-size: 1vw;
         padding: 2px 4px;
         border-radius: 1px;
-        transform: scale(0.5, 0);
+        transform: translateY(-250%) scale(0.5, 0);
     }
-    .item:hover > .label {
+    .item:hover .label {
         -webkit-animation: show 500ms 1;
         animation: show 500ms 1;
-        transform: scale(1, 1);
+        transform: translateY(-250%) scale(1, 1);
     }
 </style>
