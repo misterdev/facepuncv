@@ -1,8 +1,14 @@
 <script>
     import Inventory from './Inventory.svelte'
+    
+    const slide = (node, { delay = 0, duration = 300}) => ({
+            delay,
+            duration,
+            css: t => `left: -${(1 - t) * 100}%`
+        })
 </script>
 
-<div id="wrapper">
+<div id="wrapper" transition:slide>
     <div id="avatar">
     </div>
     <div id="inventory">
@@ -14,7 +20,7 @@
 
 <style>
     #wrapper {
-        position: relative;
+        position: absolute;
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);

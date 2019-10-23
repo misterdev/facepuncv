@@ -4,11 +4,17 @@
     import Description from './Description.svelte'
     import Links from './Links.svelte'
     import Stats from './Stats.svelte'
+
+    const slide = (node, { delay = 0, duration = 300 }) => ({
+        delay,
+        duration,
+        css: t => `right: -${(1 - t) * 100}%`
+    })
 </script>
 
  <!-- https://www.youtube.com/watch?v=tJ3nGtooxoM&t=656s -->
  <!-- http://i.imgur.com/NxpJaq4.jpg -->
-<div id="wrapper">
+<div id="wrapper" transition:slide>
     <div id="content">
         <div id="categories">
             <Categories />
@@ -31,7 +37,7 @@
 
 <style>
     #wrapper {
-        position: relative;
+        position: absolute;
         width: 100%;
         height: 100%;
         padding-top: 3.84%;

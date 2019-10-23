@@ -17,7 +17,7 @@
         <img src="images/linkedin3d.png" alt="linkedin"/>
     </a>
     <a class="item" href="https://stackoverflow.com/users/4695325/devid-farinelli" target="_blank">
-        <img src="images/stack3d.png" alt="stackoverflow"/>
+        <img src="images/so3d.png" alt="stackoverflow"/>
     </a>
     <a class="item" href="mailto:devid.farinelli@gmail.com" target="_blank">
         <img src="images/envelope3d.png" alt="e-mail"/>
@@ -46,7 +46,7 @@
         padding-top: 100%;
     }
     img {
-        width: 80%;
+        width: 90%;
         opacity: .8;
     }
     img:hover {

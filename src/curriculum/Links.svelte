@@ -12,7 +12,9 @@
     <div id="title"><b>LINKS</b></div>
     <div id="links">
         {#each links as {icon, url, label}}
-            <a class="item" href={url} target="_blank">
+            <a class="item"
+                href={url}
+                target="_blank">
                 <div class="label">{label}</div>
                 <img src={icon} alt={'link'} />
             </a>
