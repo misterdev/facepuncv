@@ -2,7 +2,7 @@
     import FaRegCaretSquareLeft from 'svelte-icons/fa/FaRegCaretSquareLeft.svelte'
     import FaRegCaretSquareRight from 'svelte-icons/fa/FaRegCaretSquareRight.svelte'
 
-    import { navigation } from './stores/crafting.js'
+    import { navigation } from './stores/navigation.js'
 
     let showProfile;
     navigation.subscribe(({profile, cat, selected}) => showProfile = profile)

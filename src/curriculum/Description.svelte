@@ -1,7 +1,10 @@
 <script>
     import MdAccessTime from 'svelte-icons/md/MdAccessTime.svelte'
     import MdAlarm from 'svelte-icons/md/MdAlarm.svelte'
-    import {navigation, content} from '../stores/crafting.js'
+    
+    import { content } from '../stores/curriculum.js'
+    import { navigation } from '../stores/navigation.js';
+
     let item;
     navigation.subscribe(({cat, selected}) => {
         item = content[cat][selected];

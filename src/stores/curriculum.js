@@ -1,5 +1,3 @@
-import { writable } from 'svelte/store'
-
 export const categories = {
     EXP: {
         id: 'EXPERIENCE',
@@ -22,12 +20,6 @@ export const categories = {
         count: 3,
     }
 }
-
-export const navigation = writable({
-    profile: true,
-    cat: categories.EXP.id,
-    selected: 0
-})
 
 export let content = {}
 content.EXPERIENCE = [

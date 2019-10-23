@@ -1,9 +1,11 @@
 <script>
-    import { categories as cats, content, navigation } from '../stores/crafting.js';
     import MdBusinessCenter from 'svelte-icons/md/MdBusinessCenter.svelte'
     import MdSchool from 'svelte-icons/md/MdSchool.svelte'
     import MdFolder from 'svelte-icons/md/MdFolder.svelte'
     import MdCasino from 'svelte-icons/md/MdCasino.svelte'
+
+    import { categories as cats, content } from '../stores/curriculum.js';
+    import { navigation } from '../stores/navigation.js';
 
     let activeCat;
     navigation.subscribe(({cat, selected}) => {

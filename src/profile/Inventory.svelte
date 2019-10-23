@@ -1,5 +1,5 @@
 <script>
-    import {content} from '../stores/inventory.js'
+    import { content } from '../stores/profile.js'
     import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
     import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte'
 </script>

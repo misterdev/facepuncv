@@ -1,5 +1,5 @@
 <script>
-	import { navigation } from './stores/crafting.js'
+	import { navigation } from './stores/navigation.js'
 	import Profile from './profile/Profile.svelte'
 	import Curriculum from './curriculum/Curriculum.svelte'
 	import Belt from './Belt.svelte'

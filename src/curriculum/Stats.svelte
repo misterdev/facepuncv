@@ -1,5 +1,6 @@
 <script>
-    import {navigation, content} from '../stores/crafting.js'
+    import { content } from '../stores/curriculum.js'
+    import { navigation } from '../stores/navigation.js';
 
     let stats
     navigation.subscribe(({cat, selected}) => {
