@@ -44,7 +44,6 @@
         padding-right: 5.76%;
         padding-bottom:  9.61%;
         padding-left: 5.76%;
-        background: rgba(0, 0, 0, 0.5);
         box-sizing: border-box;
     }
     #content > div {

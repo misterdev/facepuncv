@@ -6,13 +6,13 @@
 	import NavButton from './NavButton.svelte'
 
 	    
-    const appear = (node, { delay = 4000, duration = 600}) => ({
+    const appear = (node, { delay = 0, duration = 600}) => ({
 		delay,
 		duration,
 		css: t => `opacity: ${t}`
 	});
 
-	const blur = (node, { delay = 4000, duration = 600, amount = 6}) => ({
+	const blur = (node, { delay = 0, duration = 600, amount = 6}) => ({
 		delay,
 		duration,
 		css: t => 
@@ -33,8 +33,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
 <div class="wrapper">
-	<video {src} {poster} autoplay muted transition:blur/>
-	<div id="content" transition:appear>
+	<div id="video-wrapper" class="rateo16-9">
+		<video {src} {poster} autoplay muted transition:blur/>
+	</div>
+	<div id="content" transition:appear class="rateo16-9">
 		<div id="header">
 			<NavButton />
 		</div>
@@ -55,24 +57,27 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: black;
 	}
 	video {
-		position: absolute;
-		top: 0;
-		left: 0;
 		width: 100%;
 		height: 100%;
 		filter: blur(6px);
 		-webkit-filter: blur(6px);
+		transform: scale(1.05);
 		background: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=000000&density=80&opacity=10');
 	}
-	#content {
-		position: absolute;
+	#video-wrapper {
+		overflow: hidden;
+	}
+	.rateo16-9 {
 		width: 100vw;
 		height: 56.25vw;
 		max-width: 177.78vh;
 		max-height: 100vh;
+	}
+	#content {
+		position: absolute;
+		background-color: rgba(0,0,0,.5);
 	}
 	#header {
 		position: absolute;
@@ -85,7 +90,6 @@
 	}
 	#component {
 		position: absolute;
-		/* background-color: green; */
 		width: 100%;
 		height: 100%;
 	}
