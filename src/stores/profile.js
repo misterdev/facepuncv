@@ -2,11 +2,6 @@ export const content = []
 
 content[0] = [
     {
-        icon: "images/profile/note.png",
-        label: "README",
-        description: ""
-    },
-    {
         icon: "images/profile/node.png",
         label: "NodeJS",
         description: ""
@@ -29,6 +24,11 @@ content[0] = [
     {
         icon: "images/profile/svelte.png",
         label: "Svelte",
+        description: ""
+    },
+    {
+        icon: "images/profile/three.png",
+        label: "Three",
         description: ""
     }
 ]
@@ -63,12 +63,12 @@ content[1] = [
 
 content[2] = [
     {
-        icon: "images/profile/travis-TODO.png",
+        icon: "images/profile/travis.png",
         label: "Travis CI",
         description: ""
     },
     {
-        icon: "images/profile/azure-TODO.png",
+        icon: "images/profile/azure.png",
         label: "Azure Pipelines",
         description: ""
     },
