@@ -10,6 +10,7 @@
             {#each [...Array(6).keys()] as c}
                 <div class="item">
                     {#if content[r][c]}
+                    <div class="label">{content[r][c].label}</div>
                     <img src={content[r][c].icon} alt={content[r][c].label}/>
                     {/if}
                 </div>
@@ -56,11 +57,33 @@
         padding-top: 100%;
     }
     img {
-        width: 90%;
+        width: 80%;
         opacity: .8;
     }
     img:hover {
         -webkit-animation: pulse 1s 1;
         animation: pulse 1s 1;
     }
+    .label {
+        position: absolute;
+        text-align: center;
+        background-color: #4184B7;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 1px;
+        transform: translateY(-170%) scale(0.5, 0);
+    }
+    .item:hover .label {
+        -webkit-animation: show 500ms 1;
+        animation: show 500ms 1;
+        transform: translateY(-170%) scale(1, 1);
+    }
+    @keyframes show {
+	0% {
+		transform: translateY(-170%) scale(.5, 0);
+	}
+	100% {
+		transform: translateY(-170%) scale(1, 1);
+	}
+}
 </style>
