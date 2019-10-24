@@ -35,7 +35,6 @@
     #title {
         position: absolute;
         top: 2.5%;
-        color: white;
     }
     #links {
         width: 100%;

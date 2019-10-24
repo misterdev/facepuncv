@@ -34,8 +34,8 @@
     .item {
         height: 100%;
         width: 4.2%;
-        margin: 1px;
-        background-color: rgba(255, 255, 255, .2);
+        margin: 0.18%;
+        background-color: rgba(255, 255, 255, .08);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -46,7 +46,7 @@
         padding-top: 100%;
     }
     img {
-        width: 80%;
+        width: 90%;
         opacity: .8;
     }
     img:hover {

@@ -33,7 +33,7 @@
         margin-left: 34%;
         content: 'SKILLS';
         font-size: 1.7em;
-        color: white;
+        font-weight: bold;
     }
 
     .row {
@@ -44,8 +44,8 @@
     .item {
         height: 100%;
         width: 4.2%;
-        margin: 1px;
-        background-color: rgba(255, 255, 255, .2);
+        margin: 0.18%;
+        background-color: rgba(200, 200, 200, .2);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -56,7 +56,7 @@
         padding-top: 100%;
     }
     img {
-        width: 60%;
+        width: 90%;
         opacity: .8;
     }
     img:hover {

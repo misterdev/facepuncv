@@ -24,14 +24,12 @@ export const categories = {
 export let content = {}
 content.EXPERIENCE = [
     {
-        // icon
         label: "Webpack",
         icon: "images/webpack.png",
         date: {
             start: "Dec 18",
             end: "Aug 19"
         },
-        // 
         description: `
         <p>
             <b>OSS Javascript Developer</b></br>
@@ -81,14 +79,12 @@ content.EXPERIENCE = [
         ]
     },
     {
-        // icon
         label: "Lay Lab",
         icon: "images/laylab.png",
         date: {
             start: "Oct 15",
             end: "Aug 17"
         },
-        // 
         description: `
         <p>
             <b>Fullstack Javascript Developer</b></br>
@@ -131,14 +127,12 @@ content.EXPERIENCE = [
         ]
     },
     {
-        // icon
         label: "MIT App Inventor",
         icon: "images/appinventor.png",
         date: {
             start: "Jun 15",
             end: "Sep 15"
         },
-        // 
         description: `
         <p>
             <b>OSS Javascript Developer</b></br>
@@ -170,14 +164,12 @@ content.EXPERIENCE = [
         ]
     },
     {
-        // icon
         label: "DMDTEK",
         icon: "images/android.png",
         date: {
             start: "Dec 18",
             end: "Aug 19"
         },
-        // 
         description: `
         <p>
             <b>Android Developer</b></br>
@@ -197,14 +189,12 @@ content.EXPERIENCE = [
 
 content.EDUCATION = [
     {
-        // icon
         label: "CS Master",
         icon: "images/alma.png",
         date: {
             start: "Sep 16",
             end: "Mar 20"
         },
-        // 
         description: `
         <p><b>University of Bologna</p></b>
 
@@ -212,17 +202,40 @@ content.EDUCATION = [
         Average Grade: 29.55
         `,
         links: [],
-        stats: []
+        stats: [
+            {
+                label: 'Computer Graphic',
+                count: 1200
+            },
+            {
+                label: 'UI & UX',
+                count: 1000
+            },
+            {
+                label: 'ML & AI',
+                count: 1200
+            },
+            {
+                label: 'Emerging Programming Paradigms',
+                count: 1000
+            },
+            {
+                label: 'Blockchain',
+                count: 900
+            },
+            {
+                label: 'Compilers & Interpreters',
+                count: 900
+            }
+        ]
     },
     {
-        // icon
         label: "CS Bachelor",
         icon: "images/alma.png",
         date: {
             start: "Sep 12",
             end: "Dec 16"
         },
-        // 
         description: `
         <p><b>University of Bologna</p></b>
 
@@ -230,17 +243,28 @@ content.EDUCATION = [
         Score 98/110
         `,
         links: [],
-        stats: []
+        stats: [
+            {
+                label: 'Operating Systems',
+                count: 1100
+            },
+            {
+                label: 'Algorithms & Data Structures',
+                count: 1000
+            },
+            {
+                label: 'Web Development',
+                count: 1000
+            },
+        ]
     },
     {
-        // icon
         label: "IT Degree",
         icon: "images/itis.png",
         date: {
             start: "Sep 07",
             end: "Aug 12"
         },
-        // 
         description: `
         <p><b>ITIS Odone Belluzzi</p></b>
 
@@ -248,17 +272,24 @@ content.EDUCATION = [
         Score 86/100        
         `,
         links: [],
-        stats: []
+        stats: [
+            {
+                label: 'Programming',
+                count: 900
+            },
+            {
+                label: 'Computer Architectures',
+                count: 900
+            }
+        ]
     },
 ]
 
 content.PROJECTS = [
     {
-        // icon
         label: "Mesopotamia Jones",
         icon: "images/mj.png",
         date: "25 dicc",
-        // 
         description: "One of my favorite projects, a 2D browser game aimed at teaching programming to children. I made this with a friend, as a university project for the Usability and User Experience course, we used Phaser for the game, React with Typescript for the website, Blockly for the code editor and Webpack for the bundling.",
         links: [
             {
@@ -299,7 +330,6 @@ content.PROJECTS = [
         label: "Wowtaria",
         icon: "images/ld.png",
         date: "25 dicc",
-        // 
         description: `
         A browser app that allows making semantic annotations on scientific documents. This has been my first web project, where I learned a lot about Javascript development. We used Bootstrap for the UI and Python for the backend. 
 
@@ -336,7 +366,6 @@ content.PROJECTS = [
         label: "SensorSpeak",
         icon: "images/d.png",
         date: "25 dicc",
-        // 
         description: `
         I developed an Alexa Skill that was able to obtain informations from the sensors of the Informatic Department of the University of Bologna.
         The skill allows users to query a semantic database through Alexa only using natural language, the skill was implemented using AWS Lambda as backend.
@@ -371,7 +400,6 @@ content.PROJECTS = [
         label: "Ethereum Galaxy",
         icon: "images/ld.png",
         date: "25 dicc",
-        // 
         description: `
         Visualizer of Ethereum transactions as a graph, inspired by <a href="https://anvaka.github.io/pm/#/?_k=qeo12l" target="_blank">pm</a>, developed using React and Typescript.
 
@@ -481,7 +509,40 @@ content.MISC = [
         stats: [
             {
                 label: 'Firebase Knowledge',
-                count: 'Used to be a lot'
+                count: 'Used to be a lot of'
+            }
+        ]
+    },
+    {
+        label: "GDG",
+        icon: "images/GDGBO.png",
+        description: `
+        I used to answer questions on Stack Overflow, mostly about Firebase and Javascript
+        `,
+        links: [
+            {
+                icon: "images/metup.png",
+                url: "https://www.meetup.com/gdgbologna/",
+                label: "GDG Bologna"
+            },
+            {
+                icon: "images/GDGBO.png",
+                url: "https://erdevfest18.firebaseapp.com/",
+                label: "DEVFESTER 2018"
+            }
+        ],
+        stats: [
+            {
+                label: 'Events Organization.',
+                count: 'Very'
+            },
+            {
+                label: 'Public Speaking.',
+                count: 'Such'
+            },
+            {
+                label: 'Wow.',
+                count: ''
             }
         ]
     },
@@ -501,8 +562,16 @@ content.MISC = [
         ],
         stats: [
             {
-                label: 'Firebase Knowledge',
-                count: 'Used to be a lot'
+                label: 'Premiere',
+                count: '700'
+            },
+            {
+                label: 'Audacity',
+                count: '600'
+            },
+            {
+                label: 'English Diction',
+                count: '18'
             }
         ]
     },

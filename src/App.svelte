@@ -16,6 +16,7 @@
 
 <svelte:head>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
 <div class="wrapper">
 	<video src={src} {poster} muted/>
@@ -56,6 +57,8 @@
 		height: 56.25vw;
 		max-width: 177.78vh;
 		max-height: 100vh;
+		background: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=000000&density=80&opacity=10');
+		/* download */
 	}
 	#header {
 		position: absolute;

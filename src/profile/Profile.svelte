@@ -1,5 +1,6 @@
 <script>
     import Inventory from './Inventory.svelte'
+    import Note from './Note.svelte'
     
     const slide = (node, { delay = 0, duration = 300}) => ({
             delay,
@@ -15,6 +16,7 @@
         <Inventory />
     </div>
     <div id="description">
+        <Note />
     </div>
 </div>
 
@@ -30,7 +32,6 @@
     }
     #avatar {
         z-index: 3;
-        /* background-color: red; */
         width: 100%;
     }
     #inventory {
@@ -39,7 +40,6 @@
     }
     #description {
         z-index: 2;
-        /* background-color: green; */
         width: 100%;
     }
 </style>

@@ -81,7 +81,7 @@
         cursor: pointer;
     }
     .item:hover, .item:hover > .counter {
-        color: white;
+        color: #DCD5CC;
     }
     .item:not(.active):hover {
         animation: pulse 1s 1;
