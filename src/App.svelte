@@ -5,10 +5,24 @@
 	import Belt from './Belt.svelte'
 	import NavButton from './NavButton.svelte'
 
+	    
+    const appear = (node, { delay = 4000, duration = 600}) => ({
+		delay,
+		duration,
+		css: t => `opacity: ${t}`
+	});
+
+	const blur = (node, { delay = 4000, duration = 600, amount = 6}) => ({
+		delay,
+		duration,
+		css: t => 
+			`filter: blur(${t * amount}px);` +
+			`-webkit-filter: blur(${t * amount}px);`
+	});
+
 	export let name;
-	let src = 'videos/bg-1.mp4'
+	let src = 'videos/bg.mp4'
 	// let src = 'https://sveltejs.github.io/assets/caminandes-llamigos.mp4'
-	// let src = 'https://video.xx.fbcdn.net/v/t42.9040-2/68135311_2342255342534112_4239331015497089024_n.mp4?_nc_cat=108&efg=eyJ2ZW5jb2RlX3RhZyI6InN2ZV9zZCJ9&_nc_oc=AQnD8UbJiLvZ7DpjjSWnxGYR_HSynb8VXzKOwyjkyvpEW_NiLXnDJqGTFA5FGj6Go4E&_nc_ht=video-mxp1-1.xx&oh=70776a3ab340b170f6c9e49d80f9fce7&oe=5D98ECE8'
 	let poster = 'https://static.gamespot.com/uploads/original/1406/14063904/3353523-20180211195717_1.jpg'
 	let selected = Profile
 	navigation.subscribe(({profile}) => selected = profile ? Profile : Curriculum)
@@ -19,13 +33,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
 <div class="wrapper">
-	<video src={src} {poster} muted/>
-	<!-- <iframe src="https://www.youtube.com/embed/SrlwcPTzAjQ?autoplay=1&controls=0" frameborder="0" allow="accelerometer; autoplay=1; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-	<div id="content">
+	<video {src} {poster} autoplay muted transition:blur/>
+	<div id="content" transition:appear>
 		<div id="header">
 			<NavButton />
 		</div>
-		<svelte:component this={selected} />
+		<div id="component">
+			<svelte:component this={selected} />
+		</div>
 		<div id="footer">
 			<Belt />
 		</div>
@@ -50,6 +65,7 @@
 		height: 100%;
 		filter: blur(6px);
 		-webkit-filter: blur(6px);
+		background: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=000000&density=80&opacity=10');
 	}
 	#content {
 		position: absolute;
@@ -57,8 +73,6 @@
 		height: 56.25vw;
 		max-width: 177.78vh;
 		max-height: 100vh;
-		background: url('http://api.thumbr.it/whitenoise-361x370.png?background=ffffff00&noise=000000&density=80&opacity=10');
-		/* download */
 	}
 	#header {
 		position: absolute;
@@ -68,6 +82,12 @@
 		display: flex;
 		justify-content: center;
 		z-index: 100;
+	}
+	#component {
+		position: absolute;
+		/* background-color: green; */
+		width: 100%;
+		height: 100%;
 	}
 	#footer {
 		position: absolute;

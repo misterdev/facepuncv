@@ -2,7 +2,7 @@
     import Inventory from './Inventory.svelte'
     import Note from './Note.svelte'
     
-    const slide = (node, { delay = 0, duration = 300}) => ({
+    const slide = (node, { delay = 0, duration = 200}) => ({
             delay,
             duration,
             css: t => `left: -${(1 - t) * 100}%`

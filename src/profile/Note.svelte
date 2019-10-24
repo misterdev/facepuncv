@@ -27,7 +27,6 @@ I participate in events/conferences and in my free time I organize local technic
         color: rgb(65, 65, 65);
         padding: 5%;
         box-sizing: border-box;
-        font-size: 1.2em;
         font-family: 'Permanent Marker', cursive;
     }
 </style>

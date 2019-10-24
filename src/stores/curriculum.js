@@ -199,7 +199,7 @@ content.EDUCATION = [
         <p><b>University of Bologna</p></b>
 
         Master degree in Computer Science</br>
-        Average Grade: 29.55
+        Average Grade: 29.62/30
         `,
         links: [],
         stats: [

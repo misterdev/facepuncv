@@ -53,11 +53,6 @@ content[1] = [
         icon: "images/profile/alexa.png",
         label: "Alexa",
         description: ""
-    },
-    {
-        icon: "images/d.png",
-        label: "DIO",
-        description: ""
     }
 ]
 
