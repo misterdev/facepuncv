@@ -1,6 +1,7 @@
 <script>
     import Inventory from './Inventory.svelte'
     import Note from './Note.svelte'
+    import Avatar from './Avatar.svelte'
     
     const slide = (node, { delay = 0, duration = 200}) => ({
             delay,
@@ -11,6 +12,7 @@
 
 <div id="wrapper" transition:slide>
     <div id="avatar">
+        <Avatar />
     </div>
     <div id="inventory">
         <Inventory />
