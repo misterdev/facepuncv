@@ -14,7 +14,8 @@
   "dependencies": {
     "gh-pages": "^2.1.1",
     "sirv-cli": "^0.4.4",
-    "svelte-icons": "^1.1.0"
+    "svelte-icons": "^1.1.0",
+    "three": "^0.109.0"
   },
   "scripts": {
     "build": "rollup -c",
