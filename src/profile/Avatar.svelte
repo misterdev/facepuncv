@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
     import * as THREE from 'three';
+    import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
     let parent
     let camera
@@ -27,23 +28,26 @@
         renderer.domElement.setAttribute("style", "width: 100%; height: 100%;");
         parent.appendChild( renderer.domElement )
 
-        var geometry = new THREE.BoxGeometry( 1, 1, 1 )
-        var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } )
-        var cube = new THREE.Mesh( geometry, material )
-        scene.add( cube )
+        var directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
+        scene.add( directionalLight );
 
-        camera.position.z = 5
+        var loader = new GLTFLoader();
 
-        var animate = function () {
-            requestAnimationFrame( animate )
+        camera.position.z = 4
+        camera.position.y = 1
+        renderer.render( scene, camera )
 
-            cube.rotation.x += 0.01
-            cube.rotation.y += 0.01
-
-            renderer.render( scene, camera )
-        }
-        animate()
-
+        loader.load(
+            'models/avatar/scene.gltf',
+            ( gltf,a ,b  ) => {
+                console.log(gltf, a, b)
+                gltf.scene.position.set(0, 0, 2)
+                gltf.scene.scale.set(1,1,1)
+                scene.add( gltf.scene );
+                renderer.render( scene, camera )   
+            }
+        )
+            
         window.addEventListener('resize', onResize)
     })
 </script>
