@@ -364,7 +364,7 @@ content.PROJECTS = [
     },
     {
         label: "SensorSpeak",
-        icon: "images/d.png",
+        icon: "images/alexa.png",
         date: "25 dicc",
         description: `
         I developed an Alexa Skill that was able to obtain informations from the sensors of the Informatic Department of the University of Bologna.
