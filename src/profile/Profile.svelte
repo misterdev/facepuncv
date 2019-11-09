@@ -30,6 +30,7 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: row;
+		overflow: hidden;
     }
     #avatar {
         z-index: 3;
