@@ -35,7 +35,7 @@ content.EXPERIENCE = [
             <b>OSS Javascript Developer</b></br>
             Webpack (Remote work)
         </p>
-        After contributing to Webpack, I've been selected globally for the "Google Summer of Code 2019" to design and develop a modular output reporting system for webpack
+        After contributing for some months to Webpack, I've been selected globally for the "Google Summer of Code 2019" to design and develop a modular output reporting system for webpack
         `,
         links: [
             {
@@ -90,7 +90,7 @@ content.EXPERIENCE = [
             <b>Fullstack Javascript Developer</b></br>
             Lay Lab (Altedo, BO)
         </p>
-        I worked on web projects like the company website and a mobile app with a complex backend using web technologies (Ionic, NodeJS, Firebase, elasticsearch, ...)
+        I worked on web projects like the company website and a mobile app with a complex backend, using web technologies (Ionic, NodeJS, Firebase, ElasticSearch, ...)
         `,
         links: [
             {
@@ -199,7 +199,9 @@ content.EDUCATION = [
         <p><b>University of Bologna</p></b>
 
         Master degree in Computer Science</br>
-        Average Grade: 29.62/30
+        Average Grade: 29.62/30</br>
+
+        
         `,
         links: [],
         stats: [
@@ -289,7 +291,10 @@ content.PROJECTS = [
     {
         label: "Mesopotamia Jones",
         icon: "images/mj.png",
-        date: "25 dicc",
+        date: {
+            start: "Jul 17",
+            end: "Nov 17"
+        },
         description: "One of my favorite projects, a 2D browser game aimed at teaching programming to children. I made this with a friend, as a university project for the Usability and User Experience course, we used Phaser for the game, React with Typescript for the website, Blockly for the code editor and Webpack for the bundling.",
         links: [
             {
@@ -329,11 +334,13 @@ content.PROJECTS = [
     {
         label: "Wowtaria",
         icon: "images/ld.png",
-        date: "25 dicc",
+        date: {
+            start: "Jan 14",
+            end: "Jul 14"
+        },
         description: `
-        A browser app that allows making semantic annotations on scientific documents. This has been my first web project, where I learned a lot about Javascript development. We used Bootstrap for the UI and Python for the backend. 
-
-        The database is not available anymore, resulting in an infinite loading 
+        A browser app that allows making semantic annotations on scientific documents. This has been my first web project, where I learned a lot about Javascript development. We used Bootstrap for the UI and Python for the backend.</br>
+        The database was shared and it is not available anymore, resulting in an infinite loading :(</br>
         `,
         links: [
             {
@@ -360,14 +367,21 @@ content.PROJECTS = [
                 label: 'Python',
                 count: 400
             },
+            {
+                label: 'JS Animations',
+                count: 100
+            }
         ]
     },
     {
         label: "SensorSpeak",
         icon: "images/alexa.png",
-        date: "25 dicc",
+        date: {
+            start: "Jan 19",
+            end: "Mar 19"
+        },
         description: `
-        I developed an Alexa Skill that was able to obtain informations from the sensors of the Informatic Department of the University of Bologna.
+        I developed an Alexa Skill that was able to obtain informations from the sensors of the Informatic Department of the University of Bologna.</br>
         The skill allows users to query a semantic database through Alexa only using natural language, the skill was implemented using AWS Lambda as backend.
         `,
         links: [
@@ -399,11 +413,14 @@ content.PROJECTS = [
     {
         label: "Ethereum Galaxy",
         icon: "images/ld.png",
-        date: "25 dicc",
+        date: {
+            start: "Mar 18",
+            end: "Apr 18"
+        },
         description: `
-        Visualizer of Ethereum transactions as a graph, inspired by <a href="https://anvaka.github.io/pm/#/?_k=qeo12l" target="_blank">pm</a>, developed using React and Typescript.
+        Visualizer of Ethereum transactions as a graph, inspired by <a href="https://anvaka.github.io/pm/#/?_k=qeo12l" target="_blank">pm</a>, developed using React and Typescript.</br>
 
-        The database is not available anymore, resulting in no data visualized
+        The database is not available anymore, resulting in no data visualized :(</br>
         `,
         links: [
             {
@@ -444,7 +461,7 @@ content.PROJECTS = [
         label: "[WIP] Mind Palace",
         icon: "images/ld.png",
         description: `
-        A WIP 3D mnemonic device, developed using Aframe and webpack. For this project, I've written a webpack loader for .obj files
+        A WIP 3D mnemonic device, developed using Aframe and webpack. </br>
         `,
         links: [
             {
@@ -467,7 +484,7 @@ content.MISC = [
         label: "Medium Articles",
         icon: "images/medium.png",
         description: `
-        I wrote some articles about Webpack
+        I wrote some articles on Medium about Webpack
         `,
         links: [
             {
@@ -517,7 +534,7 @@ content.MISC = [
         label: "GDG",
         icon: "images/GDGBO.png",
         description: `
-        I used to answer questions on Stack Overflow, mostly about Firebase and Javascript
+        I organize, attend and speak at technical events. I manage the local GDG (Google Developers Group) community, which I founded some years ago with some friends.
         `,
         links: [
             {
@@ -550,8 +567,8 @@ content.MISC = [
         label: "Video Editing",
         icon: "images/youtube.ico",
         description: `
-        I decided to learn how to make video editing and english voice over. 
-        I've achieved a decent result, I planned to make 3 videos of my GSoC experience but I failed to maintain my expectation. I would like to keep doing that, but I don't have anything to talk about.
+        I wanted to learn how to make video editing and english voice over.</br> 
+        I've achieved a decent result, I planned to make 3 videos of my GSoC experience but I failed to maintain my expectation. I enjoyed doing that, but I don't have anything to talk about.
         `,
         links: [
             {
