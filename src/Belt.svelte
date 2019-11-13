@@ -33,8 +33,8 @@
     }
     .item {
         height: 100%;
-        width: 4.2%;
-        margin: 0.18%;
+        width: 4.4%;
+        margin: 0.14%;
         background-color: rgba(255, 255, 255, .08);
         display: flex;
         justify-content: center;
@@ -49,8 +49,8 @@
         width: 90%;
         opacity: .8;
     }
-    img:hover {
-        -webkit-animation: pulse 1s 1;
-        animation: pulse 1s 1;
+    .item:hover {
+        -webkit-animation: pulse 200ms 1;
+        animation: pulse 200ms 1;
     }
 </style>

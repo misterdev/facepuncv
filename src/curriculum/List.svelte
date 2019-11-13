@@ -59,10 +59,6 @@
     .item img {
         max-width: 60%;
     }
-    .item:hover img {
-        -webkit-animation: pulse 1s 1;
-        animation: pulse 1s 1;
-    }
     .label {
         position: absolute;
         text-align: center;
@@ -70,11 +66,11 @@
         color: white;
         padding: 2px 4px;
         border-radius: 1px;
-        transform: translateY(-250%) scale(0.5, 0);
+        transform: translateY(-270%) scale(0.5, 0);
     }
     .item:hover .label {
-        -webkit-animation: show 500ms 1;
-        animation: show 500ms 1;
-        transform: translateY(-250%) scale(1, 1);
+        -webkit-animation: show 200ms 1;
+        animation: show 200ms 1;
+        transform: translateY(-270%) scale(1, 1);
     }
 </style>

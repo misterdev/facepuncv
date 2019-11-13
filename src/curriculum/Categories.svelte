@@ -84,12 +84,14 @@
         color: #DCD5CC;
     }
     .item:not(.active):hover {
-        animation: pulse 1s 1;
+        -webkti-animation: pulse 200ms 1;
+        animation: pulse 200ms 1;
     }
     .icon {
         width: 1.2vw;
         height: 1.2vw;
-        margin-right: 6px; 
+        margin-right: 6px;
+        opacity: .2;
     }
     .counter {
         flex-grow: 1;

@@ -21,11 +21,12 @@
 	});
 
 	export let name;
-	let src = 'videos/bg.mp4'
+	let src = 'videos/bg-1-2.mp4'
 	// let src = 'https://sveltejs.github.io/assets/caminandes-llamigos.mp4'
 	let poster = 'https://static.gamespot.com/uploads/original/1406/14063904/3353523-20180211195717_1.jpg'
 	let selected = Profile
 	navigation.subscribe(({profile}) => selected = profile ? Profile : Curriculum)
+	let delay = 0//6000
 </script>
 
 <svelte:head>
@@ -34,9 +35,9 @@
 </svelte:head>
 <div class="wrapper">
 	<div id="video-wrapper" class="rateo16-9">
-		<video {src} {poster} autoplay muted transition:blur/>
+		<video {src} {poster} autoplay muted transition:blur={{delay}}/>
 	</div>
-	<div id="content" transition:appear class="rateo16-9">
+	<div id="content" transition:appear={{delay}} class="rateo16-9">
 		<div id="header">
 			<NavButton />
 		</div>
@@ -78,6 +79,7 @@
 	#content {
 		position: absolute;
 		background-color: rgba(0,0,0,.5);
+		overflow: hidden;
 	}
 	#header {
 		position: absolute;

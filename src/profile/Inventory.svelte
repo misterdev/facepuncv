@@ -44,8 +44,8 @@
     }
     .item {
         height: 100%;
-        width: 4.2%;
-        margin: 0.18%;
+        width: 4.4%;
+        margin: 0.14%;
         background-color: rgba(200, 200, 200, .2);
         display: flex;
         justify-content: center;
@@ -60,9 +60,9 @@
         width: 80%;
         opacity: .8;
     }
-    img:hover {
-        -webkit-animation: pulse 1s 1;
-        animation: pulse 1s 1;
+    .item:hover {
+        -webkit-animation: pulse 100ms 1;
+        animation: pulse 100ms 1;
     }
     .label {
         position: absolute;
@@ -71,19 +71,19 @@
         color: white;
         padding: 2px 4px;
         border-radius: 1px;
-        transform: translateY(-170%) scale(0.5, 0);
+        transform: translateY(-180%) scale(0.5, 0);
     }
     .item:hover .label {
-        -webkit-animation: show 500ms 1;
-        animation: show 500ms 1;
-        transform: translateY(-170%) scale(1, 1);
+        -webkit-animation: show 200ms 1;
+        animation: show 200ms 1;
+        transform: translateY(-180%) scale(1, 1);
     }
     @keyframes show {
 	0% {
-		transform: translateY(-170%) scale(.5, 0);
+		transform: translateY(-180%) scale(.5, 0);
 	}
 	100% {
-		transform: translateY(-170%) scale(1, 1);
+		transform: translateY(-180%) scale(1, 1);
 	}
 }
 </style>

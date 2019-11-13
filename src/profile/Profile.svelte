@@ -3,10 +3,10 @@
     import Note from './Note.svelte'
     import Avatar from './Avatar.svelte'
     
-    const slide = (node, { delay = 0, duration = 200}) => ({
+    const slide = (node, { delay = 0, duration = 100}) => ({
             delay,
             duration,
-            css: t => `left: -${(1 - t) * 100}%`
+            css: t => `left: -${(1 - t) * 50}%; opacity: ${t}`
         })
 </script>
 

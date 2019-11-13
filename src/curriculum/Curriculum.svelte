@@ -5,10 +5,10 @@
     import Links from './Links.svelte'
     import Stats from './Stats.svelte'
 
-    const slide = (node, { delay = 0, duration = 200 }) => ({
+    const slide = (node, { delay = 0, duration = 100 }) => ({
         delay,
         duration,
-        css: t => `right: -${(1 - t) * 100}%`
+        css: t => `right: -${(1 - t) * 50}%; opacity: ${t}`
     })
 </script>
 
