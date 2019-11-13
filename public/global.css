@@ -30,7 +30,7 @@ body {
 	0% {
 		transform: scale(1);
 	}
-	10% {
+	50% {
 		transform: scale(1.1);
 	}
 	100% {
@@ -40,9 +40,9 @@ body {
 
 @keyframes show {
 	0% {
-		transform: translateY(-250%) scale(.5, 0);
+		transform: translateY(-270%) scale(.5, 0);
 	}
 	100% {
-		transform: translateY(-250%) scale(1, 1);
+		transform: translateY(-270%) scale(1, 1);
 	}
 }

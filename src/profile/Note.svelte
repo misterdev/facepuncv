@@ -1,11 +1,10 @@
 <div id="note">
     <div id="note-content">
-I'm a Master Computer Science student at the University of Bologna (Italy) and a developer passionate about the Javascript world
+Welcome here,<br/>
+My name is Devid I'm a Master Computer Science student at the University of Bologna (Italy) and a developer passionate about the Javascript world.<br/><br/>
+When I don't hit trees I usually do frontend stuff, but I like to explore different fields (3D, ML, ...) and work on creative projects.<br/><br/>
 
-I often work on Open Source Software on Github and sometimes ask and answer questions on Stack Overflow
-
-I participate in events/conferences and in my free time I organize local technical events for the Google Developers Group (GDG Bologna) which I founded some years ago with some friends
-
+I guess there's no need to explain how to navigate this CV :)<br/><br/>
 - Devid -
     </div>
 </div>
@@ -18,6 +17,7 @@ I participate in events/conferences and in my free time I organize local technic
         top: 50%;
         padding: 10%;
         padding-top: 75%;
+        padding-top: 24%;
         box-sizing: border-box;
         opacity: .5;
     }
