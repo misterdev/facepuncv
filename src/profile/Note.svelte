@@ -17,7 +17,7 @@ I guess there's no need to explain how to navigate this CV :)<br/><br/>
         top: 50%;
         padding: 10%;
         padding-top: 75%;
-        padding-top: 24%;
+        padding-bottom: 24%;
         box-sizing: border-box;
         opacity: .5;
     }
