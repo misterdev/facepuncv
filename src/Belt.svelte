@@ -1,33 +1,18 @@
 <script>
+    import { play, stop } from './stores/audio.js'
+    import { belt } from './stores/profile.js'
     import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
     import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte'
 </script>
 
 <div id="wrapper">
-    <a class="item" href="https://www.youtube.com/watch?v=z9Uz1icjwrM" target="_blank">
-        <div class="label">ಠ◡ಠ</div>
-        <img src="images/rock.png" alt="rock"/>
-    </a>
-    <a class="item" href="https://github.com/misterdev" target="_blank">
-        <div class="label">Github</div>
-        <img src="images/github3d.png" alt="github"/>
-    </a>
-    <a class="item" href="https://twitter.com/misterdev_" target="_blank">
-        <div class="label">Twitter</div>
-        <img src="images/twitter3d2.png" alt="twitter"/>
-    </a>
-    <a class="item" href="https://www.linkedin.com/in/misterdev/" target="_blank">
-        <div class="label">Linkedin</div>
-        <img src="images/linkedin3d.png" alt="linkedin"/>
-    </a>
-    <a class="item" href="https://stackoverflow.com/users/4695325/devid-farinelli" target="_blank">
-        <div class="label">StackOverflow</div>
-        <img src="images/so3d.png" alt="stackoverflow"/>
-    </a>
-    <a class="item" href="mailto:devid.farinelli@gmail.com" target="_blank">
-        <div class="label">e-mail</div>
-        <img src="images/envelope3d.png" alt="e-mail"/>
-    </a>
+    {#each belt as {href, label, src}}
+        <a class="item" {href} target="_blank"
+            on:mouseenter={play} on:mouseleave={stop}>
+            <div class="label">{label}</div>
+            <img {src} alt={label}/>
+        </a>
+    {/each}
 </div>
 
 <style>

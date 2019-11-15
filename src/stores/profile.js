@@ -1,4 +1,5 @@
 export const content = []
+export let belt = []
 
 content[0] = [
     {
@@ -99,5 +100,38 @@ content[3] = [
         icon: "images/profile/dart.png",
         label: "Dart",
         description: ""
+    }
+]
+
+belt = [
+    {
+        href: 'https://www.youtube.com/watch?v=z9Uz1icjwrM',
+        label: 'Rock',
+        src: 'images/rock.png',
+    },
+    {
+        href: 'https://github.com/misterdev',
+        label: 'Github',
+        src: 'images/github3d.png'
+    },
+    {
+        href: 'https://twitter.com/misterdev_',
+        label: 'Twitter',
+        src: 'images/twitter3d2.png'
+    },
+    {
+        href: 'https://www.linkedin.com/in/misterdev',
+        label: 'Linkedin',
+        src: 'images/linkedin3d.png'
+    },
+    {
+        href: 'https://stackoverflow.com/users/4695325/devid-farinelli',
+        label: 'StackOverflow',
+        src: 'images/so3d.png'
+    },
+    {
+        href: 'mailto:devid.farinelli@gmail.com',
+        label: 'E-mail',
+        src: 'images/envelope3d.png'
     }
 ]

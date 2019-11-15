@@ -1,5 +1,6 @@
 <script>
     import { content } from '../stores/profile.js'
+    import { play, stop } from '../stores/audio.js'
     import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
     import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte'
 </script>
@@ -8,7 +9,7 @@
     {#each [...Array(4).keys()] as r}
         <div class="row">
             {#each [...Array(6).keys()] as c}
-                <div class="item">
+                <div class="item" on:mouseenter={play} on:mouseleave={stop}>
                     {#if content[r][c]}
                     <div class="label">{content[r][c].label}</div>
                     <img src={content[r][c].icon} alt={content[r][c].label}/>
