@@ -4,6 +4,7 @@
     import MdFolder from 'svelte-icons/md/MdFolder.svelte'
     import MdCasino from 'svelte-icons/md/MdCasino.svelte'
 
+    import { play, stop } from '../stores/audio.js'
     import { categories as cats, content } from '../stores/curriculum.js';
     import { navigation } from '../stores/navigation.js';
 
@@ -21,7 +22,8 @@
     <div 
         class="item"
         class:active={activeCat === cats.EXP.id}
-        on:click={() => selectCat(cats.EXP.id)}>
+        on:click={() => selectCat(cats.EXP.id)}
+        on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdBusinessCenter />
         </div>
@@ -31,7 +33,8 @@
     <div
         class="item"
         class:active={activeCat === cats.EDU.id}
-        on:click={() => selectCat(cats.EDU.id)}>
+        on:click={() => selectCat(cats.EDU.id)}
+        on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdSchool />
         </div>
@@ -41,7 +44,8 @@
     <div
         class="item"
         class:active={activeCat === cats.PROJ.id}
-        on:click={() => selectCat(cats.PROJ.id)}>
+        on:click={() => selectCat(cats.PROJ.id)}
+        on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdFolder />
         </div>
@@ -51,7 +55,8 @@
     <div
         class="item"
         class:active={activeCat === cats.MISC.id}
-        on:click={() => selectCat(cats.MISC.id)}>
+        on:click={() => selectCat(cats.MISC.id)}
+        on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdCasino />
         </div>

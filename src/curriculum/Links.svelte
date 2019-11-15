@@ -1,6 +1,7 @@
 <script>
     import { content } from '../stores/curriculum.js'
     import { navigation } from '../stores/navigation.js';
+    import { play, stop } from '../stores/audio.js'
 
     let links;
     navigation.subscribe(({cat, selected}) => {
@@ -15,7 +16,9 @@
         {#each links as {icon, url, label}}
             <a class="item"
                 href={url}
-                target="_blank">
+                target="_blank"
+                on:mouseenter={play}
+                on:mouseleave={stop}>
                 <div class="label">{label}</div>
                 <img src={icon} alt={'link'} />
             </a>

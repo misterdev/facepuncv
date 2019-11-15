@@ -8,7 +8,7 @@
 <div id="wrapper">
     {#each belt as {href, label, src}}
         <a class="item" {href} target="_blank"
-            on:mouseenter={play} on:mouseleave={stop}>
+           on:mouseenter={play} on:mouseleave={stop}>
             <div class="label">{label}</div>
             <img {src} alt={label}/>
         </a>

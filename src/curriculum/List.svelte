@@ -1,6 +1,7 @@
 <script>
     import { content } from '../stores/curriculum.js'
     import { navigation } from '../stores/navigation.js';
+    import { play, stop } from '../stores/audio.js'
 
     let items;
     let selected;
@@ -20,7 +21,9 @@
         <div
             class="item"
             class:active={selected === i}
-            on:click={() => selectItem(i)}>
+            on:click={() => selectItem(i)}
+            on:mouseenter={play}
+            on:mouseleave={stop}>
             <div class="label">{label}</div>
             <img src={icon} alt={label} />
         </div>
