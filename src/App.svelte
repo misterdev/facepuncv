@@ -20,12 +20,12 @@
 			`-webkit-filter: blur(${t * amount}px);`
 	});
 
-	export let name;
+	export let name
 	let src = 'videos/bg-1-2.mp4'
 	// let src = 'https://sveltejs.github.io/assets/caminandes-llamigos.mp4'
 	let poster = 'https://static.gamespot.com/uploads/original/1406/14063904/3353523-20180211195717_1.jpg'
-	let selected = Profile
-	navigation.subscribe(({profile}) => selected = profile ? Profile : Curriculum)
+	let showProfile
+	navigation.subscribe((nav) => showProfile = nav.profile )
 	let delay = 0//6000
 </script>
 
@@ -42,7 +42,8 @@
 			<NavButton />
 		</div>
 		<div id="component">
-			<svelte:component this={selected} />
+			<Profile show={showProfile} />
+			<Curriculum show={!showProfile} />
 		</div>
 		<div id="footer">
 			<Belt />

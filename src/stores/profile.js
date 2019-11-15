@@ -87,7 +87,12 @@ content[3] = [
     },
     {
         icon: "images/profile/rust.png",
-        label: "Rust",
+        label: "Rust (the language)",
+        description: ""
+    },
+    {
+        icon: "images/profile/rust-game.png",
+        label: "Rust (the game)",
         description: ""
     },
     {

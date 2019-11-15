@@ -3,14 +3,10 @@
     import Note from './Note.svelte'
     import Avatar from './Avatar.svelte'
     
-    const slide = (node, { delay = 0, duration = 100}) => ({
-            delay,
-            duration,
-            css: t => `left: -${(1 - t) * 50}%; opacity: ${t}`
-        })
+    export let show
 </script>
 
-<div id="wrapper" transition:slide>
+<div id="profile-w" class:active={show}>
     <div id="avatar">
         <Avatar />
     </div>
@@ -23,7 +19,7 @@
 </div>
 
 <style>
-    #wrapper {
+    #profile-w {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -31,6 +27,13 @@
         display: flex;
         flex-direction: row;
 		overflow: hidden;
+        left: -50%;
+        opacity: 0;
+        transition: left 200ms, opacity 200ms;
+    }
+    #profile-w.active {
+        left: 0%;
+        opacity: 1;
     }
     #avatar {
         z-index: 3;

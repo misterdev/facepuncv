@@ -5,16 +5,12 @@
     import Links from './Links.svelte'
     import Stats from './Stats.svelte'
 
-    const slide = (node, { delay = 0, duration = 100 }) => ({
-        delay,
-        duration,
-        css: t => `right: -${(1 - t) * 50}%; opacity: ${t}`
-    })
+    export let show
 </script>
 
  <!-- https://www.youtube.com/watch?v=tJ3nGtooxoM&t=656s -->
  <!-- http://i.imgur.com/NxpJaq4.jpg -->
-<div id="wrapper" transition:slide>
+<div id="curriculum-w" class:active={show}>
     <div id="content">
         <div id="categories">
             <Categories />
@@ -36,7 +32,7 @@
 </div>
 
 <style>
-    #wrapper {
+    #curriculum-w {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -45,6 +41,13 @@
         padding-bottom:  9.61%;
         padding-left: 5.76%;
         box-sizing: border-box;
+        right: -50%;
+        opacity: 0;
+        transition: right 200ms, opacity 200ms;
+    }
+    #curriculum-w.active {
+        right: 0%;
+        opacity: 1;
     }
     #content > div {
         background-color: rgba(115, 115, 114, 0.42);

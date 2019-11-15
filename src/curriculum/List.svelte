@@ -66,7 +66,7 @@
         color: white;
         padding: 2px 4px;
         border-radius: 1px;
-        transform: translateY(-270%) scale(0.5, 0);
+        transform: translateY(-270%) scale(1, 0);
     }
     .item:hover .label {
         -webkit-animation: show 200ms 1;
