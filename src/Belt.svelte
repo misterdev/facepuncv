@@ -37,12 +37,12 @@
         padding-top: 100%;
     }
     img {
-        width: 90%;
+        width: 80%;
         opacity: .8;
     }
     .item:hover {
-        -webkit-animation: pulse 200ms 1;
-        animation: pulse 200ms 1;
+        -webkit-animation: pulse 100ms 1;
+        animation: pulse 100ms 1;
     }
     .label {
         position: absolute;
@@ -57,13 +57,5 @@
         -webkit-animation: show 200ms 1;
         animation: show 200ms 1;
         transform: translateY(-180%) scale(1, 1);
-    }
-    @keyframes show {
-        0% {
-            transform: translateY(-180%) scale(1, 0);
-        }
-        100% {
-            transform: translateY(-180%) scale(1, 1);
-        }
     }
 </style>

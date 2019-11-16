@@ -72,8 +72,8 @@
         transform: translateY(-270%) scale(1, 0);
     }
     .item:hover .label {
-        -webkit-animation: show 200ms 1;
-        animation: show 200ms 1;
+        -webkit-animation: big-show 200ms 1;
+        animation: big-show 200ms 1;
         transform: translateY(-270%) scale(1, 1);
     }
 </style>

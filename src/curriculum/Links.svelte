@@ -59,13 +59,11 @@
     }
     .item:hover {
         background-color: rgba(255,255,255,.2);
+        -webkit-animation: pulse 100ms 1;
+        animation: pulse 100ms 1;
     }
     .item > img {
         max-width: 60%;
-    }
-    .item:hover > img {
-        -webkit-animation: pulse 1s 1;
-        animation: pulse 1s 1;
     }
     .label {
         position: absolute;
@@ -77,8 +75,8 @@
         transform: translateY(-270%) scale(1, 0);
     }
     .item:hover > .label {
-        -webkit-animation: show 200ms 1;
-        animation: show 200ms 1;
+        -webkit-animation: big-show 200ms 1;
+        animation: big-show 200ms 1;
         transform: translateY(-270%) scale(1, 1);
     }
 </style>

@@ -58,7 +58,7 @@
         padding-top: 100%;
     }
     img {
-        width: 80%;
+        width: 70%;
         opacity: .8;
     }
     .item:hover {
@@ -79,12 +79,4 @@
         animation: show 200ms 1;
         transform: translateY(-180%) scale(1, 1);
     }
-    @keyframes show {
-	0% {
-		transform: translateY(-180%) scale(.5, 0);
-	}
-	100% {
-		transform: translateY(-180%) scale(1, 1);
-	}
-}
 </style>

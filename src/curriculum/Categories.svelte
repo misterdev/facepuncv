@@ -89,8 +89,8 @@
         color: #DCD5CC;
     }
     .item:not(.active):hover {
-        -webkti-animation: pulse 200ms 1;
-        animation: pulse 200ms 1;
+        -webkti-animation: pulse 100ms 1;
+        animation: pulse 100ms 1;
     }
     .icon {
         width: 1.2vw;

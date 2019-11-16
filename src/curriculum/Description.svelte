@@ -21,13 +21,17 @@
                     <div class="icon">
                         <MdAccessTime />
                     </div>
-                    {item.date.start}
+                    <span class="date">
+                        {item.date.start}
+                    </span>
                 </div>
                 <div id="end">
                     <div class="icon">
                         <MdAlarm />
                     </div>
-                    {item.date.end}
+                    <span class="date">
+                        {item.date.end}
+                    </span>
                 </div>
             </div>
         {/if}
@@ -64,14 +68,14 @@
         position: absolute;
         right: 2px;
         top: 2px;
-        width: 20%;
+        width: 13%;
         height: 2%;
         opacity: .6;
         display: flex;
         flex-direction: column;
     }
     #time div.icon {
-        width: 15%;
+        width: 24%;
         margin-right: 4px;
     }
     #time > div {
@@ -84,5 +88,8 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+    .date {
+        font-size: 1.4em;
     }
 </style>

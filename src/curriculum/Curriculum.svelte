@@ -43,7 +43,7 @@
         box-sizing: border-box;
         right: -50%;
         opacity: 0;
-        transition: right 200ms, opacity 200ms;
+        transition: right 100ms, opacity 100ms;
     }
     #curriculum-w.active {
         right: 0%;
