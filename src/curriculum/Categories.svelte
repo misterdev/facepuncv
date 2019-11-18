@@ -54,6 +54,17 @@
     </div>
     <div
         class="item"
+        class:active={activeCat === cats.PRES.id}
+        on:click={() => selectCat(cats.PRES.id)}
+        on:mouseenter={play} on:mouseleave={stop}>
+        <div class="icon">
+            <MdCasino />
+        </div>
+        <div><b>{cats.PRES.id}</b></div>
+        <div class="counter"><b>7</b></div>
+    </div>
+    <div
+        class="item"
         class:active={activeCat === cats.MISC.id}
         on:click={() => selectCat(cats.MISC.id)}
         on:mouseenter={play} on:mouseleave={stop}>

@@ -1,30 +1,43 @@
 export const categories = {
     EXP: {
         id: 'EXPERIENCE',
-        label: 'Experience',
         count: 4,
     },
     EDU: {
         id: 'EDUCATION',
-        label: 'Education',
         count: 3,
     },
     PROJ: {
         id: 'PROJECTS',
-        label: 'Projects',
+        count: 5,
+    },
+    PRES: {
+        id: 'PRESENTATIONS',
         count: 5,
     },
     MISC: {
         id: 'MISC',
-        label: 'Misc',
         count: 3,
     }
 }
 
+export let queue = [
+    {
+        label: "MASTER GRADUATION",
+        icon: "images/webpack.png",
+        date: "Feb 20"
+    },
+    {
+        label: "FINAL THESIS",
+        icon: "images/webpack.png",
+        date: "Feb 20"
+    }
+]
+
 export let content = {}
 content.EXPERIENCE = [
     {
-        label: "Webpack",
+        label: "WEBPACK",
         icon: "images/webpack.png",
         date: {
             start: "Dec 18",
@@ -41,22 +54,22 @@ content.EXPERIENCE = [
             {
                 icon: "images/github.png",
                 url: "https://github.com/misterdev/webpack-reporter-plugin",
-                label: "Project Repo"
+                label: "PROJECT REPO"
             },
             {
                 icon: "images/medium.png",
                 url: "https://medium.com/webpack/summer-2019-with-webpack-840c7f7b97c4",
-                label: "Presentation Article"
+                label: "PRESENTATION ARTICLE"
             },
             {
                 icon: "images/medium.png",
                 url: "https://medium.com/webpack/summer-2019-with-webpack-5cd3ddbc9a05",
-                label: "Final Article"
+                label: "FINAL ARTICLE"
             },
             {
                 icon: "images/gsoc.png",
                 url: "https://summerofcode.withgoogle.com/",
-                label: "GSoC Website"
+                label: "GSOC WEBSITE"
             }
         ],
         stats: [
@@ -79,7 +92,7 @@ content.EXPERIENCE = [
         ]
     },
     {
-        label: "Lay Lab",
+        label: "LAY LAB",
         icon: "images/laylab.png",
         date: {
             start: "Oct 15",
@@ -96,7 +109,7 @@ content.EXPERIENCE = [
             {
                 icon: "images/laylab.png",
                 url: "https://github.com/misterdev/webpack-reporter-plugin",
-                label: "Company Website"
+                label: "COMPANY WEBSITE"
             }
         ],
         stats: [
@@ -127,7 +140,7 @@ content.EXPERIENCE = [
         ]
     },
     {
-        label: "MIT App Inventor",
+        label: "MIT APP INVENTOR",
         icon: "images/appinventor.png",
         date: {
             start: "Jun 15",
@@ -144,12 +157,12 @@ content.EXPERIENCE = [
             {
                 icon: "images/gsoc.png",
                 url: "https://www.google-melange.com/archive/gsoc/2015/orgs/media/projects/misterdev.html",
-                label: "GSoC Website"
+                label: "GSOC WEBSITE"
             },
             {
                 icon: "images/gdoc.png",
                 url: "https://docs.google.com/document/d/1nzdrNGGjEptc7phiU6JOuV8UQTZRNH_0Ve8lukBIZuI",
-                label: "Overview"
+                label: "OVERVIEW"
             }
         ],
         stats: [
@@ -189,7 +202,7 @@ content.EXPERIENCE = [
 
 content.EDUCATION = [
     {
-        label: "CS Master",
+        label: "CS MASTER",
         icon: "images/alma.png",
         date: {
             start: "Sep 16",
@@ -232,7 +245,7 @@ content.EDUCATION = [
         ]
     },
     {
-        label: "CS Bachelor",
+        label: "CS BACHELOR",
         icon: "images/alma.png",
         date: {
             start: "Sep 12",
@@ -261,7 +274,7 @@ content.EDUCATION = [
         ]
     },
     {
-        label: "IT Degree",
+        label: "IT DIPLOMA",
         icon: "images/itis.png",
         date: {
             start: "Sep 07",
@@ -270,7 +283,7 @@ content.EDUCATION = [
         description: `
         <p><b>ITIS Odone Belluzzi</p></b>
 
-        Bachelor degree in Computer Science</br>
+        Secondary School Diploma in IT</br>
         Score 86/100        
         `,
         links: [],
@@ -289,7 +302,7 @@ content.EDUCATION = [
 
 content.PROJECTS = [
     {
-        label: "Mesopotamia Jones",
+        label: "MESOPOTAMIA JONES",
         icon: "images/mj.png",
         date: {
             start: "Jul 17",
@@ -300,12 +313,12 @@ content.PROJECTS = [
             {
                 icon: "images/mj.png",
                 url: "https://loopingdoge.github.io/mesopotamia-jones",
-                label: "Website"
+                label: "WEBSITE"
             },
             {
                 icon: "images/github.png",
                 url: "https://github.com/loopingdoge/mesopotamia-jones",
-                label: "Project Repo"
+                label: "PROJECT REPO"
             }
         ],
         stats: [
@@ -332,7 +345,7 @@ content.PROJECTS = [
         ]
     },
     {
-        label: "Wowtaria",
+        label: "WOWTARIA",
         icon: "images/ld.png",
         date: {
             start: "Jan 14",
@@ -346,12 +359,12 @@ content.PROJECTS = [
             {
                 icon: "images/ld.png",
                 url: "http://ltw1423.web.cs.unibo.it/",
-                label: "Website"
+                label: "WEBSITE"
             },
             {
                 icon: "images/github.png",
                 url: "https://github.com/loopingdoge/wowtaria.git",
-                label: "Project Repo"
+                label: "PROJECT REPO"
             }
         ],
         stats: [
@@ -374,7 +387,7 @@ content.PROJECTS = [
         ]
     },
     {
-        label: "SensorSpeak",
+        label: "SENSORSPEAK",
         icon: "images/alexa.png",
         date: {
             start: "Jan 19",
@@ -388,7 +401,7 @@ content.PROJECTS = [
             {
                 icon: "images/github.png",
                 url: "https://github.com/misterdev/sensorspeak",
-                label: "Project Repo"
+                label: "PROJECT REPO"
             }
         ],
         stats: [
@@ -411,7 +424,7 @@ content.PROJECTS = [
         ]
     },
     {
-        label: "Ethereum Galaxy",
+        label: "ETHEREUM GALAXY",
         icon: "images/ld.png",
         date: {
             start: "Mar 18",
@@ -426,12 +439,12 @@ content.PROJECTS = [
             {
                 icon: "images/ld.png",
                 url: "http://www.devid.io/ethereum-galaxy/",
-                label: "Website"
+                label: "WEBSITE"
             },
             {
                 icon: "images/github.png",
                 url: "https://github.com/loopingdoge/ethereum-galaxy",
-                label: "Project Repo"
+                label: "PROECT REPO"
             }
         ],
         stats: [
@@ -458,7 +471,7 @@ content.PROJECTS = [
         ]
     },
     {
-        label: "[WIP] Mind Palace",
+        label: "[WIP] MIND PALACE",
         icon: "images/ld.png",
         description: `
         A WIP 3D mnemonic device, developed using Aframe and webpack. </br>
@@ -467,7 +480,7 @@ content.PROJECTS = [
             {
                 icon: "images/ld.png",
                 url: "http://www.devid.io/mind-palace/",
-                label: "Website"
+                label: "WEBSITE"
             }
         ],
         stats: [
@@ -479,9 +492,104 @@ content.PROJECTS = [
     },
 ]
 
+content.PRESENTATIONS = [
+    {
+        label: "DARTLANG OVERVIEW",
+        icon: "images/profile/dart.png",
+        description: `
+        TODO
+        `,
+        links: [
+            {
+                icon: "images/gslides.png",
+                url: "https://docs.google.com/presentation/d/1NCymVWktSoUsZ4rsjR3rN8XXyDDODzxRVD63PKUqpuM",
+                label: "SLIDES"
+            },
+        ],
+        stats: [
+            {
+                label: 'Dart',
+                count: 'Almost everything about'
+            }
+        ]
+    },
+    {
+        label: "FLUTTER",
+        icon: "images/profile/dart.png",
+        description: `
+        TODO
+        `,
+        links: [
+            {
+                icon: "images/gslides.png",
+                url: "https://docs.google.com/presentation/d/1qgDBWO59F1qPMsLaMF2ByFWGJaHWldYdkagDL5BvdPk/",
+                label: "SLIDES"
+            },
+        ],
+        stats: [
+            {
+                label: 'Hibryd Frameworks',
+                count: 'How are implemented'
+            }
+        ]
+    },
+    {
+        label: "BLOCKCHAIN APPLICATIONS",
+        icon: "images/profile/dart.png",
+        description: `
+        TODO
+        `,
+        links: [
+            {
+                icon: "images/gslides.png",
+                url: "https://docs.google.com/presentation/d/1nndT6NgdV06IRuf_CMwRHHQxpaJgGe1pb9f-YpB2lkc",
+                label: "SLIDES"
+            },
+        ],
+        stats: [
+            {
+                label: 'Blockchain',
+                count: '1500'
+            },
+            {
+                label: '€ Lost while trading',
+                count: '300'
+            }
+        ]
+    },
+    {
+        label: "GOOGLE I/O WEB NEWS",
+        icon: "images/profile/dart.png",
+        description: `
+        TODO
+        `,
+        links: [
+            {
+                icon: "images/gslides.png",
+                url: "https://docs.google.com/presentation/d/1B6qLC-8F_93nQu7agUzkoK_eUW89zL4GNbUh02RPIN8",
+                label: "SLIDES"
+            },
+        ],
+        stats: [
+            {
+                label: 'WEB API',
+                count: '800'
+            },
+            {
+                label: 'WebAssembly',
+                count: '500'
+            },
+            {
+                label: 'PWA',
+                count: '300'
+            }
+        ]
+    }
+]
+
 content.MISC = [
     {
-        label: "Medium Articles",
+        label: "MEDIUM ARTICLES",
         icon: "images/medium.png",
         description: `
         I wrote some articles on Medium about Webpack
@@ -511,7 +619,7 @@ content.MISC = [
         ]
     },
     {
-        label: "Stack Overflow",
+        label: "STACKOVERFLOW",
         icon: "images/so.png",
         description: `
         I used to answer questions on Stack Overflow, mostly about Firebase and Javascript
@@ -520,7 +628,7 @@ content.MISC = [
             {
                 icon: "images/so.png",
                 url: "https://stackoverflow.com/users/4695325/devid-farinelli",
-                label: "StackOverflow Profile"
+                label: "MY PROFILE"
             }
         ],
         stats: [
@@ -540,7 +648,7 @@ content.MISC = [
             {
                 icon: "images/metup.png",
                 url: "https://www.meetup.com/gdgbologna/",
-                label: "GDG Bologna"
+                label: "GDG BOLOGNA"
             },
             {
                 icon: "images/GDGBO.png",
@@ -564,7 +672,7 @@ content.MISC = [
         ]
     },
     {
-        label: "Video Editing",
+        label: "VIDEO EDITING",
         icon: "images/youtube.ico",
         description: `
         I wanted to learn how to make video editing and english voice over.</br> 

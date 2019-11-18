@@ -4,32 +4,32 @@ export let belt = []
 content[0] = [
     {
         icon: "images/profile/node.png",
-        label: "NodeJS",
+        label: "NODEJS",
         description: ""
     },
     {
         icon: "images/profile/js.png",
-        label: "Javascript",
+        label: "JAVASCRIPT",
         description: ""
     },
     {
         icon: "images/profile/ts.png",
-        label: "TypeScript",
+        label: "TYPESCRIPT",
         description: ""
     },
     {
         icon: "images/profile/react.png",
-        label: "React",
+        label: "REACT",
         description: ""
     },
     {
         icon: "images/profile/svelte.png",
-        label: "Svelte",
+        label: "SVELTE",
         description: ""
     },
     {
         icon: "images/profile/three.png",
-        label: "Three",
+        label: "THREEJS",
         description: ""
     }
 ]
@@ -37,7 +37,7 @@ content[0] = [
 content[1] = [
     {
         icon: "images/profile/firebase.png",
-        label: "Firebase",
+        label: "FIREBASE",
         description: ""
     },
     {
@@ -52,7 +52,7 @@ content[1] = [
     },
     {
         icon: "images/profile/alexa.png",
-        label: "Alexa",
+        label: "ALEXA SDK",
         description: ""
     }
 ]
@@ -60,17 +60,17 @@ content[1] = [
 content[2] = [
     {
         icon: "images/profile/travis.png",
-        label: "Travis CI",
+        label: "TRAVIS CI",
         description: ""
     },
     {
         icon: "images/profile/azure.png",
-        label: "Azure Pipelines",
+        label: "AZURE PIPELINES",
         description: ""
     },
     {
         icon: "images/profile/git.png",
-        label: "git",
+        label: "GIT",
         description: ""
     }
 ]
@@ -78,7 +78,7 @@ content[2] = [
 content[3] = [
     {
         icon: "images/profile/python.png",
-        label: "Python",
+        label: "PYTHON",
         description: ""
     },
     {
@@ -88,17 +88,17 @@ content[3] = [
     },
     {
         icon: "images/profile/rust.png",
-        label: "Rust (the language)",
+        label: "RUST (THE LANG)",
         description: ""
     },
     {
         icon: "images/profile/rust-game.png",
-        label: "Rust (the game)",
+        label: "RUST (THE GAME)",
         description: ""
     },
     {
         icon: "images/profile/dart.png",
-        label: "Dart",
+        label: "DART",
         description: ""
     }
 ]
@@ -106,32 +106,32 @@ content[3] = [
 belt = [
     {
         href: 'https://www.youtube.com/watch?v=z9Uz1icjwrM',
-        label: 'Rock',
+        label: 'ROCK',
         src: 'images/rock.png',
     },
     {
         href: 'https://github.com/misterdev',
-        label: 'Github',
+        label: 'GITHUB',
         src: 'images/github3d.png'
     },
     {
         href: 'https://twitter.com/misterdev_',
-        label: 'Twitter',
+        label: 'TWITTER',
         src: 'images/twitter3d2.png'
     },
     {
         href: 'https://www.linkedin.com/in/misterdev',
-        label: 'Linkedin',
+        label: 'LINKEDIN',
         src: 'images/linkedin3d.png'
     },
     {
         href: 'https://stackoverflow.com/users/4695325/devid-farinelli',
-        label: 'StackOverflow',
+        label: 'STACKOVERFLOW',
         src: 'images/so3d.png'
     },
     {
         href: 'mailto:devid.farinelli@gmail.com',
-        label: 'E-mail',
+        label: 'E-MAIL',
         src: 'images/envelope3d.png'
     }
 ]

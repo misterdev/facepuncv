@@ -58,7 +58,7 @@
         padding-top:100%;
     }
     .item:hover {
-        background-color: rgba(255,255,255,.2);
+        background-color: rgb(99,126,63);
         -webkit-animation: pulse 100ms 1;
         animation: pulse 100ms 1;
     }

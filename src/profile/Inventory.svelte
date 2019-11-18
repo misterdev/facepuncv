@@ -94,6 +94,7 @@
     .item:hover {
         -webkit-animation: pulse 100ms 1;
         animation: pulse 100ms 1;
+        cursor: move;
     }
     .label {
         transform: translateY(-180%) scale(1, 0);
