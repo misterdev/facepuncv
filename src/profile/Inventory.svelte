@@ -12,13 +12,6 @@
         }
     }
 
-    const switchI = () => {
-        console.log('ciao')
-        let temp = inventory[0][0] 
-        inventory[0][0] = inventory[0][1]
-        inventory[0][1] = temp
-    }
-
     let draggedItem
     const dragstart = (r, c) => {
         return () => {
@@ -44,7 +37,6 @@
                     draggable="true"
                     on:mouseenter={play}
                     on:mouseleave={stop}
-                    on:click={switchI}
                     on:dragover|preventDefault
                     on:drop|preventDefault={drop(r,c)} 
                     on:dragstart={dragstart(r, c)}>
@@ -104,12 +96,6 @@
         animation: pulse 100ms 1;
     }
     .label {
-        position: absolute;
-        text-align: center;
-        background-color: #4184B7;
-        color: white;
-        padding: 2px 4px;
-        border-radius: 1px;
         transform: translateY(-180%) scale(1, 0);
     }
     .item:hover .label {

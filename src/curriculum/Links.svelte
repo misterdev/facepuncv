@@ -66,12 +66,6 @@
         max-width: 60%;
     }
     .label {
-        position: absolute;
-        text-align: center;
-        background-color: #4184B7;
-        color: white;
-        padding: 2px 4px;
-        border-radius: 1px;
         transform: translateY(-270%) scale(1, 0);
     }
     .item:hover > .label {
