@@ -3,16 +3,54 @@
     import { play, stop } from '../stores/audio.js'
     import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
     import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte'
+
+    let inventory = []
+    for (let r = 0; r < 4; r++) {
+        inventory[r] = []
+        for (let c = 0; c < 6; c++) {
+            inventory[r][c] = content[r][c]
+        }
+    }
+
+    const switchI = () => {
+        console.log('ciao')
+        let temp = inventory[0][0] 
+        inventory[0][0] = inventory[0][1]
+        inventory[0][1] = temp
+    }
+
+    let draggedItem
+    const dragstart = (r, c) => {
+        return () => {
+            draggedItem = {r, c}
+        }
+    }
+    const drop = (toR, toC) => {
+        return () => {
+            let {r, c} = draggedItem
+            let temp = inventory[r][c] 
+            inventory[r][c] = inventory[toR][toC]
+            inventory[toR][toC] = temp
+            draggedItem = null
+        }
+    }
 </script>
 
 <div id="wrapper">
-    {#each [...Array(4).keys()] as r}
+    {#each inventory as row, r}
         <div class="row">
-            {#each [...Array(6).keys()] as c}
-                <div class="item" on:mouseenter={play} on:mouseleave={stop}>
-                    {#if content[r][c]}
-                    <div class="label">{content[r][c].label}</div>
-                    <img src={content[r][c].icon} alt={content[r][c].label}/>
+            {#each row as item, c}
+                <div class="item"
+                    draggable="true"
+                    on:mouseenter={play}
+                    on:mouseleave={stop}
+                    on:click={switchI}
+                    on:dragover|preventDefault
+                    on:drop|preventDefault={drop(r,c)} 
+                    on:dragstart={dragstart(r, c)}>
+                    {#if item}
+                    <div class="label">{item.label}</div>
+                    <img src={item.icon} alt={item.label}/>
                     {/if}
                 </div>
             {/each}
