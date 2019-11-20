@@ -1,4 +1,7 @@
 <script>
+    import { navigation } from '../stores/navigation.js';
+    import { content } from '../stores/curriculum.js'
+
     import Categories from './Categories.svelte'
     import List from './List.svelte'
     import Description from './Description.svelte'
@@ -6,12 +9,17 @@
     import Stats from './Stats.svelte'
 
     export let show
+
+    let showLinks
+    navigation.subscribe(({cat, selected}) => {
+        showLinks = content[cat][selected].links.length > 0
+    })
 </script>
 
  <!-- https://www.youtube.com/watch?v=tJ3nGtooxoM&t=656s -->
  <!-- http://i.imgur.com/NxpJaq4.jpg -->
 <div id="curriculum-w" class:active={show}>
-    <div id="content">
+    <div id="content" class={ showLinks ? '' : 'hide-links'}>
         <div id="categories">
             <Categories />
         </div>
@@ -22,9 +30,11 @@
             <Description />
         </div>
         <div id="queue"></div>
-        <div id="links">
-            <Links />
-        </div>
+        {#if showLinks}
+            <div id="links">
+                <Links />
+            </div>
+        {/if}
         <div id="stats">
             <Stats />
         </div>
@@ -96,5 +106,18 @@
             "queu queu queu queu stat stat stat stat";
         grid-column-gap: .29%;
         grid-row-gap: .7%;
+    }
+    #content.hide-links {
+        grid-template-areas: 
+            "cats list list list desc desc desc desc"
+            "cats list list list desc desc desc desc"
+            "cats list list list desc desc desc desc"
+            "cats list list list desc desc desc desc"
+            "cats list list list desc desc desc desc"
+            "cats list list list desc desc desc desc"
+            "cats list list list stat stat stat stat"
+            "cats list list list stat stat stat stat"
+            "queu queu queu queu stat stat stat stat";
+
     }
 </style>

@@ -1,6 +1,6 @@
 <script>
     import { content } from '../stores/curriculum.js'
-    import { navigation } from '../stores/navigation.js';
+    import { navigation } from '../stores/navigation.js'
     import { play, stop } from '../stores/audio.js'
 
     let links;
