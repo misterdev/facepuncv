@@ -4,6 +4,7 @@ html, body {
 	height: 100%;
 	font-family: 'Roboto', sans-serif;
 	color: #DCD5CC;
+	overflow: hidden;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0px;
+	background-color: black;
 	-webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
@@ -23,12 +25,25 @@ body {
 	font-size: 1vw;
 }
 
+.label {
+	position: absolute;
+	text-align: center;
+	background-color: #226692;
+	color: #8fc6e8;
+	font-weight: bold;
+	padding: 4px 6px;
+	border-radius: 1px;
+	-webkit-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
+	box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
+}
+
 /* ANIMATIONS */
 @keyframes pulse {
 	0% {
 		transform: scale(1);
 	}
-	10% {
+	50% {
 		transform: scale(1.1);
 	}
 	100% {
@@ -36,11 +51,26 @@ body {
 	}
 }
 
-@keyframes show {
+@keyframes big-show {
 	0% {
-		transform: translateY(-250%) scale(.5, 0);
+		transform: translateY(-270%) scale(1, 0);
+	}
+	50% {
+		transform: translateY(-270%) scale(1, 0);
 	}
 	100% {
-		transform: translateY(-250%) scale(1, 1);
+		transform: translateY(-270%) scale(1, 1);
+	}
+}
+
+@keyframes show {
+	0% {
+		transform: translateY(-180%) scale(1, 0);
+    }
+    50% {
+		transform: translateY(-180%) scale(1, 0);
+    }
+	100% {
+		transform: translateY(-180%) scale(1, 1);
 	}
 }
