@@ -1,109 +1,87 @@
-export const content = []
-export let belt = []
+import { writable } from 'svelte/store'
 
+const content = []
 content[0] = [
     {
-        icon: "images/profile/node.png",
-        label: "NODEJS",
-        description: ""
+        src: "images/profile/node.png",
+        label: "NODEJS"
     },
     {
-        icon: "images/profile/js.png",
-        label: "JAVASCRIPT",
-        description: ""
+        src: "images/profile/js.png",
+        label: "JAVASCRIPT"
     },
     {
-        icon: "images/profile/ts.png",
-        label: "TYPESCRIPT",
-        description: ""
+        src: "images/profile/ts.png",
+        label: "TYPESCRIPT"
     },
     {
-        icon: "images/profile/react.png",
-        label: "REACT",
-        description: ""
+        src: "images/profile/react.png",
+        label: "REACT"
     },
     {
-        icon: "images/profile/svelte.png",
-        label: "SVELTE",
-        description: ""
+        src: "images/profile/svelte.png",
+        label: "SVELTE"
     },
     {
-        icon: "images/profile/three.png",
-        label: "THREEJS",
-        description: ""
+        src: "images/profile/three.png",
+        label: "THREEJS"
     }
 ]
-
 content[1] = [
     {
-        icon: "images/profile/firebase.png",
-        label: "FIREBASE",
-        description: ""
+        src: "images/profile/firebase.png",
+        label: "FIREBASE"
     },
     {
-        icon: "images/profile/gcp.png",
-        label: "GCP",
-        description: ""
+        src: "images/profile/gcp.png",
+        label: "GCP"
     },
     {
-        icon: "images/profile/aws.png",
-        label: "AWS",
-        description: ""
+        src: "images/profile/aws.png",
+        label: "AWS"
     },
     {
-        icon: "images/profile/alexa.png",
-        label: "ALEXA SDK",
-        description: ""
+        src: "images/profile/alexa.png",
+        label: "ALEXA SDK"
     }
 ]
-
 content[2] = [
     {
-        icon: "images/profile/travis.png",
-        label: "TRAVIS CI",
-        description: ""
+        src: "images/profile/travis.png",
+        label: "TRAVIS CI"
     },
     {
-        icon: "images/profile/azure.png",
-        label: "AZURE PIPELINES",
-        description: ""
+        src: "images/profile/azure.png",
+        label: "AZURE PIPELINES"
     },
     {
-        icon: "images/profile/git.png",
-        label: "GIT",
-        description: ""
+        src: "images/profile/git.png",
+        label: "GIT"
     }
 ]
-
 content[3] = [
     {
-        icon: "images/profile/python.png",
-        label: "PYTHON",
-        description: ""
+        src: "images/profile/python.png",
+        label: "PYTHON"
     },
     {
-        icon: "images/profile/c++.png",
-        label: "C++",
-        description: ""
+        src: "images/profile/c++.png",
+        label: "C++"
     },
     {
-        icon: "images/profile/rust.png",
-        label: "RUST (THE LANG)",
-        description: ""
+        src: "images/profile/rust.png",
+        label: "RUST (THE LANG)"
     },
     {
-        icon: "images/profile/rust-game.png",
-        label: "RUST (THE GAME)",
-        description: ""
+        src: "images/profile/rust-game.png",
+        label: "RUST (THE GAME)"
     },
     {
-        icon: "images/profile/dart.png",
-        label: "DART",
-        description: ""
+        src: "images/profile/dart.png",
+        label: "DART"
     }
 ]
-
-belt = [
+content[4] = [
     {
         href: 'https://www.youtube.com/watch?v=z9Uz1icjwrM',
         label: 'ROCK',
@@ -135,3 +113,30 @@ belt = [
         src: 'images/envelope3d.png'
     }
 ]
+
+let items = []
+let draggedItem
+for (let r = 0; r < 5; r++) {
+    items[r] = []
+    for (let c = 0; c < 6; c++) {
+        items[r][c] = content[r][c]
+    }
+}
+
+export const inventory = writable(items)
+export const dragstart = (r, c) => {
+    return () => {
+        draggedItem = {r, c}
+    }
+}
+export const drop = (toR, toC) => {
+    return () =>
+        inventory.update((inv) => {
+            let {r, c} = draggedItem
+            let temp = inv[r][c] 
+            inv[r][c] = inv[toR][toC]
+            inv[toR][toC] = temp
+            draggedItem = null
+            return inv
+        })
+}

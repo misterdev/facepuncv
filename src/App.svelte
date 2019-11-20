@@ -11,12 +11,12 @@
 	let poster = 'https://static.gamespot.com/uploads/original/1406/14063904/3353523-20180211195717_1.jpg'
 	
 	let showProfile
-	let delay = 6000
 	navigation.subscribe((nav) => showProfile = nav.profile)
 
 	let intro
 	let bg
 	let content
+
 	const playBg = () => {
 		bg.play();
 		setTimeout(() => {
@@ -44,7 +44,7 @@
 	<div class="rateo16-9">
 		<video id="bg" src={bgSrc} {poster} muted bind:this={bg} />
 	</div>
-	<div id="content" class="rateo16-9 hidden" bind:this={content}>
+	<div id="content" class="rateo16-9 " bind:this={content}>
 		<div id="header">
 			<NavButton />
 		</div>

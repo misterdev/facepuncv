@@ -1,17 +1,17 @@
 <script>
     import { play, stop } from './stores/audio.js'
-    import { belt } from './stores/profile.js'
+    import { inventory, drop, dragstart } from './stores/profile.js'
+    import Item from './components/Item.svelte'
     import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
     import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte'
+
+    let belt
+    inventory.subscribe((i) => belt = i[4])
 </script>
 
 <div id="wrapper">
-    {#each belt as {href, label, src}}
-        <a class="item" {href} target="_blank"
-           on:mouseenter={play} on:mouseleave={stop}>
-            <div class="label">{label}</div>
-            <img {src} alt={label}/>
-        </a>
+    {#each belt as item, i}
+        <Item r="4" c={i} {...item} />
     {/each}
 </div>
 
@@ -21,35 +21,5 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-    }
-    .item {
-        height: 100%;
-        width: 4.4%;
-        margin: 0.14%;
-        background-color: rgba(255, 255, 255, .08);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 4px;
-    }
-    .item:after {
-        content: '';
-        padding-top: 100%;
-    }
-    img {
-        width: 80%;
-        opacity: .8;
-    }
-    .item:hover {
-        -webkit-animation: pulse 100ms 1;
-        animation: pulse 100ms 1;
-    }
-    .label {
-        transform: translateY(-180%) scale(1, 0);
-    }
-    .item:hover .label {
-        -webkit-animation: show 200ms 1;
-        animation: show 200ms 1;
-        transform: translateY(-180%) scale(1, 1);
     }
 </style>
