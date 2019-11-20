@@ -12,15 +12,17 @@
 	
 	let showProfile
 	let delay = 6000
-	navigation.subscribe((nav) => showProfile = nav.profile )
+	navigation.subscribe((nav) => showProfile = nav.profile)
 
 	let intro
 	let bg
+	let content
 	const playBg = () => {
 		bg.play();
 		setTimeout(() => {
-			intro.remove()
+			content.classList.remove("hidden")
 			bg.style.opacity = 1
+			intro.remove()
 		}, 100)
 	}
 
@@ -36,11 +38,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
 <div class="wrapper">
-	<div id="video-wrapper" class="rateo16-9">
+	<div class="rateo16-9">
 		<video src={introSrc} {poster} autoplay muted on:ended={playBg}  bind:this={intro}/>
+	</div>
+	<div class="rateo16-9">
 		<video id="bg" src={bgSrc} {poster} muted bind:this={bg} />
 	</div>
-	<div id="content" transition:appear={{delay}} class="rateo16-9">
+	<div id="content" class="rateo16-9 hidden" bind:this={content}>
 		<div id="header">
 			<NavButton />
 		</div>
@@ -68,13 +72,12 @@
 		height: 100%;
 		transform: scale(1.05);
 	}
-	#video-wrapper {
-		overflow: hidden;
-	}
 	#bg {
 		opacity: 0;
 	}
 	.rateo16-9 {
+		position: absolute;
+		overflow: hidden;
 		width: 100vw;
 		height: 56.25vw;
 		max-width: 177.78vh;
@@ -84,6 +87,14 @@
 		position: absolute;
 		background-color: rgba(0,0,0,.5);
 		overflow: hidden;
+        left: 0%;
+        opacity: 1;
+        transition: left 200ms, opacity 200ms, background-color 1000ms;
+	}
+	#content.hidden {
+        left: -50%;
+        opacity: 0;
+		background-color: rgba(0,0,0,0);
 	}
 	#header {
 		position: absolute;
