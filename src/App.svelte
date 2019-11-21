@@ -87,12 +87,12 @@
 		position: absolute;
 		background-color: rgba(0,0,0,.5);
 		overflow: hidden;
-        left: 0%;
         opacity: 1;
-        transition: left 200ms, opacity 200ms, background-color 1000ms;
+		transform: translateX(0%);
+        transition: transform 200ms, opacity 200ms, background-color 1000ms;
 	}
 	#content.hidden {
-        left: -50%;
+		transform: translateX(-50%);
         opacity: 0;
 		background-color: rgba(0,0,0,0);
 	}
