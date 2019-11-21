@@ -1,5 +1,5 @@
 <script>
-    import { inventory, drop, dragstart } from '../stores/profile.js'
+    import { inventory, drop, dragstart } from '../stores/inventory.js'
     import { play, stop } from '../stores/audio.js'
 
     export let src = null, label = '', href = null, r, c
