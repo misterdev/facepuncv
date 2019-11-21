@@ -1,5 +1,5 @@
 <script>
-    import { inventory, drop, dragstart } from '../stores/profile.js'
+    import { inventory, drop, dragstart } from '../stores/inventory.js'
     import { play, stop } from '../stores/audio.js'
     import Item from '../components/Item.svelte'
     import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'

@@ -1,6 +1,6 @@
 <script>
     import { play, stop } from './stores/audio.js'
-    import { inventory, drop, dragstart } from './stores/profile.js'
+    import { inventory, drop, dragstart } from './stores/inventory.js'
     import Item from './components/Item.svelte'
     import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
     import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte'
