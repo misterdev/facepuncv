@@ -515,7 +515,7 @@ content.PRESENTATIONS = [
     },
     {
         label: "FLUTTER",
-        icon: "images/profile/dart.png",
+        icon: "images/flutter.png",
         description: `
         TODO
         `,
@@ -535,7 +535,7 @@ content.PRESENTATIONS = [
     },
     {
         label: "BLOCKCHAIN APPLICATIONS",
-        icon: "images/profile/dart.png",
+        icon: "images/btc.png",
         description: `
         TODO
         `,

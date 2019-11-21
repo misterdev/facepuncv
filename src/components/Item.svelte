@@ -56,10 +56,23 @@
         -webkit-animation: pulse 100ms 1;
         animation: pulse 100ms 1;
     }
-    div.item {
-        cursor: move;
+    img:active {
+        cursor: url('https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur'), all-scroll;
+        cursor: -webkit-grabbing;
+        cursor: -moz-grabbing;
+        cursor: -o-grabbing;
+        cursor: -ms-grabbing;
+        cursor: grabbing;
     }
-    a.item {
+    div.item:hover {
+        cursor: url('https://www.google.com/intl/en_ALL/mapfiles/openhand.cur'), all-scroll;
+        cursor: -webkit-grab;
+        cursor: -moz-grab;
+        cursor: -o-grab;
+        cursor: -ms-grab;
+        cursor: grab;
+    }
+    a.item:hover {
         cursor: pointer;
     }
     .label {
