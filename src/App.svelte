@@ -17,6 +17,7 @@
 	let bg
 	let content
 
+	const playIntro = () => intro.play()
 	const playBg = () => {
 		bg.play();
 		setTimeout(() => {
@@ -25,21 +26,16 @@
 			intro.remove()
 		}, 100)
 	}
-
-	const appear = (node, { delay = 0, duration = 600}) => ({
-		delay,
-		duration,
-		css: t => `opacity: ${t}`
-	})
 </script>
 
 <svelte:head>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
+<svelte:window on:keydown|once={playIntro} />
 <div class="wrapper">
 	<div class="rateo16-9">
-		<video src={introSrc} {poster} autoplay muted on:ended={playBg}  bind:this={intro}/>
+		<video src={introSrc} {poster} muted on:ended|once={playBg}  bind:this={intro}/>
 	</div>
 	<div class="rateo16-9">
 		<video id="bg" src={bgSrc} {poster} muted bind:this={bg} />
