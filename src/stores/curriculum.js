@@ -497,7 +497,7 @@ content.PRESENTATIONS = [
         label: "DARTLANG OVERVIEW",
         icon: "images/profile/dart.png",
         description: `
-        TODO
+        This presentation is a complete overview of the Dart language, covering the history, the sintax and the runtime.
         `,
         links: [
             {
@@ -517,7 +517,7 @@ content.PRESENTATIONS = [
         label: "FLUTTER",
         icon: "images/flutter.png",
         description: `
-        TODO
+        This is a comparison of the major hybrid mobile frameworks runtimes
         `,
         links: [
             {
@@ -537,7 +537,7 @@ content.PRESENTATIONS = [
         label: "BLOCKCHAIN APPLICATIONS",
         icon: "images/btc.png",
         description: `
-        TODO
+        In this presentation I covered the blockchain principles and the existing applications in different fields
         `,
         links: [
             {
@@ -559,9 +559,9 @@ content.PRESENTATIONS = [
     },
     {
         label: "GOOGLE I/O WEB NEWS",
-        icon: "images/profile/dart.png",
+        icon: "images/d.png",
         description: `
-        TODO
+        I made this presentation for the Google I/O Extended 19 in Bologna, I talked about the latest development regarding the Web (PWA, WebAssembly & Web API)
         `,
         links: [
             {
