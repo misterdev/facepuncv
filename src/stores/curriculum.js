@@ -23,14 +23,14 @@ export const categories = {
 
 export let queue = [
     {
-        label: "MASTER GRADUATION",
-        icon: "images/webpack.png",
-        date: "Feb 20"
+        label: "FINAL THESIS",
+        src: "images/d.png",
+        date: "Feb 2020"
     },
     {
-        label: "FINAL THESIS",
-        icon: "images/webpack.png",
-        date: "Feb 20"
+        label: "MASTER GRADUATION",
+        src: "images/alma.png",
+        date: "Mar 2020"
     }
 ]
 

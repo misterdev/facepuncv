@@ -59,18 +59,6 @@ body {
 	}
 }
 
-@keyframes big-show {
-	0% {
-		transform: translateY(-270%) scale(1, 0);
-	}
-	50% {
-		transform: translateY(-270%) scale(1, 0);
-	}
-	100% {
-		transform: translateY(-270%) scale(1, 1);
-	}
-}
-
 @keyframes show {
 	0% {
 		transform: translateY(-180%) scale(1, 0);
@@ -80,5 +68,29 @@ body {
     }
 	100% {
 		transform: translateY(-180%) scale(1, 1);
+	}
+}
+
+@keyframes small-show {
+	0% {
+		transform: translateY(-100%) scale(1, 0);
+    }
+    50% {
+		transform: translateY(-100%) scale(1, 0);
+    }
+	100% {
+		transform: translateY(-100%) scale(1, 1);
+	}
+}
+
+@keyframes big-show {
+	0% {
+		transform: translateY(-270%) scale(1, 0);
+	}
+	50% {
+		transform: translateY(-270%) scale(1, 0);
+	}
+	100% {
+		transform: translateY(-270%) scale(1, 1);
 	}
 }

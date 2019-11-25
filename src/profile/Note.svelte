@@ -1,8 +1,8 @@
 <div id="note">
     <div id="note-content">
-Welcome here,<br/>
+Greetings Survivor,<br/>
 My name is Devid I'm a Master Computer Science student at the University of Bologna (Italy) and a developer passionate about the Javascript world.<br/><br/>
-When I don't hit trees I usually do frontend stuff, but I like to explore different fields (3D, ML, ...) and work on creative projects.<br/><br/>
+When I don't hit trees I usually do frontend stuff, but I like to explore different fields (ML, 3D, ...) and working on creative projects.<br/><br/>
 
 I guess there's no need to explain how to navigate this CV :)<br/><br/>
 - Devid -

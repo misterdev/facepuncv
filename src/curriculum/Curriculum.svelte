@@ -6,6 +6,7 @@
     import List from './List.svelte'
     import Description from './Description.svelte'
     import Links from './Links.svelte'
+    import Queue from './Queue.svelte'
     import Stats from './Stats.svelte'
 
     export let show
@@ -29,7 +30,9 @@
         <div id="description">
             <Description />
         </div>
-        <div id="queue"></div>
+        <div id="queue">
+        <Queue />
+        </div>
         {#if showLinks}
             <div id="links">
                 <Links />
