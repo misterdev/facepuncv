@@ -212,7 +212,7 @@ content.EDUCATION = [
         <p><b>University of Bologna</p></b>
 
         Master degree in Computer Science</br>
-        Average Grade: 29.62/30</br>
+        Average Grade: 29.64/30</br>
 
         Planned graduation: March 2020
         `,
@@ -592,7 +592,7 @@ content.MISC = [
         label: "MEDIUM ARTICLES",
         icon: "images/medium.png",
         description: `
-        I wrote some articles on Medium about Webpack
+        I wrote some articles about Webpack and the Google Summer of Code on Medium
         `,
         links: [
             {
@@ -642,7 +642,7 @@ content.MISC = [
         label: "GDG",
         icon: "images/GDGBO.png",
         description: `
-        I organize, attend and speak at technical events. I manage the local GDG (Google Developers Group) community, which I founded some years ago with some friends.
+        I organize, attend and speak at technical events. I manage the local GDG (Google Developers Group) community which I founded some years ago with some friends.
         `,
         links: [
             {
