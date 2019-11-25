@@ -64,6 +64,8 @@
     }
     .item > img {
         max-width: 60%;
+        -webkit-filter: drop-shadow(5px 5px 5px #222);
+        filter: drop-shadow(5px 5px 5px #222);
     }
     .label {
         transform: translateY(-270%) scale(1, 0);

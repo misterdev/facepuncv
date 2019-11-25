@@ -51,6 +51,8 @@
     img {
         width: 70%;
         opacity: .8;
+        -webkit-filter: drop-shadow(5px 5px 5px #222);
+        filter: drop-shadow(5px 5px 5px #222);
     }
     .item:hover {
         -webkit-animation: pulse 100ms 1;
