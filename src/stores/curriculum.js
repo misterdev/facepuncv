@@ -40,8 +40,8 @@ content.EXPERIENCE = [
         label: "WEBPACK",
         icon: "images/webpack.png",
         date: {
-            start: "Dec 18",
-            end: "Aug 19"
+            start: "Dec 2018",
+            end: "Aug 2019"
         },
         description: `
         <p>
@@ -95,8 +95,8 @@ content.EXPERIENCE = [
         label: "LAY LAB",
         icon: "images/laylab.png",
         date: {
-            start: "Oct 15",
-            end: "Aug 17"
+            start: "Oct 2015",
+            end: "Aug 2017"
         },
         description: `
         <p>
@@ -143,8 +143,8 @@ content.EXPERIENCE = [
         label: "MIT APP INVENTOR",
         icon: "images/appinventor.png",
         date: {
-            start: "Jun 15",
-            end: "Sep 15"
+            start: "Jun 2015",
+            end: "Sep 2015"
         },
         description: `
         <p>
@@ -180,8 +180,8 @@ content.EXPERIENCE = [
         label: "DMDTEK",
         icon: "images/android.png",
         date: {
-            start: "Dec 18",
-            end: "Aug 19"
+            start: "Dec 2018",
+            end: "Aug 2019"
         },
         description: `
         <p>
@@ -205,8 +205,8 @@ content.EDUCATION = [
         label: "CS MASTER",
         icon: "images/alma.png",
         date: {
-            start: "Sep 16",
-            end: "Mar 20"
+            start: "Sep 2016",
+            end: "Mar 2020"
         },
         description: `
         <p><b>University of Bologna</p></b>
@@ -214,7 +214,7 @@ content.EDUCATION = [
         Master degree in Computer Science</br>
         Average Grade: 29.62/30</br>
 
-        
+        Planned graduation: March 2020
         `,
         links: [],
         stats: [
@@ -248,8 +248,8 @@ content.EDUCATION = [
         label: "CS BACHELOR",
         icon: "images/alma.png",
         date: {
-            start: "Sep 12",
-            end: "Dec 16"
+            start: "Sep 2012",
+            end: "Dec 2016"
         },
         description: `
         <p><b>University of Bologna</p></b>
@@ -277,8 +277,8 @@ content.EDUCATION = [
         label: "IT DIPLOMA",
         icon: "images/itis.png",
         date: {
-            start: "Sep 07",
-            end: "Aug 12"
+            start: "Sep 2007",
+            end: "Aug 2012"
         },
         description: `
         <p><b>ITIS Odone Belluzzi</p></b>
@@ -305,8 +305,8 @@ content.PROJECTS = [
         label: "MESOPOTAMIA JONES",
         icon: "images/mj.png",
         date: {
-            start: "Jul 17",
-            end: "Nov 17"
+            start: "Jul 2017",
+            end: "Nov 2017"
         },
         description: "One of my favorite projects, a 2D browser game aimed at teaching programming to children. I made this with a friend, as a university project for the Usability and User Experience course, we used Phaser for the game, React with Typescript for the website, Blockly for the code editor and Webpack for the bundling.",
         links: [
@@ -348,8 +348,8 @@ content.PROJECTS = [
         label: "WOWTARIA",
         icon: "images/ld.png",
         date: {
-            start: "Jan 14",
-            end: "Jul 14"
+            start: "Jan 2014",
+            end: "Jul 2014"
         },
         description: `
         A browser app that allows making semantic annotations on scientific documents. This has been my first web project, where I learned a lot about Javascript development. We used Bootstrap for the UI and Python for the backend.</br>
@@ -390,8 +390,8 @@ content.PROJECTS = [
         label: "SENSORSPEAK",
         icon: "images/alexa.png",
         date: {
-            start: "Jan 19",
-            end: "Mar 19"
+            start: "Jan 2019",
+            end: "Mar 2019"
         },
         description: `
         I developed an Alexa Skill that was able to obtain informations from the sensors of the Informatic Department of the University of Bologna.</br>
@@ -427,8 +427,8 @@ content.PROJECTS = [
         label: "ETHEREUM GALAXY",
         icon: "images/ld.png",
         date: {
-            start: "Mar 18",
-            end: "Apr 18"
+            start: "Mar 2018",
+            end: "Apr 2018"
         },
         description: `
         Visualizer of Ethereum transactions as a graph, inspired by <a href="https://anvaka.github.io/pm/#/?_k=qeo12l" target="_blank">pm</a>, developed using React and Typescript.</br>

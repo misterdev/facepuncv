@@ -68,14 +68,14 @@
         position: absolute;
         right: 2px;
         top: 2px;
-        width: 13%;
+        width: 16%;
         height: 2%;
         opacity: .6;
         display: flex;
         flex-direction: column;
     }
     #time div.icon {
-        width: 24%;
+        width: 20%;
         margin-right: 4px;
     }
     #time > div {
