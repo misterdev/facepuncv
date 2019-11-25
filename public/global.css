@@ -34,6 +34,7 @@ body {
 }
 
 .label {
+	z-index: 1000;
 	position: absolute;
 	text-align: center;
 	background-color: #226692;

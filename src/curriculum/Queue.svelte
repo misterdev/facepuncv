@@ -12,6 +12,9 @@
         <div class="item">
             <div class="label">{label}</div>
             <div class="end-label">
+                <div class="icon">
+                    <MdAccessTime />
+                </div>
                 {date}
             </div>
             <img {src} alt={label} />
@@ -65,13 +68,20 @@
         z-index: 20;
         position: absolute;
         text-align: center;
-        background-color: #ace440;
-        color: #345b02;
-        padding: 1px 3px;
-        margin-top: 1%;
-        border-radius: 3px;
+        background-color: #A6E437;
+        color: #213a01;
+        padding: 2px 1px;
+        margin-top: .5%;
+        border-radius: 4px;
         display: flex;
         font-size: 0.8em;
-        font-weight: bold;
+        width: 11%;
+        height: 20%;
+        -webkit-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
+        -moz-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
+        box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
+    }
+    .icon {
+        width: 23%;
     }
 </style>
