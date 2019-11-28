@@ -6,22 +6,28 @@
 	import NavButton from './NavButton.svelte'
 
 	export let name
-	let introSrc = 'videos/bg-intro.mp4'
+	let idleSrc = 'videos/idle.mp4'
+	let introSrc = 'videos/intro.mp4'
 	let bgSrc = 'videos/bg.mp4'
 	let poster = 'https://static.gamespot.com/uploads/original/1406/14063904/3353523-20180211195717_1.jpg'
 	
 	let showProfile
 	navigation.subscribe((nav) => showProfile = nav.profile)
 
-	let intro
-	let bg
-	let content
+	let idle, intro, bg, content 
 
-	const playIntro = () => intro.play()
+	const playIntro = () => {
+		intro.play();
+		setTimeout(() => {
+			intro.style.opacity = 1
+			idle.remove()
+		}, 100)
+	}
+
 	const playBg = () => {
 		bg.play();
 		setTimeout(() => {
-			content.classList.remove("hidden")
+			content.classList.remove('hidden')
 			bg.style.opacity = 1
 			intro.remove()
 		}, 100)
@@ -35,10 +41,13 @@
 <svelte:window on:keydown|once={playIntro} />
 <div class="wrapper">
 	<div class="rateo16-9">
-		<video src={introSrc} {poster} muted on:ended|once={playBg}  bind:this={intro}/>
+		<video src={idleSrc} {poster} muted autoplay loop bind:this={idle}/>
 	</div>
 	<div class="rateo16-9">
-		<video id="bg" src={bgSrc} {poster} muted bind:this={bg} />
+		<video id="bg" src={introSrc} muted bind:this={intro} on:ended|once={playBg}/> 
+	</div>
+	<div class="rateo16-9">
+		<video id="bg" src={bgSrc} muted bind:this={bg} /> 
 	</div>
 	<div id="content" class="rateo16-9 hidden" bind:this={content}>
 		<div id="header">
