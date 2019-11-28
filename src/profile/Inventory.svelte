@@ -10,6 +10,9 @@
 </script>
 
 <div id="wrapper">
+    <div class="row">
+        <div id="title">SKILLS</div>
+    </div>
     {#each items as row, r}
         <div class="row">
             {#each row as item, c}
@@ -30,15 +33,14 @@
         flex-direction: column;
         justify-content: center;
     }
-    #wrapper:before {
-        margin-left: 34%;
-        content: 'SKILLS';
-        font-size: 1.7em;
-        font-weight: bold;
-    }
     .row {
         display: flex;
         flex-direction: row;
         justify-content: center;
+    }
+    #title {
+        width: calc(28% + 48px); /* harcoded row width */
+        font-size: 1.7em;
+        font-weight: bold;
     }
 </style>
