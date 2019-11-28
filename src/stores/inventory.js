@@ -79,6 +79,10 @@ content[3] = [
     {
         src: "images/profile/dart.png",
         label: "DART"
+    },
+    {
+        src: "images/profile/java.png",
+        label: "JAVA"
     }
 ]
 content[4] = [
