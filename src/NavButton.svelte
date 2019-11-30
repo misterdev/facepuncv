@@ -39,6 +39,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    -webkit-filter: drop-shadow(0px 4px 13px #444);
+    filter: drop-shadow(0px 4px 13px #444);
 }
 #icon {
     height: 100%;
