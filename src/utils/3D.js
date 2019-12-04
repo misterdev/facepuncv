@@ -298,14 +298,15 @@ const transformSVGPath = ( pathStr ) => {
 };
 
 const loadSVG = ( group, svgObject ) => {
-    var { path, depth, color, center } = svgObject
-    var path = transformSVGPath( path )
-    var color = new THREE.Color( color )
+    const depth = 25
+    const center = { x: 365, y: 125 }
+    
+    var path = transformSVGPath( svgObject.path )
+    var color = new THREE.Color( 0x462004 )
     var material = new THREE.MeshLambertMaterial({
         color: color,
         emissive: color
     })
-    var depth = depth
     var simpleShapes = path.toShapes( true )
     for ( var j = 0; j < simpleShapes.length; j ++ ) {
         var simpleShape = simpleShapes[ j ]
@@ -315,12 +316,36 @@ const loadSVG = ( group, svgObject ) => {
         })
         var mesh = new THREE.Mesh( shape3d, material )
         mesh.rotation.x = Math.PI
-        mesh.translateZ( - depth - 1 )
+        mesh.translateZ( - depth - 1)
         // mesh.translateX( - center.x )
         // mesh.translateY( - center.y )
         group.add( mesh )
     }
     mesh.scale.set(0.5,0.5,0.5)
+
+    var texture, material, plane
+    const width = 259, height = 761
+
+    texture = THREE.ImageUtils.loadTexture( "textures/avatar.png" );
+    
+    // assuming you want the texture to repeat in both directions:
+    texture.wrapS = THREE.RepeatWrapping; 
+    texture.wrapT = THREE.RepeatWrapping;
+     
+    material = new THREE.MeshLambertMaterial({
+        map : texture,
+        alphaTest: 0.5
+    })
+
+    plane = new THREE.Mesh(new THREE.PlaneGeometry(width, height), material)
+    plane.material.side = THREE.DoubleSide
+    plane.rotation.z = Math.PI
+    plane.translateX( - width / 2 )
+    plane.translateY( - height / 2 )
+    
+    plane.scale.set(-1, 1, 1)
+    mesh.add(plane)
+
     return mesh
 }
 
@@ -509,9 +534,6 @@ const avatar = {
         "6.63,411.46 8.03,412.98 9.49,416.00 " +
         "10.79,418.69 11.84,422.30 13.70,424.53 " +
         "16.94,428.44 28.01,433.58 33.00,435.00 Z",
-    depth: 25,
-    color: 0xC09151,
-    center: { x: 365, y: 125 }
 }
 
 

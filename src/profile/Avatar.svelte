@@ -65,7 +65,7 @@
 
         const card = loadSVG( scene, avatar )
         card.scale.set(0.026, 0.026, 0.026)
-        card.position.set(-3.5, 19, 10)
+        card.position.set(-3.5, 19, 11)
         
         loadModel()
         render()
