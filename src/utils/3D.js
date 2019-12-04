@@ -297,7 +297,7 @@ const transformSVGPath = ( pathStr ) => {
     return path;
 };
 
-const loadSVG = ( group, svgObject ) => {
+const loadSVG = ( svgObject ) => {
     const depth = 25
     const center = { x: 365, y: 125 }
     
@@ -311,15 +311,14 @@ const loadSVG = ( group, svgObject ) => {
     for ( var j = 0; j < simpleShapes.length; j ++ ) {
         var simpleShape = simpleShapes[ j ]
         var shape3d = new THREE.ExtrudeBufferGeometry(simpleShape, {
-            depth: depth,
+            depth: 12,
             bevelEnabled: false
         })
         var mesh = new THREE.Mesh( shape3d, material )
         mesh.rotation.x = Math.PI
-        mesh.translateZ( - depth - 1)
+        mesh.translateZ( - depth)
         // mesh.translateX( - center.x )
         // mesh.translateY( - center.y )
-        group.add( mesh )
     }
     mesh.scale.set(0.5,0.5,0.5)
 
@@ -342,6 +341,7 @@ const loadSVG = ( group, svgObject ) => {
     plane.rotation.z = Math.PI
     plane.translateX( - width / 2 )
     plane.translateY( - height / 2 )
+    plane.translateZ( -1 )
     
     plane.scale.set(-1, 1, 1)
     mesh.add(plane)

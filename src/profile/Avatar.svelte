@@ -54,22 +54,49 @@
         const ambientLight = new THREE.AmbientLight( 0xcccccc, 0.2 );
         scene.add( ambientLight );
 
-        // const helper = new THREE.GridHelper( 160, 10 );
-        // helper.rotation.x = Math.PI / 2;
-        // scene.add( helper );
-
         renderer = new THREE.WebGLRenderer({alpha: true, antialias: true})
         renderer.setSize( width, height, false )
         renderer.domElement.setAttribute("style", "width: 100%; height: 100%;");
         parent.appendChild( renderer.domElement )
 
-        const card = loadSVG( scene, avatar )
+        const card = loadSVG( avatar )
         card.scale.set(0.026, 0.026, 0.026)
-        card.position.set(-3.5, 19, 11)
+
+        var pivotGeometry = new THREE.Geometry();
+        pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
+        var pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
+        var pivot = new THREE.Points( pivotGeometry, pivotMaterial );
+
+        pivot.add( card )
+
+        card.geometry.computeBoundingBox()
+        const { x, y, z } = card.geometry.boundingBox.max
+        card.position.set(-3.5, 19.7, 0)
+        pivot.position.set(0, 0, 11)
+        
+        pivot.rotateY(-0.3)
+        scene.add( pivot )
         
         loadModel()
+        var box = new THREE.BoxHelper( card, 0xffff00 );
+        scene.add( box );
+    
         render()
         window.addEventListener('resize', onResize)
+
+        setTimeout( () =>
+            setInterval(update, 1000/30)
+        , 1000)
+            
+        pivot.materials[0].transparent = true;
+        let rotation = 0;
+        function update(){
+            if (rotation < 0.25) {
+                rotation += rotation / 10 + 0.005
+                pivot.rotateX(rotation)
+                renderer.render( scene, camera );
+            }
+        }
     }
 
 
