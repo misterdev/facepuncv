@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
     import * as THREE from 'three';
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-    import { loadSVG, avatar } from '../utils/3D.js'
+    import { loadCardboard, avatar as outlinePath} from '../utils/3D.js'
 
     let parent, container, scene, camera, renderer
 
@@ -38,7 +38,6 @@
 
     const init = () => {
         scene = new THREE.Scene();
-        // scene.background = new THREE.Color( 0xb0b0b0 ); //
 
         var positionInfo = parent.getBoundingClientRect()
         var height = positionInfo.height
@@ -48,7 +47,7 @@
         camera.position.set( 0, 9, 40 );
 
         const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.6 );
-        directionalLight.position.set( 0.75, 0.75, 1.0 ).normalize();
+        directionalLight.position.set( 0.75, 0.75, 25.0 ).normalize();
         scene.add( directionalLight );
 
         const ambientLight = new THREE.AmbientLight( 0xcccccc, 0.2 );
@@ -59,7 +58,7 @@
         renderer.domElement.setAttribute("style", "width: 100%; height: 100%;");
         parent.appendChild( renderer.domElement )
 
-        const card = loadSVG( avatar )
+        const card = loadCardboard( outlinePath )
         card.scale.set(0.026, 0.026, 0.026)
 
         var pivotGeometry = new THREE.Geometry();
@@ -70,11 +69,10 @@
         pivot.add( card )
 
         card.geometry.computeBoundingBox()
-        const { x, y, z } = card.geometry.boundingBox.max
         card.position.set(-3.5, 19.7, 0)
-        pivot.position.set(0, 0, 11)
-        
-        pivot.rotateY(-0.3)
+        pivot.position.set(0, 0, 22)
+        pivot.rotateY(-0.1)
+
         scene.add( pivot )
         
         loadModel()
@@ -84,11 +82,10 @@
         render()
         window.addEventListener('resize', onResize)
 
-        setTimeout( () =>
-            setInterval(update, 1000/30)
-        , 1000)
-            
-        pivot.materials[0].transparent = true;
+        // setTimeout( () =>
+        //     setInterval(update, 1000/30)
+        // , 1000)
+
         let rotation = 0;
         function update(){
             if (rotation < 0.25) {
