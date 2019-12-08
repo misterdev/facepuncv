@@ -302,6 +302,41 @@ content.EDUCATION = [
 
 content.PROJECTS = [
     {
+        label: "FACEPUNCV",
+        icon: "images/d.png",
+        description: `
+        When I decided to apply for Facepunch (in order to get hopefully noticed) I wanted to do
+        something different from the usual CV to show my skills and attitude.
+        The idea was to create something unique just for this application, so I recreated Rust's in
+        game menu in a browser and adapted it to display my CV. </br>
+        `,
+        links: [
+            {
+                icon: "images/github.png",
+                url: "https://github.com/misterdev/facepuncv",
+                label: "PROJECT REPO"
+            }
+        ],
+        stats: [
+            {
+                label: 'Svelte',
+                count: 800
+            },
+            {
+                label: 'ThreeJS',
+                count: 600
+            },
+            {
+                label: 'Video Editing',
+                count: 300
+            },
+            {
+                label: 'DnD API',
+                count: 500
+            }
+        ]
+    },
+    {
         label: "MESOPOTAMIA JONES",
         icon: "images/mj.png",
         date: {

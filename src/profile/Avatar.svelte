@@ -19,11 +19,12 @@
         var loader = new GLTFLoader();
         renderer.render( scene, camera )
         loader.load(
-            'models/avatar/scene.gltf',
-            ( gltf,a ,b  ) => {
+            'models/avatar2/scene.gltf',
+            ( gltf, a ,b  ) => {
                 console.log(gltf, a, b)
                 gltf.scene.position.set(0, 0, 2)
-                gltf.scene.scale.set(10,10,10)
+                // gltf.scene.scale.set(10,10,10)
+                gltf.scene.scale.set(0.04,0.04,0.04)
                 scene.add( gltf.scene );
                 render()
             }
@@ -58,26 +59,26 @@
         renderer.domElement.setAttribute("style", "width: 100%; height: 100%;");
         parent.appendChild( renderer.domElement )
 
-        const card = loadCardboard( outlinePath )
-        card.scale.set(0.026, 0.026, 0.026)
+        // const card = loadCardboard( outlinePath )
+        // card.scale.set(0.026, 0.026, 0.026)
 
-        var pivotGeometry = new THREE.Geometry();
-        pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-        var pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
-        var pivot = new THREE.Points( pivotGeometry, pivotMaterial );
+        // var pivotGeometry = new THREE.Geometry();
+        // pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
+        // var pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
+        // var pivot = new THREE.Points( pivotGeometry, pivotMaterial );
 
-        pivot.add( card )
+        // pivot.add( card )
 
-        card.geometry.computeBoundingBox()
-        card.position.set(-3.5, 19.7, 0)
-        pivot.position.set(0, 0, 22)
-        pivot.rotateY(-0.1)
+        // card.geometry.computeBoundingBox()
+        // card.position.set(-3.5, 19.7, 0)
+        // pivot.position.set(0, 0, 22)
+        // pivot.rotateY(-0.1)
 
-        scene.add( pivot )
+        // scene.add( pivot )
+        // var box = new THREE.BoxHelper( card, 0xffff00 );
+        // scene.add( box );
         
         loadModel()
-        var box = new THREE.BoxHelper( card, 0xffff00 );
-        scene.add( box );
     
         render()
         window.addEventListener('resize', onResize)
