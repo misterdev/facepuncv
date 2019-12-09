@@ -1,8 +1,13 @@
 <script>
 	import { onMount } from 'svelte';
-    import * as THREE from 'three';
+    import * as THREE from 'three';    
+    import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+    import { TGALoader } from 'three/examples/jsm/loaders/TGALoader'
+    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+
     import { loadCardboard, avatar as outlinePath} from '../utils/3D.js'
+
 
     let parent, container, scene, camera, renderer
 
@@ -15,25 +20,44 @@
 
     const render = () => renderer.render( scene, camera )
 
-    const loadModel = () => {
-        var loader = new GLTFLoader();
-        renderer.render( scene, camera )
-        loader.load(
-            'models/avatar2/scene.gltf',
-            ( gltf, a ,b  ) => {
-                console.log(gltf, a, b)
-                gltf.scene.position.set(0, 0, 2)
-                // gltf.scene.scale.set(10,10,10)
-                gltf.scene.scale.set(0.04,0.04,0.04)
-                scene.add( gltf.scene );
-                render()
-            }
-        )
+    var clock = new THREE.Clock();
+    var mixer, controls;
+
+
+    const loadModel = (cb) => {
+        var loader = new FBXLoader();
+        loader.load( 'models/avatar4/kick.fbx', function ( object ) {
+            mixer = new THREE.AnimationMixer( object );
+            var action = mixer.clipAction( object.animations[ 0 ] );
+            action.play()
+            object.traverse( function ( child ) {
+                if ( child.isMesh ) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+                    child.material = new THREE.MeshPhongMaterial({
+                        color: 0xff0000,
+                        skinning: true
+                    })
+                }
+            })
+            scene.add( object )
+            cb(object)
+            
+        });
+    }
+    function animate() {
+        requestAnimationFrame( animate );
+        var delta = clock.getDelta();
+        if ( mixer ) mixer.update( delta );
+        renderer.render( scene, camera );
+        // stats.update();
     }
 
+            
     onMount(() => {
         init()
-        render()	
+        render()
+        animate()
     })
 
 
@@ -45,7 +69,7 @@
         var width = positionInfo.width
 
         camera = new THREE.PerspectiveCamera( 75, width/height, 0.1, 1000 )
-        camera.position.set( 0, 9, 40 );
+        camera.position.set( 0, 9, 9 );
 
         const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.6 );
         directionalLight.position.set( 0.75, 0.75, 25.0 ).normalize();
@@ -59,26 +83,32 @@
         renderer.domElement.setAttribute("style", "width: 100%; height: 100%;");
         parent.appendChild( renderer.domElement )
 
-        // const card = loadCardboard( outlinePath )
-        // card.scale.set(0.026, 0.026, 0.026)
+        // controls = new OrbitControls( camera, renderer.domElement );
+        // controls.target.set( 0, 0, 0 );
+        // controls.update();
 
-        // var pivotGeometry = new THREE.Geometry();
-        // pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-        // var pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
-        // var pivot = new THREE.Points( pivotGeometry, pivotMaterial );
+        const card = loadCardboard( outlinePath )
+        card.scale.set(0.026, 0.026, 0.026)
 
-        // pivot.add( card )
+        var pivotGeometry = new THREE.Geometry();
+        pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
+        var pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
+        var pivot = new THREE.Points( pivotGeometry, pivotMaterial );
 
-        // card.geometry.computeBoundingBox()
-        // card.position.set(-3.5, 19.7, 0)
-        // pivot.position.set(0, 0, 22)
-        // pivot.rotateY(-0.1)
+        pivot.add( card )
 
-        // scene.add( pivot )
-        // var box = new THREE.BoxHelper( card, 0xffff00 );
-        // scene.add( box );
-        
-        loadModel()
+        card.geometry.computeBoundingBox()
+        card.position.set(-3.5, 19.7, 0)
+        pivot.position.set(0, 0, -9)
+        pivot.rotateY(-0.1)
+
+        scene.add( pivot )
+
+        loadModel((object) => {
+            object.scale.set(0.1, 0.1, 0.1) 
+            object.position.set(0, 0, -16)
+
+        })
     
         render()
         window.addEventListener('resize', onResize)
