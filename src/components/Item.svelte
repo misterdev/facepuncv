@@ -2,13 +2,17 @@
     import { inventory, drop, dragstart } from '../stores/inventory.js'
     import { play, stop } from '../stores/audio.js'
 
-    export let src = null, label = '', href = null, r, c
+    export let src = null, 
+               label = '',
+               href = null,
+               hint = false,
+               r, c
 
 
 </script>
 
 {#if href == null}
-    <div class="item"
+    <div class="item" class:hint
         on:mouseenter={play}
         on:mouseleave={stop}
         on:dragover|preventDefault
@@ -50,6 +54,11 @@
         content: '';
         padding-top: 100%;
     }
+    .item.hint {
+        animation-name: hint;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
     img {
         width: 70%;
         opacity: .8;
@@ -86,5 +95,16 @@
         -webkit-animation: show 200ms 1;
         animation: show 200ms 1;
         transform: translateY(-180%) scale(1, 1);
+    }
+    @keyframes hint {
+        0% {
+            background-color: rgba(200, 200, 200, .2);
+        }
+        50% {
+            background-color: rgba(99, 126, 63, .5);;
+        }
+        100% {
+            background-color: rgba(200, 200, 200, .2);
+        }
     }
 </style>

@@ -35,6 +35,13 @@ content[1] = [
     {
         src: "images/profile/blender1.png",
         label: "BLENDER"
+    },
+    {},
+    {},
+    {
+        src: "images/profile/note.png",
+        label: "> DRAG ME <",
+        hint: true
     }
 ]
 content[2] = [
@@ -133,10 +140,12 @@ export const drop = (toR, toC) => {
     return () =>
         inventory.update((inv) => {
             let {r, c} = draggedItem
-            let temp = inv[r][c] 
+            let temp = inv[r][c]
             inv[r][c] = inv[toR][toC]
             inv[toR][toC] = temp
             draggedItem = null
+            if (inv[r][c].hint) inv[r][c].hint = false
+            else if (inv[toR][toC].hint) inv[toR][toC].hint = false
             return inv
         })
 }
