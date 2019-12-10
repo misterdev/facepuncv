@@ -92,32 +92,32 @@ content[4] = [
     {
         href: 'https://www.youtube.com/watch?v=z9Uz1icjwrM',
         label: 'ROCK',
-        src: 'images/rock.png',
+        src: 'images/belt/rock.png',
     },
     {
         href: 'https://github.com/misterdev',
         label: 'GITHUB',
-        src: 'images/github3d.png'
+        src: 'images/belt/github3d.png'
     },
     {
         href: 'https://twitter.com/misterdev_',
         label: 'TWITTER',
-        src: 'images/twitter3d2.png'
+        src: 'images/belt/twitter3d.png'
     },
     {
         href: 'https://www.linkedin.com/in/misterdev',
         label: 'LINKEDIN',
-        src: 'images/linkedin3d.png'
+        src: 'images/belt/linkedin3d.png'
     },
     {
         href: 'https://stackoverflow.com/users/4695325/devid-farinelli',
         label: 'STACKOVERFLOW',
-        src: 'images/so3d.png'
+        src: 'images/belt/so3d.png'
     },
     {
         href: 'mailto:devid.farinelli@gmail.com',
         label: 'E-MAIL',
-        src: 'images/envelope3d.png'
+        src: 'images/belt/envelope3d.png'
     }
 ]
 

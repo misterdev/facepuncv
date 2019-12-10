@@ -24,12 +24,12 @@ export const categories = {
 export let queue = [
     {
         label: "FINAL THESIS",
-        src: "images/d.png",
+        src: "images/curriculum/d.png",
         date: "Feb 2020"
     },
     {
         label: "MASTER GRADUATION",
-        src: "images/alma.png",
+        src: "images/curriculum/alma.png",
         date: "Mar 2020"
     }
 ]
@@ -38,7 +38,7 @@ export let content = {}
 content.EXPERIENCE = [
     {
         label: "WEBPACK",
-        icon: "images/webpack.png",
+        icon: "images/curriculum/webpack.png",
         date: {
             start: "Dec 2018",
             end: "Aug 2019"
@@ -52,22 +52,22 @@ content.EXPERIENCE = [
         `,
         links: [
             {
-                icon: "images/github.png",
+                icon: "images/curriculum/github.png",
                 url: "https://github.com/misterdev/webpack-reporter-plugin",
                 label: "PROJECT REPO"
             },
             {
-                icon: "images/medium.png",
+                icon: "images/curriculum/medium.png",
                 url: "https://medium.com/webpack/summer-2019-with-webpack-840c7f7b97c4",
                 label: "PRESENTATION ARTICLE"
             },
             {
-                icon: "images/medium.png",
+                icon: "images/curriculum/medium.png",
                 url: "https://medium.com/webpack/summer-2019-with-webpack-5cd3ddbc9a05",
                 label: "FINAL ARTICLE"
             },
             {
-                icon: "images/gsoc.png",
+                icon: "images/curriculum/gsoc.png",
                 url: "https://summerofcode.withgoogle.com/",
                 label: "GSOC WEBSITE"
             }
@@ -93,7 +93,7 @@ content.EXPERIENCE = [
     },
     {
         label: "LAY LAB",
-        icon: "images/laylab.png",
+        icon: "images/curriculum/laylab.png",
         date: {
             start: "Oct 2015",
             end: "Aug 2017"
@@ -107,7 +107,7 @@ content.EXPERIENCE = [
         `,
         links: [
             {
-                icon: "images/laylab.png",
+                icon: "images/curriculum/laylab.png",
                 url: "https://github.com/misterdev/webpack-reporter-plugin",
                 label: "COMPANY WEBSITE"
             }
@@ -141,7 +141,7 @@ content.EXPERIENCE = [
     },
     {
         label: "MIT APP INVENTOR",
-        icon: "images/appinventor.png",
+        icon: "images/curriculum/appinventor.png",
         date: {
             start: "Jun 2015",
             end: "Sep 2015"
@@ -155,12 +155,12 @@ content.EXPERIENCE = [
         `,
         links: [
             {
-                icon: "images/gsoc.png",
+                icon: "images/curriculum/gsoc.png",
                 url: "https://www.google-melange.com/archive/gsoc/2015/orgs/media/projects/misterdev.html",
                 label: "GSOC WEBSITE"
             },
             {
-                icon: "images/gdoc.png",
+                icon: "images/curriculum/gdoc.png",
                 url: "https://docs.google.com/document/d/1nzdrNGGjEptc7phiU6JOuV8UQTZRNH_0Ve8lukBIZuI",
                 label: "OVERVIEW"
             }
@@ -178,7 +178,7 @@ content.EXPERIENCE = [
     },
     {
         label: "DMDTEK",
-        icon: "images/android.png",
+        icon: "images/curriculum/android.png",
         date: {
             start: "Dec 2018",
             end: "Aug 2019"
@@ -203,7 +203,7 @@ content.EXPERIENCE = [
 content.EDUCATION = [
     {
         label: "CS MASTER",
-        icon: "images/alma.png",
+        icon: "images/curriculum/alma.png",
         date: {
             start: "Sep 2016",
             end: "Mar 2020"
@@ -246,7 +246,7 @@ content.EDUCATION = [
     },
     {
         label: "CS BACHELOR",
-        icon: "images/alma.png",
+        icon: "images/curriculum/alma.png",
         date: {
             start: "Sep 2012",
             end: "Dec 2016"
@@ -275,7 +275,7 @@ content.EDUCATION = [
     },
     {
         label: "IT DIPLOMA",
-        icon: "images/itis.png",
+        icon: "images/curriculum/itis.png",
         date: {
             start: "Sep 2007",
             end: "Aug 2012"
@@ -303,7 +303,7 @@ content.EDUCATION = [
 content.PROJECTS = [
     {
         label: "FACEPUNCV",
-        icon: "images/d.png",
+        icon: "images/curriculum/d.png",
         description: `
         When I decided to apply for Facepunch (in order to get hopefully noticed) I wanted to do
         something different from the usual CV to show my skills and attitude.
@@ -312,7 +312,7 @@ content.PROJECTS = [
         `,
         links: [
             {
-                icon: "images/github.png",
+                icon: "images/curriculum/github.png",
                 url: "https://github.com/misterdev/facepuncv",
                 label: "PROJECT REPO"
             }
@@ -338,7 +338,7 @@ content.PROJECTS = [
     },
     {
         label: "MESOPOTAMIA JONES",
-        icon: "images/mj.png",
+        icon: "images/curriculum/mj.png",
         date: {
             start: "Jul 2017",
             end: "Nov 2017"
@@ -346,12 +346,12 @@ content.PROJECTS = [
         description: "One of my favorite projects, a 2D browser game aimed at teaching programming to children. I made this with a friend, as a university project for the Usability and User Experience course, we used Phaser for the game, React with Typescript for the website, Blockly for the code editor and Webpack for the bundling.",
         links: [
             {
-                icon: "images/mj.png",
+                icon: "images/curriculum/mj.png",
                 url: "https://loopingdoge.github.io/mesopotamia-jones",
                 label: "WEBSITE"
             },
             {
-                icon: "images/github.png",
+                icon: "images/curriculum/github.png",
                 url: "https://github.com/loopingdoge/mesopotamia-jones",
                 label: "PROJECT REPO"
             }
@@ -381,7 +381,7 @@ content.PROJECTS = [
     },
     {
         label: "WOWTARIA",
-        icon: "images/ld.png",
+        icon: "images/curriculum/ld.png",
         date: {
             start: "Jan 2014",
             end: "Jul 2014"
@@ -392,12 +392,12 @@ content.PROJECTS = [
         `,
         links: [
             {
-                icon: "images/ld.png",
+                icon: "images/curriculum/ld.png",
                 url: "http://ltw1423.web.cs.unibo.it/",
                 label: "WEBSITE"
             },
             {
-                icon: "images/github.png",
+                icon: "images/curriculum/github.png",
                 url: "https://github.com/loopingdoge/wowtaria.git",
                 label: "PROJECT REPO"
             }
@@ -423,7 +423,7 @@ content.PROJECTS = [
     },
     {
         label: "SENSORSPEAK",
-        icon: "images/alexa.png",
+        icon: "images/curriculum/alexa.png",
         date: {
             start: "Jan 2019",
             end: "Mar 2019"
@@ -434,7 +434,7 @@ content.PROJECTS = [
         `,
         links: [
             {
-                icon: "images/github.png",
+                icon: "images/curriculum/github.png",
                 url: "https://github.com/misterdev/sensorspeak",
                 label: "PROJECT REPO"
             }
@@ -460,7 +460,7 @@ content.PROJECTS = [
     },
     {
         label: "ETHEREUM GALAXY",
-        icon: "images/ld.png",
+        icon: "images/curriculum/ld.png",
         date: {
             start: "Mar 2018",
             end: "Apr 2018"
@@ -472,12 +472,12 @@ content.PROJECTS = [
         `,
         links: [
             {
-                icon: "images/ld.png",
+                icon: "images/curriculum/ld.png",
                 url: "http://www.devid.io/ethereum-galaxy/",
                 label: "WEBSITE"
             },
             {
-                icon: "images/github.png",
+                icon: "images/curriculum/github.png",
                 url: "https://github.com/loopingdoge/ethereum-galaxy",
                 label: "PROECT REPO"
             }
@@ -507,13 +507,13 @@ content.PROJECTS = [
     },
     {
         label: "[WIP] MIND PALACE",
-        icon: "images/ld.png",
+        icon: "images/curriculum/ld.png",
         description: `
         A WIP 3D mnemonic device, developed using Aframe and webpack. </br>
         `,
         links: [
             {
-                icon: "images/ld.png",
+                icon: "images/curriculum/ld.png",
                 url: "http://www.devid.io/mind-palace/",
                 label: "WEBSITE"
             }
@@ -536,7 +536,7 @@ content.PRESENTATIONS = [
         `,
         links: [
             {
-                icon: "images/gslides.png",
+                icon: "images/curriculum/gslides.png",
                 url: "https://docs.google.com/presentation/d/1NCymVWktSoUsZ4rsjR3rN8XXyDDODzxRVD63PKUqpuM",
                 label: "SLIDES"
             },
@@ -550,13 +550,13 @@ content.PRESENTATIONS = [
     },
     {
         label: "FLUTTER",
-        icon: "images/flutter.png",
+        icon: "images/curriculum/flutter.png",
         description: `
         This is a comparison of the major hybrid mobile frameworks runtimes
         `,
         links: [
             {
-                icon: "images/gslides.png",
+                icon: "images/curriculum/gslides.png",
                 url: "https://docs.google.com/presentation/d/1qgDBWO59F1qPMsLaMF2ByFWGJaHWldYdkagDL5BvdPk/",
                 label: "SLIDES"
             },
@@ -570,13 +570,13 @@ content.PRESENTATIONS = [
     },
     {
         label: "BLOCKCHAIN APPLICATIONS",
-        icon: "images/btc.png",
+        icon: "images/curriculum/btc.png",
         description: `
         In this presentation I covered the blockchain principles and the existing applications in different fields
         `,
         links: [
             {
-                icon: "images/gslides.png",
+                icon: "images/curriculum/gslides.png",
                 url: "https://docs.google.com/presentation/d/1nndT6NgdV06IRuf_CMwRHHQxpaJgGe1pb9f-YpB2lkc",
                 label: "SLIDES"
             },
@@ -594,13 +594,13 @@ content.PRESENTATIONS = [
     },
     {
         label: "GOOGLE I/O WEB NEWS",
-        icon: "images/d.png",
+        icon: "images/curriculum/d.png",
         description: `
         I made this presentation for the Google I/O Extended 19 in Bologna, I talked about the latest development regarding the Web (PWA, WebAssembly & Web API)
         `,
         links: [
             {
-                icon: "images/gslides.png",
+                icon: "images/curriculum/gslides.png",
                 url: "https://docs.google.com/presentation/d/1B6qLC-8F_93nQu7agUzkoK_eUW89zL4GNbUh02RPIN8",
                 label: "SLIDES"
             },
@@ -625,23 +625,23 @@ content.PRESENTATIONS = [
 content.MISC = [
     {
         label: "MEDIUM ARTICLES",
-        icon: "images/medium.png",
+        icon: "images/curriculum/medium.png",
         description: `
         I wrote some articles about Webpack and the Google Summer of Code on Medium
         `,
         links: [
             {
-                icon: "images/medium.png",
+                icon: "images/curriculum/medium.png",
                 url: "https://medium.com/@misterdev/how-to-write-a-webpack-scaffold-ace202775572",
                 label: "How to write a Webpack scaffold"
             },
             {
-                icon: "images/medium.png",
+                icon: "images/curriculum/medium.png",
                 url: "https://medium.com/webpack/summer-2019-with-webpack-840c7f7b97c4",
                 label: "Summer 2019 with webpack"
             },
             {
-                icon: "images/medium.png",
+                icon: "images/curriculum/medium.png",
                 url: "https://medium.com/webpack/summer-2019-with-webpack-5cd3ddbc9a05",
                 label: "</Summer 2019 with webpack>"
             }
@@ -655,13 +655,13 @@ content.MISC = [
     },
     {
         label: "STACKOVERFLOW",
-        icon: "images/so.png",
+        icon: "images/curriculum/so.png",
         description: `
         I used to answer questions on Stack Overflow, mostly about Firebase and Javascript
         `,
         links: [
             {
-                icon: "images/so.png",
+                icon: "images/curriculum/so.png",
                 url: "https://stackoverflow.com/users/4695325/devid-farinelli",
                 label: "MY PROFILE"
             }
@@ -675,18 +675,18 @@ content.MISC = [
     },
     {
         label: "GDG",
-        icon: "images/GDGBO.png",
+        icon: "images/curriculum/GDGBO.png",
         description: `
         I organize, attend and speak at technical events. I manage the local GDG (Google Developers Group) community which I founded some years ago with some friends.
         `,
         links: [
             {
-                icon: "images/metup.png",
+                icon: "images/curriculum/metup.png",
                 url: "https://www.meetup.com/gdgbologna/",
                 label: "GDG BOLOGNA"
             },
             {
-                icon: "images/GDGBO.png",
+                icon: "images/curriculum/GDGBO.png",
                 url: "https://erdevfest18.firebaseapp.com/",
                 label: "DEVFESTER 2018"
             }
@@ -708,14 +708,14 @@ content.MISC = [
     },
     {
         label: "VIDEO EDITING",
-        icon: "images/youtube.ico",
+        icon: "images/curriculum/youtube.ico",
         description: `
         I wanted to learn how to make video editing and english voice over.</br> 
         I've achieved a decent result, I planned to make 3 videos of my GSoC experience but I failed to maintain my expectation. I enjoyed doing that, but I don't have anything to talk about.
         `,
         links: [
             {
-                icon: "images/youtube.ico",
+                icon: "images/curriculum/youtube.ico",
                 url: "https://www.youtube.com/watch?v=7nS7MIKoHSI",
                 label: "DEVLOG #1"
             }
