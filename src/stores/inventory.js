@@ -21,13 +21,23 @@ content[0] = [
     {
         src: "images/profile/svelte.png",
         label: "SVELTE"
-    },
-    {
-        src: "images/profile/three.png",
-        label: "THREEJS"
     }
 ]
 content[1] = [
+    {
+        src: "images/profile/three.png",
+        label: "THREEJS"
+    },
+    {
+        src: "images/profile/aframe.png",
+        label: "AFRAME"
+    },
+    {
+        src: "images/profile/blender1.png",
+        label: "BLENDER"
+    }
+]
+content[2] = [
     {
         src: "images/profile/firebase.png",
         label: "FIREBASE"
@@ -41,23 +51,9 @@ content[1] = [
         label: "AWS"
     },
     {
-        src: "images/profile/alexa.png",
-        label: "ALEXA SDK"
-    }
-]
-content[2] = [
-    {
         src: "images/profile/travis.png",
         label: "TRAVIS CI"
     },
-    {
-        src: "images/profile/azure.png",
-        label: "AZURE PIPELINES"
-    },
-    {
-        src: "images/profile/git.png",
-        label: "GIT"
-    }
 ]
 content[3] = [
     {
