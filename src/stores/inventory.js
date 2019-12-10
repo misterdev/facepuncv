@@ -33,7 +33,7 @@ content[1] = [
         label: "AFRAME"
     },
     {
-        src: "images/profile/blender1.png",
+        src: "images/profile/blender.png",
         label: "BLENDER"
     },
     {},
