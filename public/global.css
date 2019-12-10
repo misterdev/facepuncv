@@ -37,6 +37,7 @@ body {
 	z-index: 1000;
 	position: absolute;
 	text-align: center;
+	white-space: nowrap;
 	background-color: #226692;
 	color: #8fc6e8;
 	font-weight: bold;
