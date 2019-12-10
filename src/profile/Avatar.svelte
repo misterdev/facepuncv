@@ -21,15 +21,27 @@
     const render = () => renderer.render( scene, camera )
 
     var clock = new THREE.Clock();
-    var mixer, controls;
+    var mixer, actions = [], controls;
 
 
     const loadModel = (cb) => {
         var loader = new FBXLoader();
-        loader.load( 'models/avatar4/kick.fbx', function ( object ) {
+        loader.load( 'models/animated/idle.fbx', function ( object ) {
             mixer = new THREE.AnimationMixer( object );
-            var action = mixer.clipAction( object.animations[ 0 ] );
-            action.play()
+            mixer.addEventListener( 'loop', (e) => {
+                if ( e.action !== actions[0]) {
+                    // setWeight(  e.action, 0 );
+                    // // actions[0].play()
+                    console.log('LOOP')
+                    executeCrossFade(e.action, actions[0], 0.5)
+                    // // setTimeout(()=> e.action.time = 0, 501)
+                }
+            })
+            object.animations[ 2 ] = object.animations[ 0 ]
+            actions[0] = mixer.clipAction( object.animations[ 0 ] );
+            setWeight( actions[0], 1 );
+            actions[0].play()
+
             object.traverse( function ( child ) {
                 if ( child.isMesh ) {
                     child.castShadow = true;
@@ -41,9 +53,15 @@
                 }
             })
             scene.add( object )
+
+            loader.load( 'models/animated/kicking.fbx', function ( object ) {
+                actions[1] = mixer.clipAction( object.animations[ 0 ] )
+                setWeight( actions[1], 0 )
+                actions[1].setLoop( THREE.LoopPingPong  )
+            })
+
             cb(object)
-            
-        });
+        })
     }
     function animate() {
         requestAnimationFrame( animate );
@@ -52,14 +70,32 @@
         renderer.render( scene, camera );
         // stats.update();
     }
-
-            
+    function setWeight( action, weight ) {
+        action.enabled = true;
+        action.setEffectiveTimeScale( 1 );
+        action.setEffectiveWeight( weight );
+    }
+    function executeCrossFade( startAction, endAction, duration ) {
+        // console.log(startAction, endAction)
+        // Not only the start action, but also the end action must get a weight of 1 before fading
+        // (concerning the start action this is already guaranteed in this place)
+        setWeight( endAction, 1);
+        endAction.time = 0;
+        // Crossfade with warping - you can also try without warping by setting the third parameter to false
+        startAction.crossFadeTo( endAction, duration, false );
+        // endAction.play()
+    }         
     onMount(() => {
         init()
         render()
         animate()
     })
 
+    const onClick = () => {
+        console.log('CLICKED', actions)
+        actions[1].play()
+        executeCrossFade(actions[0], actions[1], 0.5)
+    }
 
     const init = () => {
         scene = new THREE.Scene();
@@ -97,40 +133,25 @@
 
         pivot.add( card )
 
-        card.geometry.computeBoundingBox()
         card.position.set(-3.5, 19.7, 0)
         pivot.position.set(0, 0, -9)
         pivot.rotateY(-0.1)
 
-        scene.add( pivot )
+        // scene.add( pivot )
 
         loadModel((object) => {
             object.scale.set(0.1, 0.1, 0.1) 
             object.position.set(0, 0, -16)
-
         })
     
         render()
         window.addEventListener('resize', onResize)
-
-        // setTimeout( () =>
-        //     setInterval(update, 1000/30)
-        // , 1000)
-
-        let rotation = 0;
-        function update(){
-            if (rotation < 0.25) {
-                rotation += rotation / 10 + 0.005
-                pivot.rotateX(rotation)
-                renderer.render( scene, camera );
-            }
-        }
     }
 
 
 </script>
 
-<div id="wrapper" bind:this={parent}>
+<div id="wrapper" bind:this={parent} on:click|once={onClick}>
 </div>
 
 <style>
