@@ -37,7 +37,6 @@ body {
 	z-index: 1000;
 	position: absolute;
 	text-align: center;
-	white-space: nowrap;
 	background-color: #226692;
 	color: #8fc6e8;
 	font-weight: bold;
@@ -46,6 +45,7 @@ body {
 	-webkit-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
 	-moz-box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
 	box-shadow: 0px 2px 17px 0px rgba(0,0,0,0.57);
+	white-space: nowrap;
 }
 
 /* ANIMATIONS */
