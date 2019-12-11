@@ -1,15 +1,29 @@
 <script>
-	import { onMount } from 'svelte';
-    import * as THREE from 'three';    
+	import { onMount } from 'svelte'
+    import * as THREE from 'three'
     import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
     import { TGALoader } from 'three/examples/jsm/loaders/TGALoader'
-    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
-    import { loadCardboard, avatar as outlinePath} from '../utils/3D.js'
-
+    import { loadCardboard, setWeight, executeCrossFade,
+             avatar as outlinePath } from '../utils/3D.js'
 
     let parent, container, scene, camera, renderer
+    let clock = new THREE.Clock();
+    let mixer, actions = [], controls;
+
+    onMount(() => {
+        init()
+        render()
+        animate()
+    })
+
+    const onClick = () => {
+        console.log('CLICKED', actions)
+        actions[1].play()
+        executeCrossFade(actions[0], actions[1], 0.5)
+    }
 
     const onResize = (e) => {
         var positionInfo = renderer.domElement.getBoundingClientRect()
@@ -20,21 +34,14 @@
 
     const render = () => renderer.render( scene, camera )
 
-    var clock = new THREE.Clock();
-    var mixer, actions = [], controls;
-
-
-    const loadModel = (cb) => {
+    const loadModel = () => new Promise((res, rej) => {
         var loader = new FBXLoader();
         loader.load( 'models/animated/idle.fbx', function ( object ) {
             mixer = new THREE.AnimationMixer( object );
             mixer.addEventListener( 'loop', (e) => {
                 if ( e.action !== actions[0]) {
-                    // setWeight(  e.action, 0 );
-                    // // actions[0].play()
                     console.log('LOOP')
                     executeCrossFade(e.action, actions[0], 0.5)
-                    // // setTimeout(()=> e.action.time = 0, 501)
                 }
             })
             object.animations[ 2 ] = object.animations[ 0 ]
@@ -52,7 +59,6 @@
                     })
                 }
             })
-            scene.add( object )
 
             loader.load( 'models/animated/kicking.fbx', function ( object ) {
                 actions[1] = mixer.clipAction( object.animations[ 0 ] )
@@ -60,44 +66,13 @@
                 actions[1].setLoop( THREE.LoopPingPong  )
             })
 
-            cb(object)
+            res(object)
         })
-    }
-    function animate() {
-        requestAnimationFrame( animate );
-        var delta = clock.getDelta();
-        if ( mixer ) mixer.update( delta );
-        renderer.render( scene, camera );
-        // stats.update();
-    }
-    function setWeight( action, weight ) {
-        action.enabled = true;
-        action.setEffectiveTimeScale( 1 );
-        action.setEffectiveWeight( weight );
-    }
-    function executeCrossFade( startAction, endAction, duration ) {
-        // console.log(startAction, endAction)
-        // Not only the start action, but also the end action must get a weight of 1 before fading
-        // (concerning the start action this is already guaranteed in this place)
-        setWeight( endAction, 1);
-        endAction.time = 0;
-        // Crossfade with warping - you can also try without warping by setting the third parameter to false
-        startAction.crossFadeTo( endAction, duration, false );
-        // endAction.play()
-    }         
-    onMount(() => {
-        init()
-        render()
-        animate()
     })
 
-    const onClick = () => {
-        console.log('CLICKED', actions)
-        actions[1].play()
-        executeCrossFade(actions[0], actions[1], 0.5)
-    }
-
     const init = () => {
+        window.addEventListener('resize', onResize)
+
         scene = new THREE.Scene();
 
         var positionInfo = parent.getBoundingClientRect()
@@ -123,31 +98,36 @@
         // controls.target.set( 0, 0, 0 );
         // controls.update();
 
+        const pivotGeometry = new THREE.Geometry();
+        pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
+        const pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
+        const pivot = new THREE.Points( pivotGeometry, pivotMaterial );
+        
         const card = loadCardboard( outlinePath )
         card.scale.set(0.026, 0.026, 0.026)
-
-        var pivotGeometry = new THREE.Geometry();
-        pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-        var pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
-        var pivot = new THREE.Points( pivotGeometry, pivotMaterial );
-
+        card.position.set(-3.5, 19.7, 0)
         pivot.add( card )
 
-        card.position.set(-3.5, 19.7, 0)
         pivot.position.set(0, 0, -9)
         pivot.rotateY(-0.1)
+        scene.add( pivot )
 
-        // scene.add( pivot )
-
-        loadModel((object) => {
+        loadModel().then((object) => {
             object.scale.set(0.1, 0.1, 0.1) 
             object.position.set(0, 0, -16)
+            scene.add( object )
         })
     
         render()
-        window.addEventListener('resize', onResize)
     }
 
+    const animate = () => {
+        requestAnimationFrame( animate );
+        var delta = clock.getDelta();
+        if ( mixer ) mixer.update( delta );
+        renderer.render( scene, camera );
+        // stats.update();
+    }
 
 </script>
 
