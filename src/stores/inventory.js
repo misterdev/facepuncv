@@ -144,8 +144,8 @@ export const drop = (toR, toC) => {
             inv[r][c] = inv[toR][toC]
             inv[toR][toC] = temp
             draggedItem = null
-            if (inv[r][c].hint) inv[r][c].hint = false
-            else if (inv[toR][toC].hint) inv[toR][toC].hint = false
+            if (inv[r][c] && inv[r][c].hint) inv[r][c].hint = false
+            else if (inv[toR][toC] && inv[toR][toC].hint) inv[toR][toC].hint = false
             return inv
         })
 }
