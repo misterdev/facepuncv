@@ -75,30 +75,19 @@
         renderer.setSize( width, height, false )
         renderer.domElement.setAttribute("style", "width: 100%; height: 100%;");
         parent.appendChild( renderer.domElement )
-
-        // controls = new OrbitControls( camera, renderer.domElement );
-        // controls.target.set( 0, 0, 0 );
-        // controls.update();
-
-        const pivotGeometry = new THREE.Geometry();
-        pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-        const pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
-        const pivot = new THREE.Points( pivotGeometry, pivotMaterial );
         
         const card = loadCardboard( outlinePath )
         card.scale.set(0.026, 0.026, 0.026)
-        console.log(card)
-        var pivotGeometry = new THREE.Geometry();
+        
+        const pivotGeometry = new THREE.Geometry();
         pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-        var pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
+        const pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
         pivot = new THREE.Points( pivotGeometry, pivotMaterial );
-
         pivot.add( card )
 
+        card.position.set(-3.5, 19.7, 0)
         pivot.position.set(0, 0, -9)
         pivot.rotateY(-0.1)
-        scene.add( pivot )
-
         scene.add( pivot )
 
         loadModel().then((object) => {
@@ -128,11 +117,6 @@
                 if ( child.isMesh ) {
                     child.castShadow = true;
                     child.receiveShadow = true;
-                    // child.material = new THREE.MeshPhongMaterial({
-                    //     color: 0xff0000,
-                    //     skinning: true
-                    // })
-                }
             })
 
             // Load kicking animation

@@ -49,7 +49,7 @@
 	<div class="rateo16-9">
 		<video id="bg" src={bgSrc} muted bind:this={bg} /> 
 	</div>
-	<div id="content" class="rateo16-9 hidden" bind:this={content}>
+	<div id="content" class="rateo16-9 " bind:this={content}>
 		<div id="header">
 			<NavButton />
 		</div>
