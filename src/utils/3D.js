@@ -527,4 +527,23 @@ const avatar = {
         "16.94,428.44 28.01,433.58 33.00,435.00 Z"
 }
 
-export { avatar, loadCardboard }
+function setWeight( action, weight ) {
+    action.enabled = true;
+    action.setEffectiveTimeScale( 1 );
+    action.setEffectiveWeight( weight );
+}
+function executeCrossFade( startAction, endAction, duration ) {
+    // Not only the start action, but also the end action must get a weight of 1 before fading
+    // (concerning the start action this is already guaranteed in this place)
+    setWeight( endAction, 1);
+    endAction.time = 0;
+    // Crossfade with warping - you can also try without warping by setting the third parameter to false
+    startAction.crossFadeTo( endAction, duration, true );
+}    
+
+export { 
+    avatar,
+    loadCardboard,
+    setWeight,
+    executeCrossFade
+}
