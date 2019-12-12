@@ -13,7 +13,9 @@
     let parent, container, // DOM Elements
         scene, camera, renderer, pivot, // 3D scene
         clock = new THREE.Clock(),
-        mixer, actions = [], controls; // Animations
+        mixer, actions = [], controls // Animations
+    
+    let doneIntro = false
 
     onMount(() => {
         init()
@@ -46,10 +48,14 @@
     }
 
     const onClick = () => {
-        console.log('CLICKED', actions)
-        actions[1].play()
-        executeCrossFade(actions[0], actions[1], 0.5)
-        setTimeout(() => kicked = true, 1000)
+        if (!doneIntro) {
+            doneIntro = true
+            actions[1].play()
+            executeCrossFade(actions[0], actions[1], 0.5)
+            setTimeout(() => kicked = true, 1000)
+        } else {
+
+        }
     }
 
     const init = () => {
@@ -80,9 +86,7 @@
         card.scale.set(0.026, 0.026, 0.026)
         
         const pivotGeometry = new THREE.Geometry();
-        pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
-        const pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
-        pivot = new THREE.Points( pivotGeometry, pivotMaterial );
+        pivot = new THREE.Points( pivotGeometry );
         pivot.add( card )
 
         card.position.set(-3.5, 19.7, 0)
@@ -90,18 +94,17 @@
         pivot.rotateY(-0.1)
         scene.add( pivot )
 
-        loadModel().then((object) => {
-            scene.add( object )
-            object.scale.set(0.13, 0.13, 0.13) 
-            object.position.set(0, 0, -18)
+        loadModel().then((model) => {
+            scene.add( model )
+            model.scale.set(.13, .13, .13) 
+            model.position.set(0, 0, -18)
         })
-    
         render()
     }
 
-    const loadModel = (cb) => new Promise((resolve, reject) => {
+    const loadModel = () => new Promise((resolve, reject) => {
         var loader = new FBXLoader();
-        loader.load( 'models/animated/idle.fbx', function ( object ) {
+        loader.load( 'models/animated/idle.fbx', ( object ) => {
             mixer = new THREE.AnimationMixer( object );
             mixer.addEventListener( 'loop', (e) => {
                 if ( e.action !== actions[0]) {
@@ -126,6 +129,28 @@
                 setWeight( actions[1], 0 )
                 actions[1].setLoop( THREE.LoopPingPong  )
             })
+            
+            // Loads mask
+            let texture, material, mask
+            const width = 336, height = 443
+
+            texture = new THREE.TextureLoader().load( "textures/devide.png" )
+            texture.wrapS = THREE.RepeatWrapping
+            texture.wrapT = THREE.RepeatWrapping
+            material = new THREE.MeshLambertMaterial({
+                map : texture,
+                alphaTest: 0.5
+            })
+
+            mask = new THREE.Mesh(new THREE.PlaneGeometry(width, height), material)
+            mask.material.side = THREE.DoubleSide
+            mask.translateX( - width / 2 )
+            mask.translateY( - height / 2 )
+            mask.translateZ( -1 )
+            object.children[1].skeleton.getBoneByName("mixamorigHead").add(mask)
+            mask.position.set(0, 6, 14)
+            mask.scale.set(.07, .07, .07)
+
             resolve(object)
         })
     })
@@ -139,6 +164,7 @@
     #wrapper {
         height: 100%;
         width: 100%;
+        cursor: pointer;
     }
 </style>
 
