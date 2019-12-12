@@ -117,6 +117,7 @@
                 if ( child.isMesh ) {
                     child.castShadow = true;
                     child.receiveShadow = true;
+                }
             })
 
             // Load kicking animation

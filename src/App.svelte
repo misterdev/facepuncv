@@ -9,7 +9,7 @@
 	let idleSrc = 'videos/idle.mp4'
 	let introSrc = 'videos/intro.mp4'
 	let bgSrc = 'videos/bg.mp4'
-	let poster = 'https://static.gamespot.com/uploads/original/1406/14063904/3353523-20180211195717_1.jpg'
+	let poster = 'images/idle.jpeg'
 	
 	let showProfile
 	navigation.subscribe((nav) => showProfile = nav.profile)
@@ -49,7 +49,7 @@
 	<div class="rateo16-9">
 		<video id="bg" src={bgSrc} muted bind:this={bg} /> 
 	</div>
-	<div id="content" class="rateo16-9 " bind:this={content}>
+	<div id="content" class="rateo16-9 hidden" bind:this={content}>
 		<div id="header">
 			<NavButton />
 		</div>
