@@ -1,4 +1,4 @@
-const audio = document.getElementsByTagName('audio')[0];
+const audio = document.getElementsByTagName('audio')[0]
 
 const play = () => {
     audio.volume = 0.2;

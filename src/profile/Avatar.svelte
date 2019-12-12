@@ -53,6 +53,8 @@
     }
 
     const init = () => {
+        window.addEventListener('resize', onResize)
+
         scene = new THREE.Scene();
 
         var positionInfo = parent.getBoundingClientRect()
@@ -78,6 +80,11 @@
         // controls.target.set( 0, 0, 0 );
         // controls.update();
 
+        const pivotGeometry = new THREE.Geometry();
+        pivotGeometry.vertices.push(new THREE.Vector3( 0, 0, 0));
+        const pivotMaterial = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false } );
+        const pivot = new THREE.Points( pivotGeometry, pivotMaterial );
+        
         const card = loadCardboard( outlinePath )
         card.scale.set(0.026, 0.026, 0.026)
         console.log(card)
@@ -88,9 +95,9 @@
 
         pivot.add( card )
 
-        card.position.set(-3.5, 19.7, 0)
         pivot.position.set(0, 0, -9)
         pivot.rotateY(-0.1)
+        scene.add( pivot )
 
         scene.add( pivot )
 
@@ -101,7 +108,6 @@
         })
     
         render()
-        window.addEventListener('resize', onResize)
     }
 
     const loadModel = (cb) => new Promise((resolve, reject) => {
