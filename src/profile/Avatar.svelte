@@ -36,17 +36,19 @@
     let kicked
 
     function animate() {
-        requestAnimationFrame( animate );
+        requestAnimationFrame( animate )
         var delta = clock.getDelta();
-        if ( mixer ) mixer.update( delta );
-        renderer.render( scene, camera );
+        if ( mixer ) mixer.update( delta )
+        renderer.render( scene, camera )
         if (kicked && pivot.rotation.x < 3) {
             pivot.position.z += .25
             pivot.position.y -= .04
             pivot.rotation.x += .1
             pivot.rotation.y -= .02
             pivot.rotation.z += .005
-        }    
+        } else if (kicked) {
+            scene.remove( pivot )
+        }
     }
 
     const onClick = () => {
@@ -58,8 +60,6 @@
                 dispatch('shake')
                 kicked = true
             }, 1000)
-        } else {
-
         }
     }
 
@@ -88,6 +88,7 @@
         parent.appendChild( renderer.domElement )
         
         const card = loadCardboard( outlinePath )
+        card.name = 'cardboard'
         card.scale.set(0.026, 0.026, 0.026)
         
         const pivotGeometry = new THREE.Geometry();
