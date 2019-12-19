@@ -5,7 +5,8 @@
     import { TGALoader } from 'three/examples/jsm/loaders/TGALoader'
     import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-
+	import { createEventDispatcher } from 'svelte';
+    
     import { loadCardboard,
              executeCrossFade, setWeight,
              avatar as outlinePath } from '../utils/3D.js'
@@ -14,8 +15,9 @@
         scene, camera, renderer, pivot, // 3D scene
         clock = new THREE.Clock(),
         mixer, actions = [], controls // Animations
-    
+
     let doneIntro = false
+	const dispatch = createEventDispatcher()
 
     onMount(() => {
         init()
@@ -52,7 +54,10 @@
             doneIntro = true
             actions[1].play()
             executeCrossFade(actions[0], actions[1], 0.5)
-            setTimeout(() => kicked = true, 1000)
+            setTimeout(() => {
+                dispatch('shake')
+                kicked = true
+            }, 1000)
         } else {
 
         }

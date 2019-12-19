@@ -8,7 +8,7 @@
 
 <div id="profile-w" class:active={show}>
     <div id="avatar">
-        <Avatar />
+        <Avatar on:shake />
     </div>
     <div id="inventory">
         <Inventory />

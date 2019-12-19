@@ -14,7 +14,7 @@
 	let showProfile
 	navigation.subscribe((nav) => showProfile = nav.profile)
 
-	let idle, intro, bg, content 
+	let idle, intro, bg, content
 
 	const playIntro = () => {
 		intro.play();
@@ -32,6 +32,9 @@
 			intro.remove()
 		}, 100)
 	}
+
+	let shake = false
+	const onShake = () => shake = true
 </script>
 
 <svelte:head>
@@ -39,7 +42,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
 <svelte:window on:keydown|once={playIntro} />
-<div class="wrapper">
+<div class={shake ? 'wrapper shake' : 'wrapper'} >
+	<!-- <div class="rateo16-9" style="background-color: green">
+		<Avatar />
+	</div> -->
 	<div class="rateo16-9">
 		<video src={idleSrc} {poster} muted autoplay loop bind:this={idle}/>
 	</div>
@@ -49,12 +55,12 @@
 	<div class="rateo16-9">
 		<video id="bg" src={bgSrc} muted bind:this={bg} /> 
 	</div>
-	<div id="content" class="rateo16-9 hidden" bind:this={content}>
+	<div id="content" class="rateo16-9 " bind:this={content}>
 		<div id="header">
 			<NavButton />
 		</div>
 		<div id="component">
-			<Profile show={showProfile} />
+			<Profile show={showProfile} on:shake={onShake} />
 			<Curriculum show={!showProfile} />
 		</div>
 		<div id="footer">
@@ -72,6 +78,10 @@
 		align-items: center;
 		justify-content: center;
 	}
+    .shake {
+		transform: translate3d(0, 0, 0);
+		animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+    }
 	video {
 		width: 100%;
 		height: 100%;
@@ -89,6 +99,7 @@
 		max-height: 100vh;
 	}
 	#content {
+		transform: translate3d(0, 0, 0);
 		position: absolute;
 		background-color: rgba(0,0,0,.5);
 		overflow: hidden;
