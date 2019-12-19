@@ -3,88 +3,88 @@ import { writable } from 'svelte/store'
 const content = []
 content[0] = [
     {
-        src: "images/profile/node.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/node.png",
         label: "NODEJS"
     },
     {
-        src: "images/profile/js.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/js.png",
         label: "JAVASCRIPT"
     },
     {
-        src: "images/profile/ts.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/ts.png",
         label: "TYPESCRIPT"
     },
     {
-        src: "images/profile/react.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/react.png",
         label: "REACT"
     },
     {
-        src: "images/profile/svelte.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/svelte.png",
         label: "SVELTE"
     }
 ]
 content[1] = [
     {
-        src: "images/profile/three.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/three.png",
         label: "THREEJS"
     },
     {
-        src: "images/profile/aframe.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/aframe.png",
         label: "AFRAME"
     },
     {
-        src: "images/profile/blender.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/blender.png",
         label: "BLENDER"
     },
     {},
     {},
     {
-        src: "images/profile/note.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/note.png",
         label: "> DRAG ME <",
         hint: true
     }
 ]
 content[2] = [
     {
-        src: "images/profile/firebase.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/firebase.png",
         label: "FIREBASE"
     },
     {
-        src: "images/profile/gcp.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/gcp.png",
         label: "GCP"
     },
     {
-        src: "images/profile/aws.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/aws.png",
         label: "AWS"
     },
     {
-        src: "images/profile/travis.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/travis.png",
         label: "TRAVIS CI"
     },
 ]
 content[3] = [
     {
-        src: "images/profile/python.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/python.png",
         label: "PYTHON"
     },
     {
-        src: "images/profile/c++.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/cpp.png",
         label: "C++"
     },
     {
-        src: "images/profile/rust.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/rust.png",
         label: "RUST (THE LANG)"
     },
     {
-        src: "images/profile/rust-game.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/rust-game.png",
         label: "RUST (THE GAME)"
     },
     {
-        src: "images/profile/dart.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/dart.png",
         label: "DART"
     },
     {
-        src: "images/profile/java.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/java.png",
         label: "JAVA"
     }
 ]
@@ -92,32 +92,32 @@ content[4] = [
     {
         href: 'https://www.youtube.com/watch?v=z9Uz1icjwrM',
         label: 'ROCK',
-        src: 'images/belt/rock.png',
+        src: 'https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576711580/facepuncv/belt/rock.png',
     },
     {
         href: 'https://github.com/misterdev',
         label: 'GITHUB',
-        src: 'images/belt/github3d.png'
+        src: 'https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576711580/facepuncv/belt/github3d.png'
     },
     {
         href: 'https://twitter.com/misterdev_',
         label: 'TWITTER',
-        src: 'images/belt/twitter3d.png'
+        src: 'https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576711580/facepuncv/belt/twitter3d.png'
     },
     {
         href: 'https://www.linkedin.com/in/misterdev',
         label: 'LINKEDIN',
-        src: 'images/belt/linkedin3d.png'
+        src: 'https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576711580/facepuncv/belt/linkedin3d.png'
     },
     {
         href: 'https://stackoverflow.com/users/4695325/devid-farinelli',
         label: 'STACKOVERFLOW',
-        src: 'images/belt/so3d.png'
+        src: 'https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576711580/facepuncv/belt/so3d.png'
     },
     {
         href: 'mailto:devid.farinelli@gmail.com',
         label: 'E-MAIL',
-        src: 'images/belt/envelope3d.png'
+        src: 'https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576711580/facepuncv/belt/envelope3d.png'
     }
 ]
 
