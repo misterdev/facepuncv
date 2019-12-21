@@ -15,7 +15,7 @@ content[0] = [
         label: "TYPESCRIPT"
     },
     {
-        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712293/facepuncv/inventory/react.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576946550/facepuncv/inventory/react.png",
         label: "REACT"
     },
     {

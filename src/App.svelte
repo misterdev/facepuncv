@@ -6,10 +6,11 @@
 	import NavButton from './NavButton.svelte'
 
 	export let name
-	let idleSrc = 'videos/idle.mp4'
-	let introSrc = 'videos/intro.mp4'
-	let bgSrc = 'videos/bg.mp4'
-	let poster = 'images/idle.jpeg'
+	let idleSrc = 'videos/idle.mp4',
+		introSrc = 'videos/intro.mp4',
+		bgSrc = 'videos/bg.mp4',
+		poster = 'images/idle.jpeg',
+		loading = 'images/poster.png'
 	
 	let showProfile
 	navigation.subscribe((nav) => showProfile = nav.profile)
@@ -41,11 +42,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
-<svelte:window on:keydown|once={playIntro} />
+<svelte:window on:keydown|once={playIntro}/> 
+<!-- on:click|once={playIntro}/> -->
 <div class={shake ? 'wrapper shake' : 'wrapper'} >
-	<!-- <div class="rateo16-9" style="background-color: green">
-		<Avatar />
-	</div> -->
 	<div class="rateo16-9">
 		<video src={idleSrc} {poster} muted autoplay loop bind:this={idle}/>
 	</div>

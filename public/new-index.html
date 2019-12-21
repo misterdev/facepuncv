@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width'>
+
+	<title>Devid Farinelli</title>
+
+	<script>
+		let canShow = true
+		const showContent = () => {
+			if (canShow) document.getElementById('loading').style.display = 'none'
+			else canShow = true
+		}
+		// setTimeout(showContent, 4000)
+		window.onload = showContent
+	</script>
+
+	<link rel='icon' type='image/png' href='./favicon.png'>
+	<link rel='stylesheet' href='./global.css'>
+	<link rel='stylesheet' href='./bundle.css'>
+
+	<script defer src='./bundle.js'></script>
+	<audio>
+		<source type="audio/mpeg" src="./sounds/tick.mp3" async></source>
+	</audio>
+	<style>
+		#loading {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 2000;
+		}
+		#foreground {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#background {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: #2c2d44;
+			background-image: -moz-linear-gradient(45deg, #3f3251 2%, #002025 100%);
+			background-image: -webkit-linear-gradient(45deg, #3f3251 2%, #002025 100%);
+			background-image: linear-gradient(45deg, #3f3251 2%, #002025 100%);
+		}
+		#logo {
+			-webkit-filter: drop-shadow(0px 0px 7px #ddd);
+			filter: drop-shadow(0px 0px 7px #ddd);
+		}
+		#big-stars {
+			position: absolute;
+			height: 3px;
+			width: 3px;
+			background: transparent;
+			box-shadow: 100px 170px 1px #fff,
+						180px -293px 1px #fff,
+						-238px -463px 1px #fff,
+						-89px 384px 1px #fff,
+						64px -562px 1px #fff,
+						-501px -93px 1px #fff,
+						-849px 333px 1px #fff,
+						645px 573px 1px #fff,
+						890px -234px 1px #fff;
+		}
+		#medium-stars {
+			position: absolute;
+			height: 2px;
+			width: 2px;
+			background: transparent;
+			box-shadow: 100px 270px #fff,
+						298px 587px #fff,
+						-298px -587px #fff,
+						-782px -299px #fff,
+						388px 587px #fff;
+		}
+		#small-stars {
+			position: absolute;
+			height: 1px;
+			width: 1px;
+			background: transparent;
+			box-shadow: 190px 190px #fff,
+						345px 345px #fff,
+						-309px -587px #fff,
+						-563px 299px #fff,
+						222px -222px #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="loading">
+		<div id="background"></div>
+		<div id="foreground">
+			<div id="small-stars"></div>
+			<div id="medium-stars"></div>
+			<div id="big-stars"></div>
+			<img id="logo" src="https://res.cloudinary.com/misterdev/image/upload/w_150,h_150,c_fill/v1576712983/facepuncv/curriculum/d.png" />
+		</div>
+	</div>
+</body>
+</html>

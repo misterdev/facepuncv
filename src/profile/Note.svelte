@@ -4,7 +4,9 @@ Greetings Survivor,<br/>
 My name is Devid I'm a Master Computer Science student at the University of Bologna (Italy) and a developer passionate about the Javascript world.<br/><br/>
 When I don't hit trees I usually do frontend stuff, but I like to explore different fields (ML, 3D, ...) and working on creative projects.<br/><br/>
 
-- Devid -
+- Devid -<br/><br/>
+
+PS: You can click on the avatar to download my curriculum as PDF
     </div>
 </div>
 
