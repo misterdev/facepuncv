@@ -9,7 +9,7 @@
 	<script>
 		let i = 0;
 		const sentences = [
-			"that's not nice from you",
+			"...that's not nice from you",
 			"once wasn't enough?",
 			"ok, it's not funny anymore",
 			"could you just stop?",
@@ -22,7 +22,20 @@
 			"i was joking, this is the last one",
 			"undefined",
 			"undefined",
-			"i bet nobody will read this"
+			"i bet nobody will read this",
+			"if you are reading this you very ostinate...",
+			"or your internet connection is very bad /F",
+			"ok this is the last one for real",
+			"undefined",
+			"undefined",
+			"undefined",
+			"are you reading the source code, aren't you?",
+			"if you enjoyed this please subscribe",
+			"i can continue for ages",
+			"this is just a stream of consciousness",
+			"i should be working on my thesis",
+			"ok i think i should stop now",
+			"glad to talk with you, bye!"
 		]
 		const onkeydown = (e) => {
 			e.stopPropagation()
@@ -41,7 +54,7 @@
 				document.removeEventListener("click", onkeydown);
 				document.removeEventListener("keydown", onkeydown);
 			}
-			else canShow = true
+			// else canShow = true
 		}
 		setTimeout(showContent, 5000)
 		window.onload = showContent
