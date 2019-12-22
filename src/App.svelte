@@ -15,13 +15,17 @@
 	let showProfile
 	navigation.subscribe((nav) => showProfile = nav.profile)
 
-	let idle, intro, bg, content
+	let idle, intro,introParent, bg, content
+	let isStarted = false
 
 	const playIntro = () => {
+		if (isStarted) return
+		isStarted = true
 		intro.play();
 		setTimeout(() => {
 			intro.style.opacity = 1
 			idle.remove()
+			document.getElementById('loading-w').remove()
 		}, 100)
 	}
 
@@ -30,7 +34,7 @@
 		setTimeout(() => {
 			content.classList.remove('hidden')
 			bg.style.opacity = 1
-			intro.remove()
+			introParent.remove()
 		}, 100)
 	}
 
@@ -42,19 +46,18 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
-<svelte:window on:keydown|once={playIntro}/> 
-<!-- on:click|once={playIntro}/> -->
+<svelte:window on:keydown|once={playIntro} on:click|once={playIntro}/>
 <div class={shake ? 'wrapper shake' : 'wrapper'} >
-	<div class="rateo16-9">
-		<video src={idleSrc} {poster} muted autoplay loop bind:this={idle}/>
+	<div class="rateo16-9" bind:this={idle}>
+		<video src={idleSrc} {poster} muted autoplay loop />
 	</div>
-	<div class="rateo16-9">
+	<div class="rateo16-9" bind:this={introParent}>
 		<video id="bg" src={introSrc} muted bind:this={intro} on:ended|once={playBg}/> 
 	</div>
 	<div class="rateo16-9">
 		<video id="bg" src={bgSrc} muted bind:this={bg} /> 
 	</div>
-	<div id="content" class="rateo16-9 " bind:this={content}>
+	<div id="content" class="rateo16-9 hidden" bind:this={content}>
 		<div id="header">
 			<NavButton />
 		</div>
