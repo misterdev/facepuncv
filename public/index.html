@@ -7,12 +7,40 @@
 	<title>Devid Farinelli</title>
 
 	<script>
+		let i = 0;
+		const sentences = [
+			"that's not nice from you",
+			"once wasn't enough?",
+			"ok, it's not funny anymore",
+			"could you just stop?",
+			"stahp pressing keys pls",
+			"ok, i'm calling the police",
+			"💩",
+			"i don't check the sentence index lol",
+			"this is the last one, bye",
+			"undefined",
+			"i was joking, this is the last one"
+		]
+		const onkeydown = (e) => {
+			e.stopPropagation()
+			document.getElementById('small-text').innerHTML = sentences[i]
+			i++;
+		}
+
+		// Attach an event handler to the document
+		document.addEventListener("keydown", onkeydown);
+		document.addEventListener("click", onkeydown);
+
 		let canShow = false
 		const showContent = () => {
-			if (canShow) document.getElementById('loading-w').classList.add('hidden')
+			if (canShow) {
+				document.getElementById('loading-w').classList.add('hidden')
+				document.removeEventListener("click", onkeydown);
+				document.removeEventListener("keydown", onkeydown);
+			}
 			else canShow = true
 		}
-		setTimeout(showContent, 4000)
+		setTimeout(showContent, 5000)
 		window.onload = showContent
 	</script>
 
