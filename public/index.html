@@ -9,7 +9,7 @@
 	<script>
 		let canShow = false
 		const showContent = () => {
-			if (canShow) document.getElementById('loading-w').style.display = 'none'
+			if (canShow) document.getElementById('loading-w').classList.add('hidden')
 			else canShow = true
 		}
 		setTimeout(showContent, 4000)
@@ -33,6 +33,12 @@
 		display: flex;
 		align-items: center;
 		z-index: 2000;
+		opacity: 1;
+		-webkit-transition: opacity 1s;
+		transition: opacity 1s;
+	}
+	#loading-w.hidden {
+		opacity: 0;
 	}
 	#loading-rateo {
 		position: absolute;
