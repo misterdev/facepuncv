@@ -16,10 +16,13 @@
 			"stahp pressing keys pls",
 			"ok, i'm calling the police",
 			"💩",
-			"i don't check the sentence index lol",
+			"stop now, i don't check the sentence index",
 			"this is the last one, bye",
 			"undefined",
-			"i was joking, this is the last one"
+			"i was joking, this is the last one",
+			"undefined",
+			"undefined",
+			"i bet nobody will read this"
 		]
 		const onkeydown = (e) => {
 			e.stopPropagation()
@@ -38,7 +41,7 @@
 				document.removeEventListener("click", onkeydown);
 				document.removeEventListener("keydown", onkeydown);
 			}
-			// else canShow = true
+			else canShow = true
 		}
 		setTimeout(showContent, 5000)
 		window.onload = showContent
