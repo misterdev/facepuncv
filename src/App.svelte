@@ -8,9 +8,8 @@
 	export let name
 	let idleSrc = 'videos/idle.mp4',
 		introSrc = 'videos/intro.mp4',
-		bgSrc = 'videos/bg.mp4',
-		poster = 'images/idle.jpeg',
-		loading = 'images/poster.png'
+		bgSrc = 'videos/bg-loop.mp4',
+		poster = 'images/idle.jpeg'
 	
 	let showProfile
 	navigation.subscribe((nav) => showProfile = nav.profile)
@@ -27,12 +26,15 @@
 			idle.remove()
 			document.getElementById('loading-w').remove()
 		}, 100)
+		setTimeout(() => {
+			content.classList.remove('hidden')
+			intro.classList.add('blurred')
+		}, 4500)
 	}
 
 	const playBg = () => {
 		bg.play();
 		setTimeout(() => {
-			content.classList.remove('hidden')
 			bg.style.opacity = 1
 			introParent.remove()
 		}, 100)
@@ -52,10 +54,10 @@
 		<video src={idleSrc} {poster} muted autoplay loop />
 	</div>
 	<div class="rateo16-9" bind:this={introParent}>
-		<video id="bg" src={introSrc} muted bind:this={intro} on:ended|once={playBg}/> 
+		<video class="hidden" src={introSrc} muted bind:this={intro} on:ended|once={playBg}/> 
 	</div>
 	<div class="rateo16-9">
-		<video id="bg" src={bgSrc} muted bind:this={bg} /> 
+		<video class="hidden blurred" src={bgSrc} loop muted bind:this={bg} /> 
 	</div>
 	<div id="content" class="rateo16-9 hidden" bind:this={content}>
 		<div id="header">
@@ -89,8 +91,12 @@
 		height: 100%;
 		transform: scale(1.05);
 	}
-	#bg {
+	.hidden {
 		opacity: 0;
+	}
+	.blurred {
+		-webkit-filter: blur(7px);
+		filter: blur(7px);
 	}
 	.rateo16-9 {
 		position: absolute;
@@ -110,8 +116,8 @@
         transition: transform 200ms, opacity 200ms, background-color 1000ms;
 	}
 	#content.hidden {
+		opacity: 0;
 		transform: translateX(-50%);
-        opacity: 0;
 		background-color: rgba(0,0,0,0);
 	}
 	#header {
