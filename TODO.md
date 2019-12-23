@@ -1,4 +1,2 @@
-- change video bg
 - add pdf icon + download to 3d model
 - change 3d model
-- add loading
