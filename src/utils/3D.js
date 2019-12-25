@@ -297,7 +297,7 @@ const transformSVGPath = ( pathStr ) => {
     return path;
 };
 
-const loadCardboard = ( svgObject, depth=12, color=0x462004 ) => {
+const loadCardboard = ( svgObject, texturePath, depth=12, color=0x462004 ) => {
     var path = transformSVGPath( svgObject.path )
     var threeColor = new THREE.Color( color )
     var material = new THREE.MeshLambertMaterial({
@@ -319,7 +319,7 @@ const loadCardboard = ( svgObject, depth=12, color=0x462004 ) => {
     var texture, material, plane
     const width = 259, height = 761
 
-    texture = new THREE.TextureLoader().load( "textures/avatar.png" )
+    texture = new THREE.TextureLoader().load( texturePath )
     texture.wrapS = THREE.RepeatWrapping
     texture.wrapT = THREE.RepeatWrapping
     material = new THREE.MeshLambertMaterial({

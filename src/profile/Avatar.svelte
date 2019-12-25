@@ -16,6 +16,12 @@
         clock = new THREE.Clock(),
         mixer, actions = [], controls // Animations
 
+    const textures = {
+        face: 'https://res.cloudinary.com/misterdev/image/upload/v1577295092/facepuncv/textures/devide.png',
+        cardboard: 'https://res.cloudinary.com/misterdev/image/upload/v1577295091/facepuncv/textures/cardboard.png',
+        pdf: 'https://res.cloudinary.com/misterdev/image/upload/v1577294993/facepuncv/textures/pdf.png'
+    }
+
     let doneIntro = false
 	const dispatch = createEventDispatcher()
 
@@ -87,7 +93,7 @@
         renderer.domElement.setAttribute("style", "width: 100%; height: 100%;");
         parent.appendChild( renderer.domElement )
         
-        const card = loadCardboard( outlinePath )
+        const card = loadCardboard( outlinePath, textures.cardboard )
         card.name = 'cardboard'
         card.scale.set(0.026, 0.026, 0.026)
         
@@ -140,7 +146,7 @@
             let texture, material, mask
             const width = 336, height = 443
 
-            texture = new THREE.TextureLoader().load( "textures/devide.png" )
+            texture = new THREE.TextureLoader().load( textures.cardboardface )
             texture.wrapS = THREE.RepeatWrapping
             texture.wrapT = THREE.RepeatWrapping
             material = new THREE.MeshLambertMaterial({
