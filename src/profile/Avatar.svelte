@@ -12,7 +12,7 @@
              avatar as outlinePath } from '../utils/3D.js'
 
     let parent, container, // DOM Elements
-        scene, camera, renderer, pivot, // 3D scene
+        scene, camera, renderer, cardboard, // 3D scene
         clock = new THREE.Clock(),
         mixer, actions = [], controls // Animations
 
@@ -46,14 +46,14 @@
         var delta = clock.getDelta();
         if ( mixer ) mixer.update( delta )
         renderer.render( scene, camera )
-        if (kicked && pivot.rotation.x < 3) {
-            pivot.position.z += .25
-            pivot.position.y -= .04
-            pivot.rotation.x += .1
-            pivot.rotation.y -= .02
-            pivot.rotation.z += .005
+        if (kicked && cardboard.rotation.x < 3) {
+            cardboard.position.z += .25
+            cardboard.position.y -= .04
+            cardboard.rotation.x += .1
+            cardboard.rotation.y -= .02
+            cardboard.rotation.z += .005
         } else if (kicked) {
-            scene.remove( pivot )
+            scene.remove( cardboard )
         }
     }
 
@@ -97,14 +97,14 @@
         card.name = 'cardboard'
         card.scale.set(0.026, 0.026, 0.026)
         
-        const pivotGeometry = new THREE.Geometry();
-        pivot = new THREE.Points( pivotGeometry );
-        pivot.add( card )
+        const cardboardGeometry = new THREE.Geometry();
+        cardboard = new THREE.Points( cardboardGeometry );
+        cardboard.add( card )
 
         card.position.set(-3.5, 19.7, 0)
-        pivot.position.set(0, 0, -9)
-        pivot.rotateY(-0.1)
-        scene.add( pivot )
+        cardboard.position.set(0, 0, -9)
+        cardboard.rotateY(-0.1)
+        // scene.add( cardboard )
 
         loadModel().then((model) => {
             scene.add( model )
@@ -143,25 +143,47 @@
             })
             
             // Loads mask
-            let texture, material, mask
-            const width = 336, height = 443
+            let maskTexture, maskMaterial, maskMesh
+            const maskWidth = 336, maskHeight = 443
 
-            texture = new THREE.TextureLoader().load( textures.cardboardface )
-            texture.wrapS = THREE.RepeatWrapping
-            texture.wrapT = THREE.RepeatWrapping
-            material = new THREE.MeshLambertMaterial({
-                map : texture,
+            maskTexture = new THREE.TextureLoader().load( textures.face )
+            maskTexture.wrapS = THREE.RepeatWrapping
+            maskTexture.wrapT = THREE.RepeatWrapping
+            maskMaterial = new THREE.MeshLambertMaterial({
+                map : maskTexture,
                 alphaTest: 0.5
             })
 
-            mask = new THREE.Mesh(new THREE.PlaneGeometry(width, height), material)
-            mask.material.side = THREE.DoubleSide
-            mask.translateX( - width / 2 )
-            mask.translateY( - height / 2 )
-            mask.translateZ( -1 )
-            object.children[1].skeleton.getBoneByName("mixamorigHead").add(mask)
-            mask.position.set(0, 6, 14)
-            mask.scale.set(.07, .07, .07)
+            maskMesh = new THREE.Mesh(new THREE.PlaneGeometry(maskWidth, maskHeight), maskMaterial)
+            maskMesh.material.side = THREE.DoubleSide
+            maskMesh.translateX( - maskWidth / 2 )
+            maskMesh.translateY( - maskHeight / 2 )
+            maskMesh.translateZ( -1 )
+            object.children[1].skeleton.getBoneByName("mixamorigHead").add(maskMesh)
+            maskMesh.position.set(0, 6, 14)
+            maskMesh.scale.set(.07, .07, .07)
+
+            // Load PDF Icon
+            let pdfTexture, pdfMaterial, pdfMesh
+            const pdfWidth = 336, pdfHeight = 336
+
+            pdfTexture = new THREE.TextureLoader().load( textures.pdf )
+            pdfTexture.wrapS = THREE.RepeatWrapping
+            pdfTexture.wrapT = THREE.RepeatWrapping
+            pdfMaterial = new THREE.MeshLambertMaterial({
+                map : pdfTexture,
+                alphaTest: 0.5
+            })
+
+            pdfMesh = new THREE.Mesh(new THREE.PlaneGeometry(pdfWidth, pdfHeight), pdfMaterial)
+            pdfMesh.material.side = THREE.DoubleSide
+            pdfMesh.translateX( - pdfWidth / 2 )
+            pdfMesh.translateY( - pdfHeight / 2 )
+            pdfMesh.translateZ( -1 )
+            object.children[1].skeleton.getBoneByName("mixamorigRightHandIndex1").add(pdfMesh)
+            pdfMesh.position.set(-6, 0, 3.5)
+            pdfMesh.scale.set(.07, .07, .07)
+            pdfMesh.rotation.x = .80
 
             resolve(object)
         })
