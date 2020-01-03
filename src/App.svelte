@@ -6,9 +6,13 @@
 	import NavButton from './NavButton.svelte'
 
 	export let name
-	let idleSrc = 'videos/idle.mp4',
-		introSrc = 'videos/intro.mp4',
-		bgSrc = 'videos/bg-loop.mp4',
+	// let idleSrc = 'videos/idle.mp4',
+	// 	introSrc = 'videos/intro.mp4',
+	// 	bgSrc = 'videos/bg-loop.mp4',
+	// 	poster = 'images/idle.jpeg'
+	let idleSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068394/facepuncv/videos/idle',
+		introSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068395/facepuncv/videos/intro',
+		bgSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068394/facepuncv/videos/bg-loop',
 		poster = 'images/idle.jpeg'
 	
 	let showProfile
@@ -29,7 +33,7 @@
 		setTimeout(() => {
 			content.classList.remove('hidden')
 			intro.classList.add('blurred')
-		}, 4500)
+		}, 3500)
 	}
 
 	const playBg = () => {
@@ -51,13 +55,25 @@
 <svelte:window on:keydown|once={playIntro} on:click|once={playIntro}/>
 <div class={shake ? 'wrapper shake' : 'wrapper'} >
 	<div class="rateo16-9" bind:this={idle}>
-		<video src={idleSrc} {poster} muted autoplay loop />
+		<video poster={idleSrc + '.jpg'} muted autoplay loop>
+			<source src={idleSrc + '.webm'} type="video/webm">
+			<source src={idleSrc + '.mp4'} type="video/mp4">
+			<source src={idleSrc + '.ogv'} type="video/ogg">
+		</video>
 	</div>
 	<div class="rateo16-9" bind:this={introParent}>
-		<video class="hidden" src={introSrc} muted bind:this={intro} on:ended|once={playBg}/> 
+		<video class="hidden" muted on:ended|once={playBg} bind:this={intro}>
+			<source src={introSrc + '.webm'} type="video/webm">
+			<source src={introSrc + '.mp4'} type="video/mp4">
+			<source src={introSrc + '.ogv'} type="video/ogg">
+		</video>
 	</div>
 	<div class="rateo16-9">
-		<video class="hidden blurred" src={bgSrc} loop muted bind:this={bg} /> 
+		<video class="hidden blurred" src={bgSrc} muted loop bind:this={bg} >
+			<source src={idleSrc + '.webm'} type="video/webm">
+			<source src={idleSrc + '.mp4'} type="video/mp4">
+			<source src={idleSrc + '.ogv'} type="video/ogg">
+		</video>
 	</div>
 	<div id="content" class="rateo16-9 hidden" bind:this={content}>
 		<div id="header">
