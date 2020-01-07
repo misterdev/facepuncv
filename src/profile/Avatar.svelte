@@ -66,6 +66,20 @@
                 dispatch('shake')
                 kicked = true
             }, 1000)
+        } else {
+            fetch('docs/cv.pdf')
+                .then(resp => resp.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    // the filename you want
+                    a.download = 'cv-devid-farinelli.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
         }
     }
 
