@@ -1,7 +1,7 @@
 <div id="note">
     <div id="note-content">
 Greetings Survivor,<br/>
-My name is Devid I'm a Master Computer Science student at the University of Bologna (Italy) and a developer passionate about the Javascript world.<br/><br/>
+My name is Devid I'm a Master Computer Science student at the University of Bologna (Italy) and a developer passionate about Web Development.<br/><br/>
 When I don't hit trees I usually do frontend stuff, but I like to explore different fields (ML, 3D, ...) and working on creative projects.<br/><br/>
 
 - Devid -<br/><br/>
