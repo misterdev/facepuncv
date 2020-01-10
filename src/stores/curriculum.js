@@ -24,7 +24,7 @@ export const categories = {
 export let queue = [
     {
         label: "FINAL THESIS",
-        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/d.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/v1578614075/facepuncv/curriculum/d.png",
         date: "Feb 2020"
     },
     {
@@ -303,7 +303,7 @@ content.EDUCATION = [
 content.PROJECTS = [
     {
         label: "FACEPUNCV",
-        icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/d.png",
+        icon: "https://res.cloudinary.com/misterdev/image/upload/v1578614075/facepuncv/curriculum/d.png",
         description: `
         When I decided to apply for Facepunch (in order to get hopefully noticed) I wanted to do
         something different from the usual CV to show my skills and attitude.
@@ -594,7 +594,7 @@ content.PRESENTATIONS = [
     },
     {
         label: "GOOGLE I/O WEB NEWS",
-        icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/d.png",
+        icon: "https://res.cloudinary.com/misterdev/image/upload/v1578614075/facepuncv/curriculum/d.png",
         description: `
         I made this presentation for the Google I/O Extended 19 in Bologna, I talked about the latest development regarding the Web (PWA, WebAssembly & Web API)
         `,
