@@ -29,7 +29,7 @@
 		overflow: hidden;
         left: -50%;
         opacity: 0;
-        transition: left 200ms, opacity 200ms;
+        transition: left 100ms;
     }
     #profile-w.active {
         left: 0%;
