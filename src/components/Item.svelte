@@ -90,19 +90,8 @@
         transform: translateY(-180%) scale(1, 0);
     }
     .item:hover .label {
-        -webkit-animation: show 200ms 1;
-        animation: show 200ms 1;
+        -webkit-animation: show 100ms;
+        animation: show 100ms;
         transform: translateY(-180%) scale(1, 1);
-    }
-    @keyframes hint {
-        0% {
-            background-color: rgba(200, 200, 200, .2);
-        }
-        50% {
-            background-color: rgba(99, 126, 63, .5);;
-        }
-        100% {
-            background-color: rgba(200, 200, 200, .2);
-        }
     }
 </style>
