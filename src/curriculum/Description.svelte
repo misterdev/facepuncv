@@ -3,12 +3,12 @@
     import MdAlarm from 'svelte-icons/md/MdAlarm.svelte'
     
     import { content } from '../stores/curriculum.js'
-    import { navigation } from '../stores/navigation.js';
+    import { selectedItem } from '../stores/navigation.js';
 
     let item;
-    navigation.subscribe(({cat, selected}) => {
-        item = content[cat][selected];
-    });
+    selectedItem.subscribe((selected) => {
+        item = content[selected.cat][selected.item]
+    })
 </script>
 
 <div id="wrapper">

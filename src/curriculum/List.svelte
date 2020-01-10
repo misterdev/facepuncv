@@ -1,18 +1,18 @@
 <script>
     import { content } from '../stores/curriculum.js'
-    import { navigation } from '../stores/navigation.js';
+    import { selectedItem } from '../stores/navigation.js';
     import { play, stop } from '../stores/audio.js'
 
     let items;
     let selected;
 
-    navigation.subscribe(nav => {
-        items = content[nav.cat]
-        selected = nav.selected
+    selectedItem.subscribe(({cat, item}) => {
+        items = content[cat]
+        selected = item
     })
 
     const selectItem = (index) => {
-        navigation.update(({profile, cat, selected}) => ({profile, cat, selected: index}))
+        selectedItem.update(({cat, item}) => ({cat, item: index}))
     }
 </script>
 

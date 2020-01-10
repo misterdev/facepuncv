@@ -2,13 +2,14 @@
     import FaRegCaretSquareLeft from 'svelte-icons/fa/FaRegCaretSquareLeft.svelte'
     import FaRegCaretSquareRight from 'svelte-icons/fa/FaRegCaretSquareRight.svelte'
 
-    import { navigation } from './stores/navigation.js'
+    import { selectedPage } from './stores/navigation.js'
 
-    let showProfile;
-    navigation.subscribe(({profile, cat, selected}) => showProfile = profile)
+    let showProfile
+    selectedPage.subscribe((showP) => showProfile = showP)
+
     
     const switchPage = () => {
-        navigation.update(({profile, cat, selected}) => ({profile: !profile, cat, selected}))
+        selectedPage.update((showP) => (!showP))
     }; 
 </script>
 

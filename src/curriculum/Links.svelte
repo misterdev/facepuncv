@@ -1,11 +1,11 @@
 <script>
     import { content } from '../stores/curriculum.js'
-    import { navigation } from '../stores/navigation.js'
+    import { selectedItem } from '../stores/navigation.js'
     import { play, stop } from '../stores/audio.js'
 
     let links;
-    navigation.subscribe(({cat, selected}) => {
-        links = content[cat][selected].links
+    selectedItem.subscribe(({cat, item}) => {
+        links = content[cat][item].links
     })
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-	import { navigation } from './stores/navigation.js'
+	import { selectedPage } from './stores/navigation.js'
 	import Profile from './profile/Profile.svelte'
 	import Curriculum from './curriculum/Curriculum.svelte'
 	import Belt from './Belt.svelte'
@@ -16,7 +16,7 @@
 		poster = 'images/idle.jpeg'
 	
 	let showProfile
-	navigation.subscribe((nav) => showProfile = nav.profile)
+	selectedPage.subscribe((showP) => showProfile = showP)
 
 	let idle, intro,introParent, bg, content
 	let isStarted = false

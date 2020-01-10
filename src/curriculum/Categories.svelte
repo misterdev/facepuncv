@@ -6,15 +6,17 @@
 
     import { play, stop } from '../stores/audio.js'
     import { categories as cats, content } from '../stores/curriculum.js';
-    import { navigation } from '../stores/navigation.js';
+    import { selectedItem } from '../stores/navigation.js';
 
     let activeCat;
-    navigation.subscribe(({cat, selected}) => {
+    selectedItem.subscribe(({cat, item}) => {
         activeCat = cat
     });
 
     const selectCat = (catId) => {
-        navigation.update(({profile}) => ({profile, cat: catId, selected: 0}))
+        if (catId !== activeCat) {
+            selectedItem.update(() => ({cat: catId, item: 0}))
+        }
     }
 </script>
 

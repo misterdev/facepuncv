@@ -1,10 +1,10 @@
 <script>
     import { content } from '../stores/curriculum.js'
-    import { navigation } from '../stores/navigation.js';
+    import { selectedItem } from '../stores/navigation.js';
 
     let stats
-    navigation.subscribe(({cat, selected}) => {
-        stats = content[cat][selected].stats
+    selectedItem.subscribe(({cat, item}) => {
+        stats = content[cat][item].stats
     })
 </script>
 

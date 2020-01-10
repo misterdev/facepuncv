@@ -1,5 +1,5 @@
 <script>
-    import { navigation } from '../stores/navigation.js';
+    import { selectedItem } from '../stores/navigation.js';
     import { content } from '../stores/curriculum.js'
 
     import Categories from './Categories.svelte'
@@ -12,8 +12,8 @@
     export let show
 
     let showLinks
-    navigation.subscribe(({cat, selected}) => {
-        showLinks = content[cat][selected].links.length > 0
+    selectedItem.subscribe(({cat, item}) => {
+        showLinks = content[cat][item].links.length > 0
     })
 </script>
 
