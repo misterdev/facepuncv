@@ -55,9 +55,7 @@
         padding-top: 100%;
     }
     .item.hint {
-        animation-name: hint;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
+        background-color: rgba(99, 126, 63, .5);;
     }
     img {
         width: 70%;

@@ -1,8 +1,8 @@
 import { writable } from 'svelte/store'
 import { categories } from './curriculum.js'
 
-export const navigation = writable({
-    profile: true,
+export const selectedPage = writable(true)
+export const selectedItem = writable({
     cat: categories.EXP.id,
-    selected: 0
+    item: 0
 })
