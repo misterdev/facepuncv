@@ -1,15 +1,29 @@
+<div id="wrapper" bind:this={parent} on:click={onClick}>
+</div>
+
+<style>
+    #wrapper {
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+</style>
+
 <script>
 	import { onMount } from 'svelte'
     import * as THREE from 'three'
+	import { selectedPage } from '../stores/navigation.js'
     import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
     import { TGALoader } from 'three/examples/jsm/loaders/TGALoader'
     import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
     import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-	import { createEventDispatcher } from 'svelte';
-    
+	import { createEventDispatcher } from 'svelte'
+
     import { loadCardboard,
              executeCrossFade, setWeight,
              avatar as outlinePath } from '../utils/3D.js'
+
+    export let started
 
     let parent, container, // DOM Elements
         scene, camera, renderer, cardboard, // 3D scene
@@ -22,13 +36,24 @@
         pdf: 'https://res.cloudinary.com/misterdev/image/upload/v1577294993/facepuncv/textures/pdf.png'
     }
 
-    let doneIntro = false
-	const dispatch = createEventDispatcher()
+    let doneKick = false, kicked = false
+    const dispatch = createEventDispatcher()
+
+    let pauseAnimate
+    selectedPage.subscribe((show) => {
+        pauseAnimate = !show
+        if (show && doneKick) setTimeout(() => animate(), 400)
+    })
+
+    $: if (started) {
+        if ( mixer ) mixer.update( clock.getDelta() )
+        renderer.render( scene, camera )
+        setTimeout(() => animate(), 4500)
+    }
 
     onMount(() => {
         init()
         render()
-        animate()
     })
 
     const render = () => renderer.render( scene, camera )
@@ -39,10 +64,9 @@
         renderer.setSize( height, width, false )
     }
 
-    let kicked
 
     function animate() {
-        requestAnimationFrame( animate )
+        if (!pauseAnimate) requestAnimationFrame( animate )
         var delta = clock.getDelta();
         if ( mixer ) mixer.update( delta )
         renderer.render( scene, camera )
@@ -58,8 +82,8 @@
     }
 
     const onClick = () => {
-        if (!doneIntro) {
-            doneIntro = true
+        if (!doneKick) {
+            doneKick = true
             actions[1].play()
             executeCrossFade(actions[0], actions[1], 0.5)
             setTimeout(() => {
@@ -118,14 +142,14 @@
         card.position.set(-3.5, 19.7, 0)
         cardboard.position.set(0, 0, -9)
         cardboard.rotateY(-0.1)
-        // scene.add( cardboard )
+        scene.add( cardboard )
 
         loadModel().then((model) => {
             scene.add( model )
             model.scale.set(.13, .13, .13) 
             model.position.set(0, 0, -18)
+            render()
         })
-        render()
     }
 
     const loadModel = () => new Promise((resolve, reject) => {
@@ -204,15 +228,3 @@
     })
 
 </script>
-
-<div id="wrapper" bind:this={parent} on:click={onClick}>
-</div>
-
-<style>
-    #wrapper {
-        height: 100%;
-        width: 100%;
-        cursor: pointer;
-    }
-</style>
-

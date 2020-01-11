@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte'
 	import { selectedPage } from './stores/navigation.js'
 	import Profile from './profile/Profile.svelte'
 	import Curriculum from './curriculum/Curriculum.svelte'
@@ -6,10 +7,6 @@
 	import NavButton from './NavButton.svelte'
 
 	export let name
-	// let idleSrc = 'videos/idle.mp4',
-	// 	introSrc = 'videos/intro.mp4',
-	// 	bgSrc = 'videos/bg-loop.mp4',
-	// 	poster = 'images/idle.jpeg'
 	let idleSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068394/facepuncv/videos/idle',
 		introSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068395/facepuncv/videos/intro',
 		bgSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068394/facepuncv/videos/bg-loop',
@@ -25,6 +22,7 @@
 		if (isStarted) return
 		isStarted = true
 		intro.play();
+		
 		setTimeout(() => {
 			intro.style.opacity = 1
 			idle.remove()
@@ -44,6 +42,13 @@
 		}, 100)
 	}
 
+	onMount(() => {
+		intro.play();
+		bg.play();
+		intro.pause();
+		bg.pause();
+	}) 
+
 	let shake = false
 	const onShake = () => shake = true
 </script>
@@ -54,38 +59,39 @@
 </svelte:head>
 <svelte:window on:keydown|once={playIntro} on:click|once={playIntro}/>
 <div class={shake ? 'wrapper shake' : 'wrapper'} >
-	<div class="rateo16-9" bind:this={idle}>
-		<video poster={idleSrc + '.jpg'} muted autoplay loop>
+	<div class="rateo16-9">
+		<video class="blurred" src={bgSrc} muted loop bind:this={bg} preload="auto">
 			<source src={idleSrc + '.webm'} type="video/webm">
 			<source src={idleSrc + '.mp4'} type="video/mp4">
 			<source src={idleSrc + '.ogv'} type="video/ogg">
 		</video>
 	</div>
 	<div class="rateo16-9" bind:this={introParent}>
-		<video class="hidden" muted on:ended|once={playBg} bind:this={intro}>
+		<video muted on:ended|once={playBg} bind:this={intro} preload="auto">
 			<source src={introSrc + '.webm'} type="video/webm">
 			<source src={introSrc + '.mp4'} type="video/mp4">
 			<source src={introSrc + '.ogv'} type="video/ogg">
 		</video>
 	</div>
-	<div class="rateo16-9">
-		<video class="hidden blurred" src={bgSrc} muted loop bind:this={bg} >
-			<source src={idleSrc + '.webm'} type="video/webm">
-			<source src={idleSrc + '.mp4'} type="video/mp4">
-			<source src={idleSrc + '.ogv'} type="video/ogg">
-		</video>
-	</div>
 	<div id="content" class="rateo16-9 hidden" bind:this={content}>
+		<div id="background"></div>
 		<div id="header">
 			<NavButton />
 		</div>
 		<div id="component">
-			<Profile show={showProfile} on:shake={onShake} />
+			<Profile show={showProfile} started={isStarted} on:shake={onShake} />
 			<Curriculum show={!showProfile} />
 		</div>
 		<div id="footer">
 			<Belt />
 		</div>
+	</div>
+	<div class="rateo16-9" bind:this={idle}>
+		<video poster={idleSrc + '.jpg'} muted autoplay loop>
+			<source src={idleSrc + '.webm'} type="video/webm">
+			<source src={idleSrc + '.mp4'} type="video/mp4">
+			<source src={idleSrc + '.ogv'} type="video/ogg">
+		</video>
 	</div>
 </div>
 
@@ -107,9 +113,7 @@
 		height: 100%;
 		transform: scale(1.05);
 	}
-	.hidden {
-		opacity: 0;
-	}
+
 	.blurred {
 		-webkit-filter: blur(7px);
 		filter: blur(7px);
@@ -125,16 +129,12 @@
 	#content {
 		transform: translate3d(0, 0, 0);
 		position: absolute;
-		background-color: rgba(0,0,0,.5);
 		overflow: hidden;
         opacity: 1;
-		transform: translateX(0%);
-        transition: transform 200ms, opacity 200ms, background-color 1000ms;
+		transition: opacity 200ms;
 	}
 	#content.hidden {
 		opacity: 0;
-		transform: translateX(-50%);
-		background-color: rgba(0,0,0,0);
 	}
 	#header {
 		position: absolute;
@@ -149,11 +149,22 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
+		transform: translateX(0%);
+        transition: transform 200ms;
+	}
+	#content.hidden > #component {
+		transform: translateX(-50%);
 	}
 	#footer {
 		position: absolute;
 		bottom: 2%;
 		width: 100%;
 		z-index: 100;
+	}
+	#background {
+		position: absolute;
+		background-color: rgba(0,0,0,.5);
+		width: 100%;
+		height: 100%;
 	}
 </style>

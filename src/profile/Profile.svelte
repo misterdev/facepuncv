@@ -4,11 +4,12 @@
     import Avatar from './Avatar.svelte'
     
     export let show
+    export let started
 </script>
 
 <div id="profile-w" class:active={show}>
     <div id="avatar">
-        <Avatar on:shake />
+        <Avatar {started} on:shake />
     </div>
     <div id="inventory">
         <Inventory />

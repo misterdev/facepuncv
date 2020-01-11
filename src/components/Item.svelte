@@ -47,8 +47,6 @@
         justify-content: center;
         align-items: center;
         padding: 4px;
-        -webkit-filter: drop-shadow(0px 4px 13px #444);
-        filter: drop-shadow(0px 4px 13px #444);
     }
     .item:after {
         content: '';
