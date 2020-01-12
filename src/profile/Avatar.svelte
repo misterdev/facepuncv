@@ -64,20 +64,26 @@
         renderer.setSize( height, width, false )
     }
 
-
+    let now, then = Date.now(), elapsed, fpsInterval = 1000/30
     function animate() {
         if (!pauseAnimate) requestAnimationFrame( animate )
-        var delta = clock.getDelta();
-        if ( mixer ) mixer.update( delta )
-        renderer.render( scene, camera )
-        if (kicked && cardboard.rotation.x < 3) {
-            cardboard.position.z += .25
-            cardboard.position.y -= .04
-            cardboard.rotation.x += .1
-            cardboard.rotation.y -= .02
-            cardboard.rotation.z += .005
-        } else if (kicked) {
-            scene.remove( cardboard )
+        now = Date.now()
+        elapsed = now - then
+
+        if (elapsed > fpsInterval) {
+            then = now - (elapsed % fpsInterval);
+            var delta = clock.getDelta();
+            if ( mixer ) mixer.update( delta )
+            renderer.render( scene, camera )
+            if (kicked && cardboard.rotation.x < 3) {
+                cardboard.position.z += .25
+                cardboard.position.y -= .04
+                cardboard.rotation.x += .1
+                cardboard.rotation.y -= .02
+                cardboard.rotation.z += .005
+            } else if (kicked) {
+                scene.remove( cardboard )
+            }
         }
     }
 
