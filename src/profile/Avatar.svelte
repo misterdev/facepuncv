@@ -54,6 +54,7 @@
     onMount(() => {
         init()
         render()
+        animate()
     })
 
     const render = () => renderer.render( scene, camera )
@@ -116,33 +117,33 @@
     async function init () {
         window.addEventListener('resize', onResize)
 
-        scene = new THREE.Scene();
+        scene = new THREE.Scene()
 
         var positionInfo = parent.getBoundingClientRect()
         var height = positionInfo.height
         var width = positionInfo.width
 
         camera = new THREE.PerspectiveCamera( 75, width/height, 0.1, 1000 )
-        camera.position.set( 0, 9, 9 );
+        camera.position.set( 0, 9, 9 )
 
-        const directionalLight = new THREE.DirectionalLight( 0xffffff, .8 );
+        const directionalLight = new THREE.DirectionalLight( 0xffffff, .8 )
         directionalLight.position.set( 5, 10, 7.5 )
-        scene.add( directionalLight );
+        scene.add( directionalLight )
 
-        const ambientLight = new THREE.AmbientLight( 0xffffff, .5 );
-        scene.add( ambientLight );
+        const ambientLight = new THREE.AmbientLight( 0xffffff, .5 )
+        scene.add( ambientLight )
 
         renderer = new THREE.WebGLRenderer({alpha: true, antialias: true})
         renderer.setSize( width, height, false )
-        renderer.domElement.setAttribute("style", "width: 100%; height: 100%;");
+        renderer.domElement.setAttribute("style", "width: 100%; height: 100%;")
         parent.appendChild( renderer.domElement )
         
         const card = loadCardboard( outlinePath, textures.cardboard )
         card.name = 'cardboard'
         card.scale.set(0.026, 0.026, 0.026)
         
-        const cardboardGeometry = new THREE.Geometry();
-        cardboard = new THREE.Points( cardboardGeometry );
+        const cardboardGeometry = new THREE.Geometry()
+        cardboard = new THREE.Points( cardboardGeometry )
         cardboard.add( card )
 
         card.position.set(-3.5, 19.7, 0)
@@ -177,6 +178,7 @@
             maskTexture = new THREE.TextureLoader().load( textures.face )
             maskTexture.wrapS = THREE.RepeatWrapping
             maskTexture.wrapT = THREE.RepeatWrapping
+            maskTexture.repeat.x = -1
             maskMaterial = new THREE.MeshLambertMaterial({
                 map : maskTexture,
                 alphaTest: 0.5
@@ -191,33 +193,38 @@
             object.children[0].children[0] // Group.pelvis
                 .children[0].children[0].children[0] // spine 1, 2, 3
                 .children[2].children[0].add(maskMesh)
-            maskMesh.position.set(6, -14, 0)
-            maskMesh.scale.set(.06, .06, .06)
+            maskMesh.position.set(9, -14, -5)
+            maskMesh.scale.set(.08, .08, .08)
             maskMesh.rotation.z = -1.5
             maskMesh.rotation.x = -1.5
 
 
-            // // Load PDF Icon
-            // let pdfTexture, pdfMaterial, pdfMesh
-            // const pdfWidth = 336, pdfHeight = 336
+            // Load PDF Icon
+            let pdfTexture, pdfMaterial, pdfMesh
+            const pdfWidth = 336, pdfHeight = 336
 
-            // pdfTexture = new THREE.TextureLoader().load( textures.pdf )
-            // pdfTexture.wrapS = THREE.RepeatWrapping
-            // pdfTexture.wrapT = THREE.RepeatWrapping
-            // pdfMaterial = new THREE.MeshLambertMaterial({
-            //     map : pdfTexture,
-            //     alphaTest: 0.5
-            // })
+            pdfTexture = new THREE.TextureLoader().load( textures.pdf )
+            pdfTexture.wrapS = THREE.RepeatWrapping
+            pdfTexture.wrapT = THREE.RepeatWrapping
+            pdfMaterial = new THREE.MeshLambertMaterial({
+                map : pdfTexture,
+                alphaTest: 0.5
+            })
 
-            // pdfMesh = new THREE.Mesh(new THREE.PlaneGeometry(pdfWidth, pdfHeight), pdfMaterial)
-            // pdfMesh.material.side = THREE.DoubleSide
-            // pdfMesh.translateX( - pdfWidth / 2 )
-            // pdfMesh.translateY( - pdfHeight / 2 )
-            // pdfMesh.translateZ( -1 )
-            // // object.children[1].skeleton.getBoneByName("mixamorigRightHandIndex1").add(pdfMesh)
-            // pdfMesh.position.set(-6, 0, 3.5)
-            // pdfMesh.scale.set(.07, .07, .07)
-            // pdfMesh.rotation.x = .80
+            pdfMesh = new THREE.Mesh(new THREE.PlaneGeometry(pdfWidth, pdfHeight), pdfMaterial)
+            pdfMesh.material.side = THREE.DoubleSide
+            pdfMesh.translateX( - pdfWidth / 2 )
+            pdfMesh.translateY( - pdfHeight / 2 )
+            pdfMesh.translateZ( -1 )
+            object.children[0].children[0] // Group.pelvis
+                .children[0].children[0].children[0] // spine 1, 2, 3
+                .children[1].children[0].children[0] // clavicle_r, upperarm, lowerarm
+                .children[0] // hand
+                .add(pdfMesh)
+            pdfMesh.position.set(-20, -4, 10)
+            pdfMesh.scale.set(.07, .07, .07)
+            pdfMesh.rotation.x = .80
+            pdfMesh.rotation.y = .30
 
             let parent = new THREE.Group()
             parent.scale.set(.13, .13, .13)
@@ -232,19 +239,16 @@
                 }
             })
 
-
-            console.log('HOAL',object)
-            actions[0] = mixer.clipAction( object.animations[0], object )
+            actions[0] = mixer.clipAction( object.animations[0] )
             setWeight( actions[0], 1 );
             actions[0].play()
         }
 
         const onLoadKicking = (e) => {
             let object = loader.parse(e.target.result)
-            actions[1] = mixer.clipAction( object.animations[0], object )
+            actions[1] = mixer.clipAction( object.animations[0] )
             setWeight( actions[1], 0 )
             actions[1].setLoop( THREE.LoopPingPong  )
-            // actions[1].play()
        }
         
 
@@ -254,13 +258,13 @@
 
         let reader = new FileReader()
         reader.addEventListener( 'load', onLoadIdle, false)
-        let idleBlob = await fetch( 'models/devid/idle.fbx' ).then(r => r.blob())
+        let idleBlob = await fetch( 'models/nomat/left/idle.fbx' ).then(r => r.blob())
         reader.readAsArrayBuffer(idleBlob)
 
 
         reader = new FileReader()
         reader.addEventListener( 'load', onLoadKicking, false)
-        let kickingBlob = await fetch( 'models/devid/kicking.fbx' ).then(r => r.blob())
+        let kickingBlob = await fetch( 'models/nomat/left/kicking.fbx' ).then(r => r.blob())
         reader.readAsArrayBuffer(kickingBlob)
     }
 

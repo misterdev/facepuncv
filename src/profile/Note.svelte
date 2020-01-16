@@ -6,7 +6,7 @@ When I don't hit trees I usually do frontend stuff, but I like to explore differ
 
 - Devid -<br/><br/>
 
-PS: You can click on the avatar to download my curriculum as PDF
+PS: Click on the avatar to download my curriculum as PDF
     </div>
 </div>
 
