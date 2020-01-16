@@ -35,7 +35,10 @@
         blink: 'https://res.cloudinary.com/misterdev/image/upload/v1579212694/facepuncv/textures/devide-blink.png',
         face: 'https://res.cloudinary.com/misterdev/image/upload/v1577295092/facepuncv/textures/devide.png',
         cardboard: 'https://res.cloudinary.com/misterdev/image/upload/v1577295091/facepuncv/textures/cardboard.png',
-        pdf: 'https://res.cloudinary.com/misterdev/image/upload/v1577294993/facepuncv/textures/pdf.png'
+        pdf: 'https://res.cloudinary.com/misterdev/image/upload/v1577294993/facepuncv/textures/pdf.png',
+        base: 'textures/base.png',
+        bump: 'textures/bump.png',
+        emissive: 'textures/emissive.png',
     }
 
     let doneKick = false, kicked = false
@@ -89,8 +92,8 @@
         }
 
         if (elapsed > fpsInterval) {
-            then = now - (elapsed % fpsInterval);
-            var delta = clock.getDelta();
+            then = now - (elapsed % fpsInterval)
+            var delta = clock.getDelta()
             if ( mixer ) mixer.update( delta )
             renderer.render( scene, camera )
             if (kicked && cardboard.rotation.x < 3) {
@@ -105,6 +108,7 @@
         }
     }
 
+    let lastDownload = Date.now()
     const onClick = () => {
         if (!doneKick) {
             doneKick = true
@@ -115,18 +119,23 @@
                 kicked = true
             }, 1000)
         } else {
-            fetch('docs/cv.pdf')
-                .then(resp => resp.blob())
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob)
-                    const a = document.createElement('a')
-                    a.style.display = 'none'
-                    a.href = url
-                    a.download = 'cv-devid-farinelli.pdf'
-                    document.body.appendChild(a)
-                    a.click()
-                    window.URL.revokeObjectURL(url)
-                })
+            if ( Date.now() - lastDownload > 4000 ) {
+                actions[2].play()
+                executeCrossFade(actions[0], actions[2], 0.5)
+                lastDownload = Date.now()
+                fetch('docs/cv.pdf')
+                    .then(resp => resp.blob())
+                    .then(blob => {
+                        const url = window.URL.createObjectURL(blob)
+                        const a = document.createElement('a')
+                        a.style.display = 'none'
+                        a.href = url
+                        a.download = 'cv-devid-farinelli.pdf'
+                        document.body.appendChild(a)
+                        a.click()
+                        window.URL.revokeObjectURL(url)
+                    })
+            }
         }
     }
 
@@ -169,9 +178,9 @@
 
         const onLoadIdle = ( e ) => {
             let object = loader.parse(e.target.result)
-            const map = new THREE.TextureLoader().load( 'textures/base.png' )
-            const normalMap = new THREE.TextureLoader().load( 'textures/bump.png' )
-            const emissiveMap = new THREE.TextureLoader().load( 'textures/emissive.png' )
+            const map = new THREE.TextureLoader().load( textures.base )
+            const normalMap = new THREE.TextureLoader().load( textures.bump )
+            const emissiveMap = new THREE.TextureLoader().load( textures.emissive )
             const mat = new THREE.MeshPhongMaterial({
                 skinning: true,
                 map,
@@ -269,6 +278,13 @@
             setWeight( actions[1], 0 )
             actions[1].setLoop( THREE.LoopPingPong  )
        }
+
+        const onLoadLookaround = (e) => {
+            let object = loader.parse(e.target.result)
+            actions[2] = mixer.clipAction( object.animations[0] )
+            setWeight( actions[2], 0 )
+            actions[2].setLoop( THREE.LoopRepeat )
+       }
         
 
         let idleAnimation
@@ -285,6 +301,11 @@
         reader.addEventListener( 'load', onLoadKicking, false)
         let kickingBlob = await fetch( 'models/nomat/left/kicking.fbx' ).then(r => r.blob())
         reader.readAsArrayBuffer(kickingBlob)
+
+        reader = new FileReader()
+        reader.addEventListener( 'load', onLoadLookaround, false)
+        let lookaroundBlob = await fetch( 'models/nomat/left/lookaround.fbx' ).then(r => r.blob())
+        reader.readAsArrayBuffer(lookaroundBlob)
     }
 
 </script>
