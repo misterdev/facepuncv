@@ -113,7 +113,7 @@
         }
     }
 
-    const init = () => {
+    async function init () {
         window.addEventListener('resize', onResize)
 
         scene = new THREE.Scene();
@@ -125,11 +125,11 @@
         camera = new THREE.PerspectiveCamera( 75, width/height, 0.1, 1000 )
         camera.position.set( 0, 9, 9 );
 
-        const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.6 );
-        directionalLight.position.set( 0.75, 0.75, 25.0 ).normalize();
+        const directionalLight = new THREE.DirectionalLight( 0xffffff, .8 );
+        directionalLight.position.set( 5, 10, 7.5 )
         scene.add( directionalLight );
 
-        const ambientLight = new THREE.AmbientLight( 0xcccccc, 0.3 );
+        const ambientLight = new THREE.AmbientLight( 0xffffff, .5 );
         scene.add( ambientLight );
 
         renderer = new THREE.WebGLRenderer({alpha: true, antialias: true})
@@ -150,42 +150,26 @@
         cardboard.rotateY(-0.1)
         scene.add( cardboard )
 
-        loadModel().then((model) => {
-            scene.add( model )
-            model.scale.set(.13, .13, .13) 
-            model.position.set(0, 0, -18)
-            render()
-        })
-    }
-
-    const loadModel = () => new Promise((resolve, reject) => {
-        var loader = new FBXLoader();
-        loader.load( 'models/animated/idle.fbx', ( object ) => {
-            mixer = new THREE.AnimationMixer( object );
-            mixer.addEventListener( 'loop', (e) => {
-                if ( e.action !== actions[0]) {
-                    executeCrossFade(e.action, actions[0], 0.5)
-                }
+        const onLoadIdle = ( e ) => {
+            let object = loader.parse(e.target.result)
+            const map = new THREE.TextureLoader().load( 'textures/base.png' )
+            const normalMap = new THREE.TextureLoader().load( 'textures/bump.png' )
+            const emissiveMap = new THREE.TextureLoader().load( 'textures/emissive.png' )
+            const mat = new THREE.MeshPhongMaterial({
+                skinning: true,
+                map,
+                normalMap,
+                shininess: 30,
+                color: 0xffffff
             })
-            object.animations[ 2 ] = object.animations[ 0 ]
-            actions[0] = mixer.clipAction( object.animations[ 0 ] );
-            setWeight( actions[0], 1 );
-            actions[0].play()
+            mat.emissiveMap = emissiveMap
+            mat.emissive = new THREE.Color(0, 1, 0)
+            mat.emissiveIntensity = 3
 
-            object.traverse( function ( child ) {
-                if ( child.isMesh ) {
-                    child.castShadow = true;
-                    child.receiveShadow = true;
-                }
-            })
+            object.children[1].material = mat
+            object.children[0].rotation.x = 0
+            object.rotation.x = -1.632231916
 
-            // Load kicking animation
-            loader.load( 'models/animated/kicking.fbx', function ( object ) {
-                actions[1] = mixer.clipAction( object.animations[ 0 ] )
-                setWeight( actions[1], 0 )
-                actions[1].setLoop( THREE.LoopPingPong  )
-            })
-            
             // Loads mask
             let maskTexture, maskMaterial, maskMesh
             const maskWidth = 336, maskHeight = 443
@@ -203,34 +187,81 @@
             maskMesh.translateX( - maskWidth / 2 )
             maskMesh.translateY( - maskHeight / 2 )
             maskMesh.translateZ( -1 )
-            object.children[1].skeleton.getBoneByName("mixamorigHead").add(maskMesh)
-            maskMesh.position.set(0, 6, 14)
-            maskMesh.scale.set(.07, .07, .07)
+            console.log(object)
+            object.children[0].children[0] // Group.pelvis
+                .children[0].children[0].children[0] // spine 1, 2, 3
+                .children[2].children[0].add(maskMesh)
+            maskMesh.position.set(6, -14, 0)
+            maskMesh.scale.set(.06, .06, .06)
+            maskMesh.rotation.z = -1.5
+            maskMesh.rotation.x = -1.5
 
-            // Load PDF Icon
-            let pdfTexture, pdfMaterial, pdfMesh
-            const pdfWidth = 336, pdfHeight = 336
 
-            pdfTexture = new THREE.TextureLoader().load( textures.pdf )
-            pdfTexture.wrapS = THREE.RepeatWrapping
-            pdfTexture.wrapT = THREE.RepeatWrapping
-            pdfMaterial = new THREE.MeshLambertMaterial({
-                map : pdfTexture,
-                alphaTest: 0.5
+            // // Load PDF Icon
+            // let pdfTexture, pdfMaterial, pdfMesh
+            // const pdfWidth = 336, pdfHeight = 336
+
+            // pdfTexture = new THREE.TextureLoader().load( textures.pdf )
+            // pdfTexture.wrapS = THREE.RepeatWrapping
+            // pdfTexture.wrapT = THREE.RepeatWrapping
+            // pdfMaterial = new THREE.MeshLambertMaterial({
+            //     map : pdfTexture,
+            //     alphaTest: 0.5
+            // })
+
+            // pdfMesh = new THREE.Mesh(new THREE.PlaneGeometry(pdfWidth, pdfHeight), pdfMaterial)
+            // pdfMesh.material.side = THREE.DoubleSide
+            // pdfMesh.translateX( - pdfWidth / 2 )
+            // pdfMesh.translateY( - pdfHeight / 2 )
+            // pdfMesh.translateZ( -1 )
+            // // object.children[1].skeleton.getBoneByName("mixamorigRightHandIndex1").add(pdfMesh)
+            // pdfMesh.position.set(-6, 0, 3.5)
+            // pdfMesh.scale.set(.07, .07, .07)
+            // pdfMesh.rotation.x = .80
+
+            let parent = new THREE.Group()
+            parent.scale.set(.13, .13, .13)
+            parent.position.set(0, 0, -18)
+            parent.add(object)
+            scene.add(parent)
+
+            mixer = new THREE.AnimationMixer(object)
+            mixer.addEventListener( 'loop', (e) => {
+                if ( e.action !== actions[0]) {
+                    executeCrossFade(e.action, actions[0], 0.5)
+                }
             })
 
-            pdfMesh = new THREE.Mesh(new THREE.PlaneGeometry(pdfWidth, pdfHeight), pdfMaterial)
-            pdfMesh.material.side = THREE.DoubleSide
-            pdfMesh.translateX( - pdfWidth / 2 )
-            pdfMesh.translateY( - pdfHeight / 2 )
-            pdfMesh.translateZ( -1 )
-            object.children[1].skeleton.getBoneByName("mixamorigRightHandIndex1").add(pdfMesh)
-            pdfMesh.position.set(-6, 0, 3.5)
-            pdfMesh.scale.set(.07, .07, .07)
-            pdfMesh.rotation.x = .80
 
-            resolve(object)
-        })
-    })
+            console.log('HOAL',object)
+            actions[0] = mixer.clipAction( object.animations[0], object )
+            setWeight( actions[0], 1 );
+            actions[0].play()
+        }
+
+        const onLoadKicking = (e) => {
+            let object = loader.parse(e.target.result)
+            actions[1] = mixer.clipAction( object.animations[0], object )
+            setWeight( actions[1], 0 )
+            actions[1].setLoop( THREE.LoopPingPong  )
+            // actions[1].play()
+       }
+        
+
+        let idleAnimation
+        const manager = new THREE.LoadingManager()
+        const loader = new FBXLoader( manager )
+
+        let reader = new FileReader()
+        reader.addEventListener( 'load', onLoadIdle, false)
+        let idleBlob = await fetch( 'models/devid/idle.fbx' ).then(r => r.blob())
+        reader.readAsArrayBuffer(idleBlob)
+
+
+        reader = new FileReader()
+        reader.addEventListener( 'load', onLoadKicking, false)
+        let kickingBlob = await fetch( 'models/devid/kicking.fbx' ).then(r => r.blob())
+        reader.readAsArrayBuffer(kickingBlob)
+    }
 
 </script>

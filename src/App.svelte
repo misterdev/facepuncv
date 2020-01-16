@@ -6,7 +6,6 @@
 	import Belt from './Belt.svelte'
 	import NavButton from './NavButton.svelte'
 
-	export let name
 	let idleSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068394/facepuncv/videos/idle',
 		introSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068395/facepuncv/videos/intro',
 		bgSrc = 'https://res.cloudinary.com/misterdev/video/upload/f_auto,c_limit/v1578068394/facepuncv/videos/bg-loop',
