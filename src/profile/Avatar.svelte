@@ -30,7 +30,9 @@
         clock = new THREE.Clock(),
         mixer, actions = [], controls // Animations
 
+    let faceTexture, blinkFaceTexture, maskMesh
     const textures = {
+        blink: 'https://res.cloudinary.com/misterdev/image/upload/v1579212694/facepuncv/textures/devide-blink.png',
         face: 'https://res.cloudinary.com/misterdev/image/upload/v1577295092/facepuncv/textures/devide.png',
         cardboard: 'https://res.cloudinary.com/misterdev/image/upload/v1577295091/facepuncv/textures/cardboard.png',
         pdf: 'https://res.cloudinary.com/misterdev/image/upload/v1577294993/facepuncv/textures/pdf.png'
@@ -65,11 +67,26 @@
         renderer.setSize( height, width, false )
     }
 
-    let now, then = Date.now(), elapsed, fpsInterval = 1000/30
+    let now, then = Date.now(), elapsed, fpsInterval = 1000/30,
+        openEyes = true, lastBlink = Date.now()
+
     function animate() {
         if (!pauseAnimate) requestAnimationFrame( animate )
         now = Date.now()
         elapsed = now - then
+
+        if (openEyes) {
+            if (now - lastBlink > 4100) {
+                maskMesh.material.map = blinkFaceTexture
+                lastBlink = Date.now()
+                openEyes = false
+            }
+        } else {
+            if (now - lastBlink > 100) {
+                maskMesh.material.map = faceTexture
+                openEyes = true
+            }
+        }
 
         if (elapsed > fpsInterval) {
             then = now - (elapsed % fpsInterval);
@@ -101,15 +118,14 @@
             fetch('docs/cv.pdf')
                 .then(resp => resp.blob())
                 .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.style.display = 'none';
-                    a.href = url;
-                    // the filename you want
-                    a.download = 'cv-devid-farinelli.pdf';
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
+                    const url = window.URL.createObjectURL(blob)
+                    const a = document.createElement('a')
+                    a.style.display = 'none'
+                    a.href = url
+                    a.download = 'cv-devid-farinelli.pdf'
+                    document.body.appendChild(a)
+                    a.click()
+                    window.URL.revokeObjectURL(url)
                 })
         }
     }
@@ -127,7 +143,7 @@
         camera.position.set( 0, 9, 9 )
 
         const directionalLight = new THREE.DirectionalLight( 0xffffff, .8 )
-        directionalLight.position.set( 5, 10, 7.5 )
+        directionalLight.position.set(0, 9, 9)
         scene.add( directionalLight )
 
         const ambientLight = new THREE.AmbientLight( 0xffffff, .5 )
@@ -172,15 +188,18 @@
             object.rotation.x = -1.632231916
 
             // Loads mask
-            let maskTexture, maskMaterial, maskMesh
             const maskWidth = 336, maskHeight = 443
 
-            maskTexture = new THREE.TextureLoader().load( textures.face )
-            maskTexture.wrapS = THREE.RepeatWrapping
-            maskTexture.wrapT = THREE.RepeatWrapping
-            maskTexture.repeat.x = -1
-            maskMaterial = new THREE.MeshLambertMaterial({
-                map : maskTexture,
+            faceTexture = new THREE.TextureLoader().load( textures.face )
+            faceTexture.wrapS = THREE.RepeatWrapping
+            faceTexture.wrapT = THREE.RepeatWrapping
+            faceTexture.repeat.x = -1
+            blinkFaceTexture = new THREE.TextureLoader().load( textures.blink )
+            blinkFaceTexture.wrapS = THREE.RepeatWrapping
+            blinkFaceTexture.wrapT = THREE.RepeatWrapping
+            blinkFaceTexture.repeat.x = -1
+            let maskMaterial = new THREE.MeshLambertMaterial({
+                map : faceTexture,
                 alphaTest: 0.5
             })
 
@@ -193,9 +212,9 @@
             object.children[0].children[0] // Group.pelvis
                 .children[0].children[0].children[0] // spine 1, 2, 3
                 .children[2].children[0].add(maskMesh)
-            maskMesh.position.set(9, -14, -5)
-            maskMesh.scale.set(.08, .08, .08)
-            maskMesh.rotation.z = -1.5
+            maskMesh.position.set(5, -14, -3.6)
+            maskMesh.scale.set(.075, .065, .06)
+            maskMesh.rotation.z = -1.55
             maskMesh.rotation.x = -1.5
 
 
