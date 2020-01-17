@@ -33,6 +33,16 @@
         flex-direction: column;
         justify-content: center;
     }
+    @media (min-width: 600px) and (max-width: 700px) {
+        #wrapper {
+            margin-bottom: 7.5%;
+        }
+    }
+    @media (max-width: 600px) {
+        #wrapper {
+            margin-bottom: 8%;
+        }
+    }
     .row {
         display: flex;
         flex-direction: row;
