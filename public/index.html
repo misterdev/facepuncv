@@ -46,19 +46,21 @@
 		const onkeydown = (e) => {
 			e.stopPropagation()
 			document.getElementById('small-text').innerHTML = sentences[i]
-			i++;
+			i++
 		}
 
 		// Attach an event handler to the document
-		document.addEventListener("keydown", onkeydown);
-		document.addEventListener("click", onkeydown);
+		document.addEventListener("click", onkeydown)
+		document.addEventListener("keydown", onkeydown)
+		document.addEventListener("touchstart", onkeydown)
 
 		let canShow = false
 		const showContent = () => {
 			if (canShow) {
 				document.getElementById('loading-w').classList.add('hidden')
-				document.removeEventListener("click", onkeydown);
-				document.removeEventListener("keydown", onkeydown);
+				document.removeEventListener("click", onkeydown)
+				document.removeEventListener("keydown", onkeydown)
+				document.removeEventListener("touchstart", onkeydown)
 			}
 			else canShow = true
 		}

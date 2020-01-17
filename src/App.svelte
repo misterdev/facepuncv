@@ -48,17 +48,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 </svelte:head>
-<svelte:window on:keydown|once={playIntro} on:click|once={playIntro}/>
+<svelte:window on:keydown|once={playIntro} on:click|once={playIntro} on:touchstart|once={playIntro}/>
 <div class={shake ? 'wrapper shake' : 'wrapper'} >
 	<div class="rateo16-9">
-		<video class="blurred" src={bgSrc} muted loop bind:this={bg} preload="auto">
+		<video class="blurred" src={bgSrc} muted loop playsinline bind:this={bg} preload="auto">
 			<source src={idleSrc + '.webm'} type="video/webm">
 			<source src={idleSrc + '.mp4'} type="video/mp4">
 			<source src={idleSrc + '.ogv'} type="video/ogg">
 		</video>
 	</div>
 	<div class="rateo16-9" bind:this={introParent}>
-		<video muted on:ended|once={playBg} bind:this={intro} preload="auto">
+		<video muted on:ended|once={playBg} bind:this={intro} playsinline preload="auto">
 			<source src={introSrc + '.webm'} type="video/webm">
 			<source src={introSrc + '.mp4'} type="video/mp4">
 			<source src={introSrc + '.ogv'} type="video/ogg">
@@ -78,7 +78,7 @@
 		</div>
 	</div>
 	<div class="rateo16-9" bind:this={idle}>
-		<video poster={idleSrc + '.jpg'} muted autoplay loop>
+		<video poster={idleSrc + '.jpg'} muted autoplay loop playsinline>
 			<source src={idleSrc + '.webm'} type="video/webm">
 			<source src={idleSrc + '.mp4'} type="video/mp4">
 			<source src={idleSrc + '.ogv'} type="video/ogg">
