@@ -44,7 +44,7 @@
     let pauseAnimate
     selectedPage.subscribe((show) => {
         pauseAnimate = !show
-        if (show && doneKick) setTimeout(() => animate(), 400)
+        if (show) setTimeout(() => animate(), 400)
     })
 
     $: if (started) {
@@ -56,7 +56,6 @@
     onMount(() => {
         init()
         render()
-        animate()
     })
 
     const render = () => renderer.render( scene, camera )
@@ -89,6 +88,7 @@
         }
 
         if (elapsed > fpsInterval) {
+            // console.log('xd', elapsed)
             then = now - (elapsed % fpsInterval)
             var delta = clock.getDelta()
             if ( mixer ) mixer.update( delta )
