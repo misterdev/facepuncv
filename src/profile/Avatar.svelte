@@ -14,9 +14,6 @@
     import * as THREE from 'three'
 	import { selectedPage } from '../stores/navigation.js'
     import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
-    import { TGALoader } from 'three/examples/jsm/loaders/TGALoader'
-    import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-    import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 	import { createEventDispatcher } from 'svelte'
 
     import { loadCardboard,
@@ -295,7 +292,6 @@
         reader.addEventListener( 'load', onLoadIdle, false)
         let idleBlob = await fetch( 'models/nomat/left/idle.fbx' ).then(r => r.blob())
         reader.readAsArrayBuffer(idleBlob)
-
 
         reader = new FileReader()
         reader.addEventListener( 'load', onLoadKicking, false)
