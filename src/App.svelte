@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte'
 	import { selectedPage } from './stores/navigation.js'
 	import Profile from './profile/Profile.svelte'
 	import Curriculum from './curriculum/Curriculum.svelte'
@@ -40,13 +39,6 @@
 			introParent.remove()
 		}, 100)
 	}
-
-	onMount(() => {
-		intro.play();
-		bg.play();
-		intro.pause();
-		bg.pause();
-	}) 
 
 	let shake = false
 	const onShake = () => shake = true
