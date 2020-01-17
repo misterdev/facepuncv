@@ -563,7 +563,7 @@ content.PRESENTATIONS = [
         ],
         stats: [
             {
-                label: 'Hibryd Frameworks',
+                label: 'Hybrid Frameworks',
                 count: 'How are implemented'
             }
         ]

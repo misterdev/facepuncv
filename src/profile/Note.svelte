@@ -1,12 +1,12 @@
 <div id="note">
     <div id="note-content">
-Greetings Survivor,<br/>
-My name is Devid I'm a Master Computer Science student at the University of Bologna (Italy) and a developer passionate about Web Development.<br/><br/>
-When I don't hit trees I usually do frontend stuff, but I like to explore different fields (ML, 3D, ...) and working on creative projects.<br/><br/>
+Greetings,<br/>
+My name is Devid Farinelli, I'm Mastering Computer Science at the University of Bologna (Italy) and I'm a developer passionate about Web Development.<br/><br/>
+When I don't hit trees I usually do frontend stuff but I'm a self-driven guy who enjoys experimenting with different technologies (3D, Machine Learning, ...) and working on creative projects.<br/><br/>
 
-- Devid -<br/><br/>
+You can click on the avatar to download my curriculum as PDF<br/><br/>
 
-PS: Click on the avatar to download my curriculum as PDF
+- Devid -
     </div>
 </div>
 
