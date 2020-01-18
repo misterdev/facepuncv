@@ -1,10 +1,11 @@
 <div id="note">
     <div id="note-content">
 Greetings,<br/>
-My name is Devid Farinelli, I'm mastering Computer Science at the University of Bologna (Italy) and I'm a developer passionate about Web Technologies.<br/><br/>
+My name is Devid Farinelli, I'm a developer skilled on Web technologies and a student about to complete my master's degree in CS at the University of Bologna (Italy).
+<br/><br/>
 When I don't hit trees I usually do frontend stuff but I'm a self-driven guy who enjoys experimenting with different technologies (3D, ML, ...) and working on creative projects.<br/><br/>
 
-You can click on the avatar to download my curriculum as PDF<br/>
+You can click on the avatar to download my curriculum as <b>PDF</b><br/>
 - Devid -
     </div>
 </div>

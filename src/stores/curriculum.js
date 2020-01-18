@@ -48,7 +48,7 @@ content.EXPERIENCE = [
             <b>OSS Javascript Developer</b></br>
             Webpack (Remote work)
         </p>
-        After contributing for some months to Webpack, I've been selected globally for the "Google Summer of Code 2019" to design and develop a modular output reporting system for webpack
+        After contributing for some months to Webpack, I've been selected globally for the <b>"Google Summer of Code 2019"</b> to design and develop a modular output reporting system for webpack
         `,
         links: [
             {
@@ -305,7 +305,7 @@ content.PROJECTS = [
         label: "FACEPUNCV",
         icon: "https://res.cloudinary.com/misterdev/image/upload/v1578614075/facepuncv/curriculum/d.png",
         description: `
-        When I decided to apply for Facepunch (in order to get hopefully noticed) I wanted to do
+        When I decided to apply for Facepunch I wanted to do
         something different from the usual CV to show my skills and attitude.
         The idea was to create something unique just for this application, so I recreated Rust's in
         game menu in a browser and adapted it to display my CV. </br>
@@ -343,7 +343,7 @@ content.PROJECTS = [
             start: "Jul 2017",
             end: "Nov 2017"
         },
-        description: "One of my favorite projects, a 2D browser game aimed at teaching programming to children. I made this with a friend, as a university project for the Usability and User Experience course, we used Phaser for the game, React with Typescript for the website, Blockly for the code editor and Webpack for the bundling.",
+        description: "One of my favorite projects, a <b>2D browser</b> game aimed at teaching programming to children. I made this with a friend, as a university project for the Usability and User Experience course, we used Phaser for the game, React with Typescript for the website, Blockly for the code editor and Webpack for the bundling.",
         links: [
             {
                 icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/mj.png",
@@ -387,8 +387,8 @@ content.PROJECTS = [
             end: "Jul 2014"
         },
         description: `
-        A browser app that allows making semantic annotations on scientific documents. This has been my first web project, where I learned a lot about Javascript development. We used Bootstrap for the UI and Python for the backend.</br>
-        The database was shared and it is not available anymore, resulting in an infinite loading :(</br>
+        A browser app that allows making semantic annotations on scientific documents. This has been my first web project, where I learned a lot about Javascript development. We used Bootstrap for the UI and Python for the backend.</br></br>
+        <b>NOTE:</b> The database was shared and it is not available anymore, resulting in an infinite loading :(</br>
         `,
         links: [
             {
@@ -466,9 +466,8 @@ content.PROJECTS = [
             end: "Apr 2018"
         },
         description: `
-        Visualizer of Ethereum transactions as a graph, inspired by <a href="https://anvaka.github.io/pm/#/?_k=qeo12l" target="_blank">pm</a>, developed using React and Typescript.</br>
-
-        The database is not available anymore, resulting in no data visualized :(</br>
+        Visualizer of Ethereum transactions as a graph, inspired by <a href="https://anvaka.github.io/pm/#/?_k=qeo12l" target="_blank">pm</a>, developed using React and Typescript.</br></br>
+        <b>NOTE:</b> The database is not available anymore, resulting in no data visualized :(</br>
         `,
         links: [
             {
@@ -552,7 +551,7 @@ content.PRESENTATIONS = [
         label: "FLUTTER",
         icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/flutter.png",
         description: `
-        This is a comparison of the major hybrid mobile frameworks runtimes
+        This is a comparison of the major <b>hybrid mobile frameworks runtimes</b>
         `,
         links: [
             {
@@ -572,7 +571,7 @@ content.PRESENTATIONS = [
         label: "BLOCKCHAIN APPLICATIONS",
         icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/btc.png",
         description: `
-        In this presentation I covered the blockchain principles and the existing applications in different fields
+        In this presentation I covered the <b>blockchain principles and the existing applications</b> in different fields
         `,
         links: [
             {
@@ -627,7 +626,7 @@ content.MISC = [
         label: "MEDIUM ARTICLES",
         icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/medium.png",
         description: `
-        I wrote some articles about Webpack and the Google Summer of Code on Medium
+        I wrote some articles on Medium about Webpack and the Google Summer of Code
         `,
         links: [
             {
@@ -657,7 +656,7 @@ content.MISC = [
         label: "STACKOVERFLOW",
         icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/so.png",
         description: `
-        I used to answer questions on Stack Overflow, mostly about Firebase and Javascript
+        I've spent some time answering questions on Stack Overflow, mostly about Firebase and Javascript
         `,
         links: [
             {
@@ -677,7 +676,7 @@ content.MISC = [
         label: "GDG",
         icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/GDGBO.png",
         description: `
-        I organize, attend and speak at technical events. I manage the local GDG (Google Developers Group) community which I founded some years ago with some friends.
+        I organize, attend and speak at technical events. I manage the local <b>GDG (Google Developers Group)</b> community which I founded some years ago with some friends.
         `,
         links: [
             {
