@@ -22,6 +22,7 @@
             class="item"
             class:active={selected === i}
             on:click={() => selectItem(i)}
+            on:touchstart={() => selectItem(i)}
             on:mouseenter={play}
             on:mouseleave={stop}>
             <div class="label">{label}</div>

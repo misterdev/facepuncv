@@ -25,6 +25,7 @@
         class="item"
         class:active={activeCat === cats.EXP.id}
         on:click={() => selectCat(cats.EXP.id)}
+        on:touchstart={() => selectCat(cats.EXP.id)}
         on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdBusinessCenter />
@@ -36,6 +37,7 @@
         class="item"
         class:active={activeCat === cats.EDU.id}
         on:click={() => selectCat(cats.EDU.id)}
+        on:touchstart={() => selectCat(cats.EDU.id)}
         on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdSchool />
@@ -47,6 +49,7 @@
         class="item"
         class:active={activeCat === cats.PROJ.id}
         on:click={() => selectCat(cats.PROJ.id)}
+        on:touchstart={() => selectCat(cats.PROJ.id)}
         on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdFolder />
@@ -58,6 +61,7 @@
         class="item"
         class:active={activeCat === cats.PRES.id}
         on:click={() => selectCat(cats.PRES.id)}
+        on:touchstart={() => selectCat(cats.PRES.id)}
         on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdCasino />
@@ -69,6 +73,7 @@
         class="item"
         class:active={activeCat === cats.MISC.id}
         on:click={() => selectCat(cats.MISC.id)}
+        on:touchstart={() => selectCat(cats.MISC.id)}
         on:mouseenter={play} on:mouseleave={stop}>
         <div class="icon">
             <MdCasino />

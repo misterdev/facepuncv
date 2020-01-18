@@ -1,4 +1,4 @@
-<div id="wrapper" bind:this={parent} on:click={onClick}>
+<div id="wrapper" bind:this={parent} on:click={onClick} on:touchstart={onClick}>
 </div>
 
 <style>

@@ -13,7 +13,7 @@
     }; 
 </script>
 
-<div id="wrapper" on:click={switchPage}>
+<div id="wrapper" on:click={switchPage} on:touchstart={switchPage}>
     {#if showProfile}
         <div id="title">
             <b>CURRICULUM</b>
