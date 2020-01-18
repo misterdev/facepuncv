@@ -40,6 +40,14 @@
         z-index: 3;
         width: 100%;
     }
+    #avatar:after{
+        content: 'Devid Farinelli';
+        position: fixed;
+        top: 11%;
+        right: 66%;
+        font-size: 1.3em;
+        font-weight: bold;
+    }
     #inventory {
         z-index: 1;
         width: 100%;

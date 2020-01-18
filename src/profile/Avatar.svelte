@@ -88,7 +88,6 @@
         }
 
         if (elapsed > fpsInterval) {
-            // console.log('xd', elapsed)
             then = now - (elapsed % fpsInterval)
             var delta = clock.getDelta()
             if ( mixer ) mixer.update( delta )
@@ -282,7 +281,6 @@
             setWeight( actions[2], 0 )
             actions[2].setLoop( THREE.LoopRepeat )
        }
-        
 
         let idleAnimation
         const manager = new THREE.LoadingManager()
