@@ -53,7 +53,9 @@
         background-color: rgba(255,255,255,.1);
     }
     img {
-        height: 100%;
+        object-fit: contain;
+        max-height: 100%;
+        max-width: 100%;
         transform: scale(0.7);
         -webkit-filter: drop-shadow(5px 5px 5px #222);
         filter: drop-shadow(5px 5px 5px #222);

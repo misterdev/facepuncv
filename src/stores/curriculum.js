@@ -24,7 +24,7 @@ export const categories = {
 export let queue = [
     {
         label: "FINAL THESIS",
-        src: "https://res.cloudinary.com/misterdev/image/upload/v1578614075/facepuncv/curriculum/d.png",
+        src: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1578614075/facepuncv/curriculum/d.png",
         date: "Feb 2020"
     },
     {
