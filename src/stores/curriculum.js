@@ -708,7 +708,7 @@ content.MISC = [
     },
     {
         label: "VIDEO EDITING",
-        icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1576712983/facepuncv/curriculum/youtube.ico",
+        icon: "https://res.cloudinary.com/misterdev/image/upload/w_100,h_100,c_fill/v1579313560/facepuncv/curriculum/youtube.png",
         description: `
         I wanted to learn how to make video editing and english voice over.</br> 
         I've achieved a decent result, I planned to make 3 videos of my GSoC experience but I failed to maintain my expectation. I enjoyed doing that, but I don't have anything to talk about.
