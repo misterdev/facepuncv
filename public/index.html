@@ -46,7 +46,7 @@
 		let lastClick = Date.now()
 		const onkeydown = (e) => {
 			e.stopPropagation()
-			if (Date.now() - lastClick > 100) {
+			if (Date.now() - lastClick > 400) {
 				document.getElementById('small-text').innerHTML = sentences[i]
 				i++
 			}

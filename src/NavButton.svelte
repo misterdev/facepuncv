@@ -9,7 +9,7 @@
 
     let lastClick = 0
     const switchPage = () => {
-        if (Date.now() - lastClick > 100) {
+        if (Date.now() - lastClick > 400) {
             selectedPage.update((showP) => (!showP))
             lastClick = Date.now()
         }
