@@ -43,10 +43,13 @@
 			"ok i think i should stop now",
 			"glad to talk with you, bye!"
 		]
+		let lastClick = Date.now()
 		const onkeydown = (e) => {
 			e.stopPropagation()
-			document.getElementById('small-text').innerHTML = sentences[i]
-			i++
+			if (Date.now() - lastClick > 100) {
+				document.getElementById('small-text').innerHTML = sentences[i]
+				i++
+			}
 		}
 
 		// Attach an event handler to the document
