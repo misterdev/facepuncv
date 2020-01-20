@@ -7,9 +7,12 @@
     let showProfile
     selectedPage.subscribe((showP) => showProfile = showP)
 
-    
+    let lastClick = 0
     const switchPage = () => {
-        selectedPage.update((showP) => (!showP))
+        if (Date.now() - lastClick > 100) {
+            selectedPage.update((showP) => (!showP))
+            lastClick = Date.now()
+        }
     }; 
 </script>
 
