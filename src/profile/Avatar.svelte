@@ -105,32 +105,36 @@
     }
 
     let lastDownload = Date.now()
+    let lastClick = Date.now()
     const onClick = () => {
-        if (!doneKick) {
-            doneKick = true
-            actions[1].play()
-            executeCrossFade(actions[0], actions[1], 0.5)
-            setTimeout(() => {
-                dispatch('shake')
-                kicked = true
-            }, 1000)
-        } else {
-            if ( Date.now() - lastDownload > 4000 ) {
-                actions[2].play()
-                executeCrossFade(actions[0], actions[2], 0.5)
-                lastDownload = Date.now()
-                fetch('docs/cv.pdf')
-                    .then(resp => resp.blob())
-                    .then(blob => {
-                        const url = window.URL.createObjectURL(blob)
-                        const a = document.createElement('a')
-                        a.style.display = 'none'
-                        a.href = url
-                        a.download = 'cv-devid-farinelli.pdf'
-                        document.body.appendChild(a)
-                        a.click()
-                        window.URL.revokeObjectURL(url)
-                    })
+        if (Date.now() - lastClick > 500) {
+            lastClick = Date.now()
+            if (!doneKick) {
+                doneKick = true
+                actions[1].play()
+                executeCrossFade(actions[0], actions[1], 0.5)
+                setTimeout(() => {
+                    dispatch('shake')
+                    kicked = true
+                }, 1000)
+            } else {
+                if ( Date.now() - lastDownload > 4000 ) {
+                    actions[2].play()
+                    executeCrossFade(actions[0], actions[2], 0.5)
+                    lastDownload = Date.now()
+                    fetch('docs/cv.pdf')
+                        .then(resp => resp.blob())
+                        .then(blob => {
+                            const url = window.URL.createObjectURL(blob)
+                            const a = document.createElement('a')
+                            a.style.display = 'none'
+                            a.href = url
+                            a.download = 'cv-devid-farinelli.pdf'
+                            document.body.appendChild(a)
+                            a.click()
+                            window.URL.revokeObjectURL(url)
+                        })
+                }
             }
         }
     }
