@@ -15,7 +15,7 @@
     "sirv-cli": "^0.4.4",
     "svelte": "^3.16.7",
     "svelte-icons": "^1.1.0",
-    "three": "^0.109.0"
+    "three": "^0.137.0"
   },
   "scripts": {
     "build": "rollup -c",
